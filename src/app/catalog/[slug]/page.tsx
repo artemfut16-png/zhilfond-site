@@ -11,7 +11,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { CatalogHeader } from "@/components/catalog/catalog-header";
-import { CatalogFooter } from "@/components/catalog/catalog-footer";
 import { ImageLightbox } from "@/components/image-lightbox";
 import { Gallery } from "@/components/sections/gallery";
 import { Contacts } from "@/components/sections/contacts";
@@ -283,7 +282,6 @@ export default async function CatalogHousePage({
         <Gallery />
         <Contacts />
       </main>
-      <CatalogFooter />
     </>
   );
 }
