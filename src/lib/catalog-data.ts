@@ -321,18 +321,45 @@ export const additionalOptions = [
   },
 ];
 
-export const paymentMethods = [
-  { label: "Семейная ипотека", detail: "Ставка от 6%", kind: "rate" as const },
+export const paymentGroups = [
   {
-    label: "Ипотека для IT-специалистов",
-    detail: "Ставка от 5%",
-    kind: "rate" as const,
+    id: "mortgage",
+    title: "Ипотечные программы",
+    methods: [
+      {
+        label: "Семейная ипотека",
+        detail:
+          "Для семей с детьми, которые хотят построить собственный дом на льготных условиях — ставка от 6%",
+        kind: "rate" as const,
+      },
+      {
+        label: "Семейная комбо ипотека",
+        detail: "Семейная ипотека в комбинации с рыночной ставкой",
+        kind: "rate" as const,
+      },
+      {
+        label: "Ипотека для IT-специалистов",
+        detail: "Для сотрудников аккредитованных IT-компаний — ставка от 5%",
+        kind: "rate" as const,
+      },
+    ],
   },
-  { label: "Сельская ипотека", detail: "Ставка от 3%", kind: "rate" as const },
-  { label: "Наличный расчет", detail: "Без переплат и комиссий", kind: "cash" as const },
   {
-    label: "Безналичный расчет",
-    detail: "Перевод на счет компании",
-    kind: "card" as const,
+    id: "direct",
+    title: "Прямая оплата",
+    methods: [
+      {
+        label: "Наличный расчет",
+        detail:
+          "Поэтапная оплата через расчетный счет для физических и юридических лиц",
+        kind: "cash" as const,
+      },
+      {
+        label: "Безналичный расчет",
+        detail:
+          "Поэтапная оплата строительства со скидкой (рассчитывается индивидуально)",
+        kind: "card" as const,
+      },
+    ],
   },
 ];

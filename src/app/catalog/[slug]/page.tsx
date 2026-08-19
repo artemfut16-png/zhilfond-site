@@ -22,7 +22,7 @@ import {
   getCatalogHouse,
   packageFeatures,
   additionalOptions,
-  paymentMethods,
+  paymentGroups,
 } from "@/lib/catalog-data";
 
 const priceFormatter = new Intl.NumberFormat("ru-RU");
@@ -247,26 +247,35 @@ export default async function CatalogHousePage({
             <h2 className="mb-8 text-3xl font-semibold tracking-tight">
               Способы оплаты
             </h2>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {paymentMethods.map((method) => {
-                const Icon = paymentIcons[method.kind];
-                return (
-                  <div
-                    key={method.label}
-                    className="flex flex-col gap-4 rounded-(--radius) border border-border bg-card p-5"
-                  >
-                    <div className="flex size-10 items-center justify-center rounded-lg bg-muted">
-                      <Icon className="size-5" />
-                    </div>
-                    <div>
-                      <p className="font-medium">{method.label}</p>
-                      <p className="text-sm text-muted-foreground">
-                        {method.detail}
-                      </p>
-                    </div>
+            <div className="flex flex-col gap-10">
+              {paymentGroups.map((group) => (
+                <div key={group.id} className="flex flex-col gap-4">
+                  <p className="text-sm font-medium tracking-wide text-muted-foreground uppercase">
+                    {group.title}
+                  </p>
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {group.methods.map((method) => {
+                      const Icon = paymentIcons[method.kind];
+                      return (
+                        <div
+                          key={method.label}
+                          className="flex flex-col gap-4 rounded-(--radius) border border-border bg-card p-5"
+                        >
+                          <div className="flex size-10 items-center justify-center rounded-lg bg-muted">
+                            <Icon className="size-5" />
+                          </div>
+                          <div>
+                            <p className="font-medium">{method.label}</p>
+                            <p className="mt-1 text-sm text-muted-foreground">
+                              {method.detail}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
           </div>
         </div>
