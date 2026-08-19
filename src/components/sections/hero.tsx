@@ -1,0 +1,48 @@
+import Image from "next/image";
+import { CheckCircle2Icon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { heroFeatures } from "@/lib/site-data";
+
+export function Hero() {
+  return (
+    <section id="hero" className="border-b border-border">
+      <div className="grid lg:grid-cols-2 lg:items-stretch">
+        <div className="flex flex-col justify-center gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:gap-10 lg:py-16 lg:pr-10 lg:pl-[max(1.5rem,calc((100vw-72rem)/2))]">
+          <div className="flex flex-col gap-6">
+            <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
+              Строительство домов с гарантией 5 лет от 4 млн руб в Саратовской
+              области
+            </h1>
+            <div className="flex flex-wrap gap-3">
+              <Button size="lg" className="h-14 px-8 text-base" asChild>
+                <a href="#calculator">Рассчитать стоимость</a>
+              </Button>
+              <Button size="lg" variant="outline" className="h-14 px-8 text-base" asChild>
+                <a href="#projects">Смотреть проекты</a>
+              </Button>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4 border-t border-border pt-8">
+            {heroFeatures.map((feature) => (
+              <div key={feature.title} className="flex items-start gap-3">
+                <CheckCircle2Icon className="mt-0.5 size-5 shrink-0 text-primary" />
+                <p className="font-medium">{feature.title}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="relative min-h-[320px] w-full lg:min-h-[540px]">
+          <Image
+            src="/hero.png"
+            alt="Готовый дом от СК Жилищный Фонд"
+            fill
+            priority
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
