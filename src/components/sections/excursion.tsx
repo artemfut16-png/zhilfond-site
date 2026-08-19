@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { LeadDialog } from "@/components/lead-dialog";
 import { site } from "@/lib/site-data";
+import { assetPath } from "@/lib/asset-path";
 
 const checklist = [
   "Познакомитесь с технологией строительства",
@@ -58,7 +59,7 @@ export function Excursion() {
 
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-(--radius) border border-primary-foreground/20">
             <Image
-              src="/excursion.png"
+              src={assetPath("/excursion.png")}
               alt="Экскурсия по строящемуся объекту"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"

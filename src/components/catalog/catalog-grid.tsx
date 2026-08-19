@@ -13,6 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { catalogHouses, type CatalogHouse } from "@/lib/catalog-data";
+import { assetPath } from "@/lib/asset-path";
 
 const priceFormatter = new Intl.NumberFormat("ru-RU");
 const areaFormatter = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 });
@@ -72,7 +73,7 @@ export function CatalogGrid() {
           <Card key={house.id} className="h-full pt-0">
             <Link href={`/catalog/${house.id}`} className="relative block aspect-[4/3] w-full overflow-hidden">
               <Image
-                src={`/catalog/${house.id}.png`}
+                src={assetPath(`/catalog/${house.id}.png`)}
                 alt={house.title}
                 fill
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"

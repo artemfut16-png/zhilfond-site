@@ -2,6 +2,7 @@ import Image from "next/image";
 import { CheckCircle2Icon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { heroFeatures } from "@/lib/site-data";
+import { assetPath } from "@/lib/asset-path";
 
 export function Hero() {
   return (
@@ -34,7 +35,7 @@ export function Hero() {
         </div>
         <div className="relative aspect-[4/3] w-full overflow-hidden rounded-(--radius) border border-border">
           <Image
-            src="/hero.png"
+            src={assetPath("/hero.png")}
             alt="Готовый дом от СК Жилищный Фонд"
             fill
             priority

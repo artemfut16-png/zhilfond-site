@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { TelegramIcon, MaxIcon } from "@/components/icons";
+import { assetPath } from "@/lib/asset-path";
 
 const channels = [
   { id: "telegram", label: "Telegram", icon: TelegramIcon },
@@ -29,7 +30,7 @@ export function ProjectCatalogCta() {
     <div className="mt-10 grid overflow-hidden rounded-(--radius) bg-primary text-primary-foreground lg:grid-cols-2">
       <div className="relative h-full min-h-[280px] w-full lg:min-h-[420px]">
         <Image
-          src="/pdf-catalog.png"
+          src={assetPath("/pdf-catalog.png")}
           alt="PDF-каталог проектов"
           fill
           sizes="(min-width: 1024px) 50vw, 100vw"

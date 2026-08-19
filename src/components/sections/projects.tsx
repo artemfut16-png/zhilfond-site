@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ProjectCatalogCta } from "@/components/sections/project-catalog-cta";
 import { projects } from "@/lib/site-data";
+import { assetPath } from "@/lib/asset-path";
 
 const priceFormatter = new Intl.NumberFormat("ru-RU");
 const areaFormatter = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 });
@@ -26,7 +27,7 @@ export function Projects() {
             <Card key={project.id} className="h-full pt-0">
               <div className="relative aspect-[4/3] w-full overflow-hidden">
                 <Image
-                  src={`/catalog/${project.id}.png`}
+                  src={assetPath(`/catalog/${project.id}.png`)}
                   alt={project.title}
                   fill
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"

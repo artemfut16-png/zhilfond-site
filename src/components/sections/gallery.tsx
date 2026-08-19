@@ -7,6 +7,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { site } from "@/lib/site-data";
+import { assetPath } from "@/lib/asset-path";
 
 const galleryPhotos = [
   ...Array.from({ length: 20 }, (_, i) => ({ n: i + 1, ext: "png" })),
@@ -32,7 +33,7 @@ export function Gallery() {
               <CarouselItem key={n} className="sm:basis-1/2">
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-(--radius) border border-border">
                   <Image
-                    src={`/gallery/${n}.${ext}`}
+                    src={assetPath(`/gallery/${n}.${ext}`)}
                     alt={`Проект ${n}`}
                     fill
                     sizes="(min-width: 640px) 50vw, 100vw"

@@ -16,6 +16,7 @@ import { ImageLightbox } from "@/components/image-lightbox";
 import { Gallery } from "@/components/sections/gallery";
 import { Contacts } from "@/components/sections/contacts";
 import { cn } from "@/lib/utils";
+import { assetPath } from "@/lib/asset-path";
 import {
   catalogHouses,
   getCatalogHouse,
@@ -76,7 +77,7 @@ export default async function CatalogHousePage({
 
             <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
               <ImageLightbox
-                src={`/catalog/${house.id}.png`}
+                src={assetPath(`/catalog/${house.id}.png`)}
                 alt={house.title}
                 ratio="cover"
               />
@@ -133,7 +134,7 @@ export default async function CatalogHousePage({
 
             <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
               <ImageLightbox
-                src={`/catalog/${house.id}-plan.png`}
+                src={assetPath(`/catalog/${house.id}-plan.png`)}
                 alt={`Планировка дома ${house.title}`}
                 ratio="contain"
               />
