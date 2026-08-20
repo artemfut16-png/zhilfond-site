@@ -1,9 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowUpRightIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ProjectCatalogCta } from "@/components/sections/project-catalog-cta";
 import { projects } from "@/lib/site-data";
+import { catalogHouses } from "@/lib/catalog-data";
 import { assetPath } from "@/lib/asset-path";
 
 const priceFormatter = new Intl.NumberFormat("ru-RU");
@@ -60,11 +62,13 @@ export function Projects() {
           ))}
         </div>
 
-        <div className="mt-4 flex justify-center">
-          <span className="rounded-(--radius) bg-muted px-4 py-2 text-sm text-muted-foreground">
-            И ещё +6 проектов в полном каталоге
-          </span>
-        </div>
+        <Link
+          href="/catalog"
+          className="mt-4 flex items-center justify-center gap-2 rounded-(--radius) bg-primary px-4 py-4 text-center text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+        >
+          И ещё +{catalogHouses.length - projects.length} проектов в полном каталоге
+          <ArrowUpRightIcon className="size-5" />
+        </Link>
 
         <ProjectCatalogCta />
       </div>

@@ -75,7 +75,7 @@ export function Excursion() {
           </p>
 
           {submitted ? (
-            <div className="flex items-center gap-2 rounded-full bg-primary-foreground/10 px-5 py-3 text-sm">
+            <div className="flex items-center gap-2 rounded-(--radius) bg-primary-foreground/10 px-5 py-3 text-sm">
               <CheckCircle2Icon className="size-5 shrink-0" />
               Заявка отправлена, скоро мы с вами свяжемся
             </div>
@@ -92,12 +92,12 @@ export function Excursion() {
                 type="tel"
                 placeholder="+7 (___) ___-__-__"
                 required
-                className="h-12 rounded-full border-none bg-primary-foreground px-5 text-base text-foreground placeholder:text-muted-foreground focus-visible:ring-primary-foreground/50 sm:w-64"
+                className="h-12 rounded-(--radius) border-none bg-primary-foreground px-5 text-base text-foreground placeholder:text-muted-foreground focus-visible:ring-primary-foreground/50 sm:w-64"
               />
               <Button
                 type="submit"
                 size="lg"
-                className="h-12 shrink-0 rounded-full border border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
+                className="h-12 shrink-0 rounded-(--radius) border border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
               >
                 Записаться
               </Button>
