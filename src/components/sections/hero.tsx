@@ -40,7 +40,7 @@ export function Hero() {
         </div>
         <div className="relative aspect-[4/3] w-full overflow-hidden rounded-(--radius) border border-border">
           <Image
-            src={assetPath("/hero.png")}
+            src={assetPath("/hero.webp")}
             alt="Готовый дом от СК Жилищный Фонд"
             fill
             priority

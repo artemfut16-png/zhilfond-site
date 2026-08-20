@@ -9,10 +9,7 @@ import {
 import { site } from "@/lib/site-data";
 import { assetPath } from "@/lib/asset-path";
 
-const galleryPhotos = [
-  ...Array.from({ length: 20 }, (_, i) => ({ n: i + 1, ext: "png" })),
-  ...Array.from({ length: 28 }, (_, i) => ({ n: i + 21, ext: "JPG" })),
-];
+const galleryPhotos = Array.from({ length: 48 }, (_, i) => i + 1);
 
 export function Gallery() {
   return (
@@ -29,11 +26,11 @@ export function Gallery() {
 
         <Carousel opts={{ align: "start", loop: true }} className="px-1">
           <CarouselContent>
-            {galleryPhotos.map(({ n, ext }) => (
+            {galleryPhotos.map((n) => (
               <CarouselItem key={n} className="sm:basis-1/2">
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-(--radius) border border-border">
                   <Image
-                    src={assetPath(`/gallery/${n}.${ext}`)}
+                    src={assetPath(`/gallery/${n}.webp`)}
                     alt={`Проект ${n}`}
                     fill
                     sizes="(min-width: 640px) 50vw, 100vw"

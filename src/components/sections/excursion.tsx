@@ -59,7 +59,7 @@ export function Excursion() {
 
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-(--radius) border border-primary-foreground/20">
             <Image
-              src={assetPath("/excursion.png")}
+              src={assetPath("/excursion.webp")}
               alt="Экскурсия по строящемуся объекту"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"

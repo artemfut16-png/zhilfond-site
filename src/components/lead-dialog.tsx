@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -73,7 +74,10 @@ export function LeadDialog({ trigger, title, description }: LeadDialogProps) {
                   htmlFor="lead-agree"
                   className="text-xs font-normal text-muted-foreground"
                 >
-                  Согласен с политикой обработки персональных данных
+                  Согласен с{" "}
+                  <Link href="/privacy" className="underline underline-offset-2">
+                    политикой обработки персональных данных
+                  </Link>
                 </Label>
               </div>
               <Button type="submit" className="w-full">

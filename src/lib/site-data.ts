@@ -1,5 +1,9 @@
+export const siteUrl = "https://artemfut16-png.github.io/zhilfond-site";
+
 export const site = {
   name: "СК Жилищный Фонд",
+  legalName: "ООО «ЖИЛИЩНЫЙ ФОНД»",
+  inn: "6449107617",
   phone: "+7 (915) 544-26-71",
   phoneHref: "tel:+79155442671",
   email: "info@zhilfond.ru",

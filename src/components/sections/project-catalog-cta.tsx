@@ -30,7 +30,7 @@ export function ProjectCatalogCta() {
     <div className="mt-10 grid overflow-hidden rounded-(--radius) bg-primary text-primary-foreground lg:grid-cols-2">
       <div className="relative h-full min-h-[280px] w-full lg:min-h-[420px]">
         <Image
-          src={assetPath("/pdf-catalog.png")}
+          src={assetPath("/pdf-catalog.webp")}
           alt="PDF-каталог проектов"
           fill
           sizes="(min-width: 1024px) 50vw, 100vw"
@@ -104,9 +104,9 @@ export function ProjectCatalogCta() {
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-primary-foreground/10 pt-5 text-xs text-primary-foreground/60">
           <span>
             Нажимая на кнопку, вы соглашаетесь с{" "}
-            <a href="#" className="underline underline-offset-2">
+            <Link href="/privacy" className="underline underline-offset-2">
               Политикой конфиденциальности
-            </a>
+            </Link>
           </span>
           <Link
             href="/catalog"

@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { CheckCircle2Icon, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -101,8 +102,10 @@ export function Mortgage() {
                   Получить консультацию
                 </Button>
                 <p className="text-xs text-muted-foreground">
-                  Нажимая кнопку, вы соглашаетесь на обработку персональных
-                  данных
+                  Нажимая кнопку, вы соглашаетесь на{" "}
+                  <Link href="/privacy" className="underline underline-offset-2">
+                    обработку персональных данных
+                  </Link>
                 </p>
               </form>
             )}
