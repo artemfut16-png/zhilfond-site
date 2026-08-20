@@ -4,7 +4,7 @@ import { TelegramIcon, MaxIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { site } from "@/lib/site-data";
 
-export function CatalogHeader({ title = "Каталог домов" }: { title?: string }) {
+export function CatalogHeader({ title = "Каталог" }: { title?: string }) {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur supports-backdrop-filter:bg-background/70">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">

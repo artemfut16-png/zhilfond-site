@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
-  ArrowLeftIcon,
   CheckIcon,
   XIcon,
   CreditCardIcon,
@@ -12,6 +10,7 @@ import {
 } from "lucide-react";
 import { CatalogHeader } from "@/components/catalog/catalog-header";
 import { SiteFooter } from "@/components/site-footer";
+import { BackLink } from "@/components/back-link";
 import { ImageLightbox } from "@/components/image-lightbox";
 import { Gallery } from "@/components/sections/gallery";
 import { Contacts } from "@/components/sections/contacts";
@@ -67,13 +66,7 @@ export default async function CatalogHousePage({
       <main className="flex-1">
         <div className="border-b border-border">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-            <Link
-              href="/"
-              className="mb-6 inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
-            >
-              <ArrowLeftIcon className="size-4" />
-              На главную
-            </Link>
+            <BackLink />
 
             <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
               <ImageLightbox

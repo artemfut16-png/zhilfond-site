@@ -42,7 +42,7 @@ const sortOptions = {
 type SortKey = keyof typeof sortOptions;
 
 export function CatalogGrid() {
-  const [sort, setSort] = React.useState<SortKey>("area-desc");
+  const [sort, setSort] = React.useState<SortKey>("price-asc");
 
   const houses = React.useMemo(() => {
     return [...catalogHouses].sort(sortOptions[sort].compare);

@@ -1,5 +1,6 @@
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { HubScrollTracker } from "@/components/hub-scroll-tracker";
 import { Hero } from "@/components/sections/hero";
 import { Projects } from "@/components/sections/projects";
 import { VideoReviews } from "@/components/sections/video-reviews";
@@ -15,6 +16,7 @@ import { Contacts } from "@/components/sections/contacts";
 export default function Home() {
   return (
     <>
+      <HubScrollTracker path="/" />
       <SiteHeader />
       <main className="flex-1">
         <Hero />
