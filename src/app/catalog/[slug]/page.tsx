@@ -11,6 +11,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { CatalogHeader } from "@/components/catalog/catalog-header";
+import { SiteFooter } from "@/components/site-footer";
 import { ImageLightbox } from "@/components/image-lightbox";
 import { Gallery } from "@/components/sections/gallery";
 import { Contacts } from "@/components/sections/contacts";
@@ -21,7 +22,7 @@ import {
   getCatalogHouse,
   packageFeatures,
   additionalOptions,
-  paymentGroups,
+  paymentMethods,
 } from "@/lib/catalog-data";
 
 const priceFormatter = new Intl.NumberFormat("ru-RU");
@@ -62,16 +63,16 @@ export default async function CatalogHousePage({
 
   return (
     <>
-      <CatalogHeader />
+      <CatalogHeader title={house.title} />
       <main className="flex-1">
         <div className="border-b border-border">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
             <Link
-              href="/catalog"
+              href="/"
               className="mb-6 inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
             >
               <ArrowLeftIcon className="size-4" />
-              Все проекты
+              На главную
             </Link>
 
             <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
@@ -108,7 +109,7 @@ export default async function CatalogHousePage({
                 </div>
 
                 <div className="flex items-center gap-4 rounded-(--radius) border border-border bg-card p-5">
-                  <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-muted">
+                  <div className="flex size-12 shrink-0 items-center justify-center rounded-(--radius) bg-muted">
                     <CreditCardIcon className="size-6" />
                   </div>
                   <div>
@@ -246,35 +247,26 @@ export default async function CatalogHousePage({
             <h2 className="mb-8 text-3xl font-semibold tracking-tight">
               Способы оплаты
             </h2>
-            <div className="flex flex-col gap-10">
-              {paymentGroups.map((group) => (
-                <div key={group.id} className="flex flex-col gap-4">
-                  <p className="text-sm font-medium tracking-wide text-muted-foreground uppercase">
-                    {group.title}
-                  </p>
-                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {group.methods.map((method) => {
-                      const Icon = paymentIcons[method.kind];
-                      return (
-                        <div
-                          key={method.label}
-                          className="flex flex-col gap-4 rounded-(--radius) border border-border bg-card p-5"
-                        >
-                          <div className="flex size-10 items-center justify-center rounded-lg bg-muted">
-                            <Icon className="size-5" />
-                          </div>
-                          <div>
-                            <p className="font-medium">{method.label}</p>
-                            <p className="mt-1 text-sm text-muted-foreground">
-                              {method.detail}
-                            </p>
-                          </div>
-                        </div>
-                      );
-                    })}
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {paymentMethods.map((method) => {
+                const Icon = paymentIcons[method.kind];
+                return (
+                  <div
+                    key={method.label}
+                    className="flex flex-col gap-4 rounded-(--radius) border border-border bg-card p-5"
+                  >
+                    <div className="flex size-10 items-center justify-center rounded-(--radius) bg-muted">
+                      <Icon className="size-5" />
+                    </div>
+                    <div>
+                      <p className="font-medium">{method.label}</p>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        {method.detail}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
@@ -282,6 +274,7 @@ export default async function CatalogHousePage({
         <Gallery />
         <Contacts />
       </main>
+      <SiteFooter />
     </>
   );
 }

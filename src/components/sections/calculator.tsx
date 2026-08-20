@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { TelegramIcon, MaxIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
-import { calculatorSteps, manager } from "@/lib/site-data";
+import { calculatorSteps } from "@/lib/site-data";
 
 const channels = [
   { id: "telegram", label: "Telegram", icon: TelegramIcon },
@@ -177,11 +177,8 @@ export function Calculator() {
             ) : (
               <div className="flex flex-col items-center gap-3 py-10 text-center">
                 <CheckCircle2 className="size-10 text-primary" />
-                <p className="text-lg font-medium">Заявка отправлена</p>
-                <p className="max-w-sm text-sm text-muted-foreground">
-                  {manager.name} свяжется с вами и пришлет PDF с подходящими
-                  проектами и предварительным расчетом в{" "}
-                  {channels.find((c) => c.id === channel)?.label}
+                <p className="text-lg font-medium">
+                  Заявка отправлена, скоро мы с вами свяжемся
                 </p>
               </div>
             )}

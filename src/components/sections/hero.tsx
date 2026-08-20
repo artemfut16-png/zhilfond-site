@@ -14,11 +14,16 @@ export function Hero() {
               Строительство домов с гарантией 5 лет от 4 млн руб в Саратовской
               области
             </h1>
-            <div className="flex flex-wrap gap-3">
-              <Button size="lg" className="h-14 px-8 text-base" asChild>
+            <div className="grid grid-cols-2 gap-3 sm:inline-grid sm:w-auto">
+              <Button size="lg" className="h-14 w-full px-6 text-base" asChild>
                 <a href="#calculator">Рассчитать стоимость</a>
               </Button>
-              <Button size="lg" variant="outline" className="h-14 px-8 text-base" asChild>
+              <Button
+                size="lg"
+                variant="outline"
+                className="h-14 w-full px-6 text-base"
+                asChild
+              >
                 <a href="#projects">Смотреть проекты</a>
               </Button>
             </div>

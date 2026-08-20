@@ -60,6 +60,12 @@ export function Projects() {
           ))}
         </div>
 
+        <div className="mt-4 flex justify-center">
+          <span className="rounded-(--radius) bg-muted px-4 py-2 text-sm text-muted-foreground">
+            И ещё +6 проектов в полном каталоге
+          </span>
+        </div>
+
         <ProjectCatalogCta />
       </div>
     </section>

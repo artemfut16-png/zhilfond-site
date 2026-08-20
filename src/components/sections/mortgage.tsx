@@ -23,7 +23,8 @@ export function Mortgage() {
             Наши дома можно купить в ипотеку с господдержкой
           </h2>
           <p className="text-muted-foreground">
-            Поможем подобрать программу и подготовить документы для банка
+            Работаем с ипотекой! Поможем подобрать программу и подготовить
+            документы для банка «под ключ»
           </p>
         </div>
 
@@ -67,14 +68,15 @@ export function Mortgage() {
               Получить консультацию
             </h3>
             <p className="mt-1 text-sm text-muted-foreground">
-              Подберем ипотечную программу, рассчитаем стоимость дома и
-              запишем на встречу. Бесплатно
+              Рассчитаем стоимость дома, подберем ипотечную программу,
+              определим первоначальный взнос и ежемесячный платеж, поможем
+              подготовить документы для банка. Бесплатно!
             </p>
 
             {submitted ? (
               <div className="mt-6 flex items-center gap-2 rounded-(--radius) bg-muted px-4 py-3 text-sm">
                 <CheckCircle2Icon className="size-5 shrink-0 text-primary" />
-                Заявка отправлена, мы скоро свяжемся с вами
+                Заявка отправлена, скоро мы с вами свяжемся
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-3">

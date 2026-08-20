@@ -321,45 +321,118 @@ export const additionalOptions = [
   },
 ];
 
-export const paymentGroups = [
+export const paymentMethods = [
   {
-    id: "mortgage",
-    title: "Ипотечные программы",
-    methods: [
-      {
-        label: "Семейная ипотека",
-        detail:
-          "Для семей с детьми, которые хотят построить собственный дом на льготных условиях — ставка от 6%",
-        kind: "rate" as const,
-      },
-      {
-        label: "Семейная комбо ипотека",
-        detail: "Семейная ипотека в комбинации с рыночной ставкой",
-        kind: "rate" as const,
-      },
-      {
-        label: "Ипотека для IT-специалистов",
-        detail: "Для сотрудников аккредитованных IT-компаний — ставка от 5%",
-        kind: "rate" as const,
-      },
-    ],
+    label: "Семейная ипотека",
+    detail:
+      "Для семей с детьми, которые хотят построить собственный дом на льготных условиях — ставка от 6%",
+    kind: "rate" as const,
   },
   {
-    id: "direct",
-    title: "Прямая оплата",
-    methods: [
-      {
-        label: "Наличный расчет",
-        detail:
-          "Поэтапная оплата через расчетный счет для физических и юридических лиц",
-        kind: "cash" as const,
-      },
-      {
-        label: "Безналичный расчет",
-        detail:
-          "Поэтапная оплата строительства со скидкой (рассчитывается индивидуально)",
-        kind: "card" as const,
-      },
-    ],
+    label: "Семейная комбо ипотека",
+    detail: "Семейная ипотека в комбинации с рыночной ставкой",
+    kind: "rate" as const,
   },
+  {
+    label: "Ипотека для IT-специалистов",
+    detail: "Для сотрудников аккредитованных IT-компаний — ставка от 5%",
+    kind: "rate" as const,
+  },
+  {
+    label: "Наличный расчет",
+    detail:
+      "Поэтапная оплата через расчетный счет для физических и юридических лиц",
+    kind: "cash" as const,
+  },
+  {
+    label: "Безналичный расчет",
+    detail:
+      "Поэтапная оплата строительства со скидкой (рассчитывается индивидуально)",
+    kind: "card" as const,
+  },
+];
+
+export type HouseForSale = {
+  id: string;
+  title: string;
+  price: number;
+  area: number;
+  plotArea: number;
+  address: string;
+  description: string;
+  images: string[];
+};
+
+export const housesForSale: HouseForSale[] = [
+  {
+    id: "house96",
+    title: "Дом 96 м²",
+    price: 7_000_000,
+    area: 96,
+    plotArea: 4.5,
+    address: "Саратовская обл., Энгельсский р-н, с. Шумейка, Центральная ул., д. 24",
+    description:
+      "Одноэтажный дом из газобетонных блоков «Грасс» 375 мм с облицовкой кирпичом «Римкер». 3 спальни, кухня-гостиная 29,2 м². Скважина, септик (3 кольца), газ и электричество по границе участка.",
+    images: ["house96-2.png", "house96-3.png", "house96-1.png"],
+  },
+  {
+    id: "house103",
+    title: "Дом 103 м²",
+    price: 8_800_000,
+    area: 103,
+    plotArea: 6.8,
+    address: "Саратовская обл., Энгельсский р-н, г. Энгельс, п. Лесозащитная станция, д. 9",
+    description:
+      "Дом из газобетонного блока «Грасс» 300 мм с кирпичными перегородками и утеплением. Кухня-гостиная 30,91 м², 3 спальни, котельная. Центральное водоснабжение, септик (3 кольца), газ и электричество по границе участка.",
+    images: ["house103-2.png", "house103-3.png", "house103-1.png"],
+  },
+  {
+    id: "house108",
+    title: "Дом 108,8 м²",
+    price: 7_800_000,
+    area: 108.8,
+    plotArea: 5.6,
+    address: "Саратовская обл., Энгельсский р-н, с. Шумейка, Центральная ул., д. 24",
+    description:
+      "Дом из газобетонных блоков «Грасс» 375 мм с кирпичным фасадом. Кухня-гостиная 29,2 м², терраса 20,3 м², 3 спальни. Скважина, септик (3 кольца), газ и электричество по границе участка.",
+    images: ["house108-2.png", "house108-3.png", "house108-1.png"],
+  },
+  {
+    id: "house139",
+    title: "Дом 139,2 м²",
+    price: 7_300_000,
+    area: 139.2,
+    plotArea: 7,
+    address: "Саратовская обл., Энгельсский р-н, п. Пробуждение, Пушкинская ул., д. 55",
+    description:
+      "Дом из газобетонного блока «Грасс» 375 мм с утеплением и кирпичным фасадом «Римкер». Кухня-гостиная 26 м², 3 спальни, терраса. Скважина, септик (3 кольца), газ и электричество по границе участка.",
+    images: ["house139-2.png", "house139-3.png", "house139-1.png"],
+  },
+];
+
+export type LandPlot = {
+  id: string;
+  title: string;
+  price: number;
+  area: number;
+  location: string;
+  image: string;
+};
+
+export const landPlots: LandPlot[] = [
+  { id: "plot-1", title: "4 участка", area: 24.1, location: "пос. Малая Тополевка", price: 600_000, image: "plot-1.png" },
+  { id: "plot-2", title: "Участок", area: 4.9, location: "пос. Коминтерн", price: 700_000, image: "plot-2.png" },
+  { id: "plot-3", title: "Участок", area: 4.9, location: "пос. Коминтерн", price: 700_000, image: "plot-3.png" },
+  { id: "plot-4", title: "Участки", area: 17.2, location: "с. Шумейка", price: 730_000, image: "plot-4.png" },
+  { id: "plot-5", title: "Участок", area: 7.6, location: "СНТ Новое", price: 870_000, image: "plot-5.png" },
+  { id: "plot-6", title: "Участок", area: 6, location: "пос. Пробуждение", price: 1_200_000, image: "plot-6.png" },
+  { id: "plot-7", title: "Участок", area: 6, location: "пос. Пробуждение", price: 1_300_000, image: "plot-7.png" },
+  { id: "plot-8", title: "Участок", area: 6, location: "г. Энгельс", price: 1_500_000, image: "plot-8.png" },
+  { id: "plot-9", title: "Участок", area: 10, location: "с. Генеральское", price: 1_600_000, image: "plot-9.png" },
+  { id: "plot-10", title: "Участок", area: 4.9, location: "СНТ Строитель-1", price: 1_800_000, image: "plot-10.png" },
+  { id: "plot-11", title: "Участок", area: 11.3, location: "г. Саратов", price: 2_000_000, image: "plot-11.png" },
+  { id: "plot-12", title: "Участок", area: 6.5, location: "г. Саратов", price: 2_800_000, image: "plot-12.png" },
+  { id: "plot-13", title: "Участок", area: 4.5, location: "г. Энгельс", price: 3_500_000, image: "plot-13.png" },
+  { id: "plot-14", title: "Участок", area: 5.9, location: "г. Саратов", price: 3_500_000, image: "plot-14.png" },
+  { id: "plot-15", title: "Участок", area: 8.2, location: "г. Саратов", price: 7_000_000, image: "plot-15.png" },
 ];

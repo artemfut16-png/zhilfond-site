@@ -15,7 +15,7 @@ export function Contacts() {
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="flex flex-col gap-4 rounded-(--radius) border border-border bg-card p-6">
             <div className="flex items-start gap-3">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted">
+              <div className="flex size-10 shrink-0 items-center justify-center rounded-(--radius) bg-muted">
                 <PhoneIcon className="size-5" />
               </div>
               <div>
@@ -29,7 +29,7 @@ export function Contacts() {
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted">
+              <div className="flex size-10 shrink-0 items-center justify-center rounded-(--radius) bg-muted">
                 <MailIcon className="size-5" />
               </div>
               <div>
@@ -46,7 +46,7 @@ export function Contacts() {
 
           <div className="flex flex-col gap-4 rounded-(--radius) border border-border bg-card p-6">
             <div className="flex items-start gap-3">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted">
+              <div className="flex size-10 shrink-0 items-center justify-center rounded-(--radius) bg-muted">
                 <MapPinIcon className="size-5" />
               </div>
               <div>
@@ -55,7 +55,7 @@ export function Contacts() {
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted">
+              <div className="flex size-10 shrink-0 items-center justify-center rounded-(--radius) bg-muted">
                 <ClockIcon className="size-5" />
               </div>
               <div>

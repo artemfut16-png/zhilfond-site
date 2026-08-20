@@ -54,7 +54,7 @@ export function ProjectCatalogCta() {
         {submitted ? (
           <div className="flex items-center gap-2 rounded-full bg-primary-foreground/10 px-5 py-3 text-sm">
             <CheckCircle2Icon className="size-5 shrink-0" />
-            Заявка отправлена, каталог придет в течение минуты
+            Заявка отправлена, скоро мы с вами свяжемся
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">

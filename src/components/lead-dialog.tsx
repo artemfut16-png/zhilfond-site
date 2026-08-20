@@ -44,9 +44,8 @@ export function LeadDialog({ trigger, title, description }: LeadDialogProps) {
         {submitted ? (
           <div className="flex flex-col items-center gap-3 py-6 text-center">
             <CheckCircle2 className="size-10 text-primary" />
-            <p className="text-base font-medium">Заявка отправлена</p>
-            <p className="text-sm text-muted-foreground">
-              Мы перезвоним вам в ближайшее рабочее время
+            <p className="text-base font-medium">
+              Заявка отправлена, скоро мы с вами свяжемся
             </p>
           </div>
         ) : (
