@@ -17,7 +17,7 @@ export function Mortgage() {
   }
 
   return (
-    <section id="mortgage" className="border-b border-border bg-muted/40">
+    <section id="mortgage">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="mb-10 flex flex-col gap-2">
           <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-balance">

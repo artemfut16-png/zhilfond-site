@@ -10,7 +10,7 @@ import { faq, site } from "@/lib/site-data";
 
 export function Faq() {
   return (
-    <section className="border-b border-border bg-muted/40">
+    <section>
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1fr_320px]">
         <div>
           <h2 className="mb-6 text-3xl font-semibold tracking-tight">

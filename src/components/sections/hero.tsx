@@ -6,7 +6,7 @@ import { assetPath } from "@/lib/asset-path";
 
 export function Hero() {
   return (
-    <section id="hero" className="border-b border-border">
+    <section id="hero">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:items-center lg:py-20">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-6">

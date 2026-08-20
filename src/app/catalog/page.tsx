@@ -19,7 +19,7 @@ export default function CatalogPage() {
       <HubScrollTracker path="/catalog" />
       <CatalogHeader />
       <main className="flex-1">
-        <div id="house-projects" className="border-b border-border">
+        <div id="house-projects">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
             <h2 className="mb-8 text-3xl font-semibold tracking-tight">
               Проекты домов
@@ -28,7 +28,7 @@ export default function CatalogPage() {
           </div>
         </div>
 
-        <div id="houses-for-sale" className="border-b border-border">
+        <div id="houses-for-sale">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
             <div className="mb-8 flex flex-col gap-2">
               <h2 className="text-3xl font-semibold tracking-tight">
@@ -42,7 +42,7 @@ export default function CatalogPage() {
           </div>
         </div>
 
-        <div id="land-plots" className="border-b border-border">
+        <div id="land-plots">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
             <div className="mb-8 flex flex-col gap-2">
               <h2 className="text-3xl font-semibold tracking-tight">

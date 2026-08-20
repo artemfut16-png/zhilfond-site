@@ -13,7 +13,7 @@ const galleryPhotos = Array.from({ length: 48 }, (_, i) => i + 1);
 
 export function Gallery() {
   return (
-    <section id="gallery" className="border-b border-border">
+    <section id="gallery">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="mb-10 flex flex-col gap-2">
           <h2 className="text-3xl font-semibold tracking-tight">

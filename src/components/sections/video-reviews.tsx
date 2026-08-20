@@ -44,7 +44,7 @@ const videoReviews: { label: string; vkUrl: string | null }[] = [
 
 export function VideoReviews() {
   return (
-    <section className="border-b border-border">
+    <section>
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="mb-10 flex flex-col gap-2">
           <h2 className="text-3xl font-semibold tracking-tight">

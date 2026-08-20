@@ -49,7 +49,7 @@ export default async function HouseForSalePage({
     <>
       <CatalogHeader title={house.title} />
       <main className="flex-1">
-        <div className="border-b border-border">
+        <div>
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
             <BackLink />
 

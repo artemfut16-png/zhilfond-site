@@ -3,7 +3,7 @@ import { stages } from "@/lib/site-data";
 
 export function Stages() {
   return (
-    <section id="stages" className="border-b border-border bg-muted/40">
+    <section id="stages">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="mb-10">
           <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-balance">

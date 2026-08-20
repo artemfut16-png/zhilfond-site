@@ -64,7 +64,7 @@ export default async function CatalogHousePage({
     <>
       <CatalogHeader title={house.title} />
       <main className="flex-1">
-        <div className="border-b border-border">
+        <div>
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
             <BackLink />
 
@@ -93,8 +93,8 @@ export default async function CatalogHousePage({
                       {priceFormatter.format(house.warmContourPrice)} ₽
                     </p>
                   </div>
-                  <div className="flex flex-col gap-3 rounded-(--radius) border border-primary bg-primary p-5 text-primary-foreground">
-                    <p className="text-sm text-primary-foreground/70">White Box</p>
+                  <div className="flex flex-col gap-3 rounded-(--radius) border border-border bg-muted p-5">
+                    <p className="text-sm text-muted-foreground">White Box</p>
                     <p className="text-2xl font-semibold">
                       {priceFormatter.format(house.whiteBoxPrice)} ₽
                     </p>
@@ -119,7 +119,7 @@ export default async function CatalogHousePage({
           </div>
         </div>
 
-        <div className="border-b border-border">
+        <div>
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
             <h2 className="mb-8 text-3xl font-semibold tracking-tight">
               Планировка дома
@@ -153,7 +153,7 @@ export default async function CatalogHousePage({
           </div>
         </div>
 
-        <div className="border-b border-border">
+        <div>
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
             <h2 className="mb-8 text-3xl font-semibold tracking-tight">
               Что входит в стоимость?
@@ -199,7 +199,7 @@ export default async function CatalogHousePage({
           </div>
         </div>
 
-        <div className="border-b border-border">
+        <div>
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
             <h2 className="mb-8 text-3xl font-semibold tracking-tight">
               Дополнительные опции
@@ -235,7 +235,7 @@ export default async function CatalogHousePage({
           </div>
         </div>
 
-        <div className="border-b border-border">
+        <div>
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
             <h2 className="mb-8 text-3xl font-semibold tracking-tight">
               Способы оплаты

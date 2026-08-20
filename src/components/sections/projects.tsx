@@ -12,7 +12,7 @@ const areaFormatter = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 
 
 export function Projects() {
   return (
-    <section id="projects" className="border-b border-border">
+    <section id="projects">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="mb-10 flex flex-col gap-2">
           <h2 className="text-3xl font-semibold tracking-tight">
