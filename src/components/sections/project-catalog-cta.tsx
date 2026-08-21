@@ -69,7 +69,7 @@ export function ProjectCatalogCta() {
                     className={`flex flex-1 items-center justify-center gap-2 rounded-(--radius) border px-4 py-2.5 text-sm font-medium transition-colors sm:flex-none ${
                       channel === c.id
                         ? "border-secondary-foreground bg-secondary-foreground text-secondary"
-                        : "border-secondary-foreground/30 text-secondary-foreground/70 hover:border-secondary-foreground/60"
+                        : "border-secondary-foreground/30 bg-secondary-foreground/5 text-secondary-foreground hover:bg-secondary-foreground/15 hover:border-secondary-foreground/60"
                     }`}
                   >
                     <c.icon className="size-5" />
