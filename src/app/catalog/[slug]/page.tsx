@@ -162,7 +162,7 @@ export default async function CatalogHousePage({
             <div className="overflow-hidden rounded-(--radius) border border-border">
               <table className="w-full border-collapse text-sm">
                 <thead>
-                  <tr className="bg-primary text-primary-foreground">
+                  <tr className="bg-secondary text-secondary-foreground">
                     <th className="px-4 py-3 text-left font-medium sm:px-6">
                       Опция
                     </th>
@@ -208,7 +208,7 @@ export default async function CatalogHousePage({
             <div className="overflow-hidden rounded-(--radius) border border-border">
               <table className="w-full border-collapse text-sm">
                 <thead>
-                  <tr className="bg-primary text-primary-foreground">
+                  <tr className="bg-secondary text-secondary-foreground">
                     <th className="px-4 py-3 text-left font-medium sm:px-6">
                       Опция
                     </th>

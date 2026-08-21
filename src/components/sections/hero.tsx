@@ -20,7 +20,7 @@ export function Hero() {
               </Button>
               <Button
                 size="lg"
-                variant="outline"
+                variant="secondary"
                 className="h-14 w-full px-6 text-base"
                 asChild
               >
