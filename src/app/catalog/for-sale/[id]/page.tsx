@@ -80,8 +80,8 @@ export default async function HouseForSalePage({
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
+                <CarouselPrevious className="left-3 shadow-sm" />
+                <CarouselNext className="right-3 shadow-sm" />
               </Carousel>
 
               <div className="flex flex-col gap-6">
