@@ -5,8 +5,6 @@ import { CatalogHeader } from "@/components/catalog/catalog-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BackLink } from "@/components/back-link";
 import { ImageLightbox } from "@/components/image-lightbox";
-import { LeadDialog } from "@/components/lead-dialog";
-import { Button } from "@/components/ui/button";
 import { Contacts } from "@/components/sections/contacts";
 import { assetPath } from "@/lib/asset-path";
 import { landPlots } from "@/lib/catalog-data";
@@ -119,12 +117,6 @@ export default async function LandPlotPage({
                     </p>
                   </div>
                 </a>
-
-                <LeadDialog
-                  title={title}
-                  description="Оставьте телефон — расскажем подробности участка и организуем показ"
-                  trigger={<Button size="lg">Оставить заявку</Button>}
-                />
               </div>
             </div>
           </div>
