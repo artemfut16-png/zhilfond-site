@@ -40,8 +40,8 @@ export function Gallery() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="left-3 shadow-sm" />
+          <CarouselNext className="right-3 shadow-sm" />
         </Carousel>
       </div>
     </section>

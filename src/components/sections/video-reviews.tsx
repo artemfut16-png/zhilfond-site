@@ -97,8 +97,8 @@ export function VideoReviews() {
               );
             })}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="left-3 shadow-sm" />
+          <CarouselNext className="right-3 shadow-sm" />
         </Carousel>
 
         <a
