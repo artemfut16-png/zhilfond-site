@@ -5,8 +5,6 @@ import { CatalogHeader } from "@/components/catalog/catalog-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BackLink } from "@/components/back-link";
 import { ImageLightbox } from "@/components/image-lightbox";
-import { LeadDialog } from "@/components/lead-dialog";
-import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionItem,
@@ -112,12 +110,6 @@ export default async function HouseForSalePage({
                   <p className="text-sm text-muted-foreground">Описание</p>
                   <p>{house.description}</p>
                 </div>
-
-                <LeadDialog
-                  title={house.title}
-                  description="Оставьте телефон — расскажем подробности и организуем показ дома"
-                  trigger={<Button size="lg">Оставить заявку</Button>}
-                />
               </div>
             </div>
           </div>
