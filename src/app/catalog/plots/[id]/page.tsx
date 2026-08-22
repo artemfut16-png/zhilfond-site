@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { MapPinIcon } from "lucide-react";
+import { MapPinIcon, RulerIcon, HashIcon, MapIcon } from "lucide-react";
 import { CatalogHeader } from "@/components/catalog/catalog-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BackLink } from "@/components/back-link";
@@ -32,7 +32,7 @@ export async function generateMetadata({
   if (!plot) return {};
   return {
     title: `${plot.title} ${areaFormatter.format(plot.area)} сот — участок в продаже — СК Жилищный Фонд`,
-    description: `${plot.title} ${areaFormatter.format(plot.area)} сот, ${plot.location}, ${priceFormatter.format(plot.price)} ₽`,
+    description: `${plot.title} ${areaFormatter.format(plot.area)} сот, ${plot.fullAddress}, ${priceFormatter.format(plot.price)} ₽`,
   };
 }
 
@@ -79,10 +79,46 @@ export default async function LandPlotPage({
                 <div className="flex items-start gap-3 rounded-(--radius) border border-border bg-card p-5">
                   <MapPinIcon className="mt-0.5 size-5 shrink-0 text-muted-foreground" />
                   <div>
-                    <p className="text-sm text-muted-foreground">Расположение</p>
-                    <p className="font-medium">{plot.location}</p>
+                    <p className="text-sm text-muted-foreground">Адрес</p>
+                    <p className="font-medium">{plot.fullAddress}</p>
                   </div>
                 </div>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="flex items-start gap-3 rounded-(--radius) border border-border bg-card p-5">
+                    <RulerIcon className="mt-0.5 size-5 shrink-0 text-muted-foreground" />
+                    <div>
+                      <p className="text-sm text-muted-foreground">Площадь</p>
+                      <p className="font-medium">
+                        {areaFormatter.format(plot.areaM2)} м²
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 rounded-(--radius) border border-border bg-card p-5">
+                    <HashIcon className="mt-0.5 size-5 shrink-0 text-muted-foreground" />
+                    <div>
+                      <p className="text-sm text-muted-foreground">
+                        Кадастровый номер
+                      </p>
+                      <p className="font-medium">{plot.cadastralNumber}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <a
+                  href={plot.cadastralMapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 rounded-(--radius) border border-border bg-card p-5 hover:bg-muted"
+                >
+                  <MapIcon className="mt-0.5 size-5 shrink-0 text-muted-foreground" />
+                  <div>
+                    <p className="text-sm text-muted-foreground">Кадастровая карта</p>
+                    <p className="font-medium underline underline-offset-2">
+                      {plot.cadastralMapUrl}
+                    </p>
+                  </div>
+                </a>
 
                 <LeadDialog
                   title={title}

@@ -8,6 +8,7 @@ import { ImageLightbox } from "@/components/image-lightbox";
 import { LeadDialog } from "@/components/lead-dialog";
 import { Button } from "@/components/ui/button";
 import { Contacts } from "@/components/sections/contacts";
+import { cn } from "@/lib/utils";
 import { assetPath } from "@/lib/asset-path";
 import { housesForSale } from "@/lib/catalog-data";
 
@@ -45,6 +46,8 @@ export default async function HouseForSalePage({
   const house = getHouse(id);
   if (!house) notFound();
 
+  const photos = house.images.filter((img) => img !== house.floorPlan);
+
   return (
     <>
       <CatalogHeader title={house.title} />
@@ -56,13 +59,13 @@ export default async function HouseForSalePage({
             <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
               <div className="flex flex-col gap-4">
                 <ImageLightbox
-                  src={assetPath(`/catalog/for-sale/${house.images[0]}`)}
+                  src={assetPath(`/catalog/for-sale/${photos[0]}`)}
                   alt={house.title}
                   ratio="cover"
                 />
-                {house.images.length > 1 && (
+                {photos.length > 1 && (
                   <div className="grid grid-cols-2 gap-4">
-                    {house.images.slice(1).map((img) => (
+                    {photos.slice(1).map((img) => (
                       <ImageLightbox
                         key={img}
                         src={assetPath(`/catalog/for-sale/${img}`)}
@@ -109,6 +112,40 @@ export default async function HouseForSalePage({
                   description="Оставьте телефон — расскажем подробности и организуем показ дома"
                   trigger={<Button size="lg">Оставить заявку</Button>}
                 />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+            <h2 className="mb-8 text-3xl font-semibold tracking-tight">
+              Планировка дома
+            </h2>
+
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+              <ImageLightbox
+                src={assetPath(`/catalog/for-sale/${house.floorPlan}`)}
+                alt={`Планировка дома ${house.title}`}
+                ratio="contain"
+              />
+
+              <div className="overflow-hidden rounded-(--radius) border border-border">
+                <table className="w-full border-collapse text-sm">
+                  <tbody>
+                    {house.rooms.map((room, i) => (
+                      <tr
+                        key={room.name + i}
+                        className={cn(i % 2 === 1 && "bg-muted/40")}
+                      >
+                        <td className="px-4 py-3 sm:px-6">{room.name}</td>
+                        <td className="px-4 py-3 text-right font-medium sm:px-6">
+                          {areaFormatter.format(room.area)} м²
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

@@ -406,6 +406,8 @@ export type HouseForSale = {
   address: string;
   description: string;
   images: string[];
+  floorPlan: string;
+  rooms: CatalogHouseRoom[];
 };
 
 export const housesForSale: HouseForSale[] = [
@@ -419,6 +421,19 @@ export const housesForSale: HouseForSale[] = [
     description:
       "Одноэтажный дом из газобетонных блоков «Грасс» 375 мм с облицовкой кирпичом «Римкер». 3 спальни, кухня-гостиная 29,2 м². Скважина, септик (3 кольца), газ и электричество по границе участка.",
     images: ["house96-2.png", "house96-3.png", "house96-1.png"],
+    floorPlan: "house96-1.png",
+    rooms: [
+      { name: "Кухня-гостиная", area: 29.2 },
+      { name: "Спальня 1", area: 14.5 },
+      { name: "Спальня 2", area: 11.8 },
+      { name: "Спальня 3", area: 11.2 },
+      { name: "Коридор", area: 7.7 },
+      { name: "Ванная", area: 5.1 },
+      { name: "Тамбур", area: 4.6 },
+      { name: "Гардеробная", area: 3.3 },
+      { name: "Санузел", area: 2.7 },
+      { name: "Крыльцо", area: 4.0 },
+    ],
   },
   {
     id: "house103",
@@ -430,6 +445,20 @@ export const housesForSale: HouseForSale[] = [
     description:
       "Дом из газобетонного блока «Грасс» 300 мм с кирпичными перегородками и утеплением. Кухня-гостиная 30,91 м², 3 спальни, котельная. Центральное водоснабжение, септик (3 кольца), газ и электричество по границе участка.",
     images: ["house103-2.png", "house103-3.png", "house103-1.png"],
+    floorPlan: "house103-1.png",
+    rooms: [
+      { name: "Кухня-гостиная", area: 30.91 },
+      { name: "Спальня 1", area: 13.1 },
+      { name: "Спальня 2", area: 13.06 },
+      { name: "Спальня 3", area: 12.47 },
+      { name: "Котельная", area: 8.06 },
+      { name: "Ванная", area: 6.48 },
+      { name: "Прихожая", area: 4.14 },
+      { name: "Санузел", area: 2.71 },
+      { name: "Гардеробная", area: 2.69 },
+      { name: "Коридор", area: 2.11 },
+      { name: "Крыльцо", area: 5.26 },
+    ],
   },
   {
     id: "house108",
@@ -441,6 +470,19 @@ export const housesForSale: HouseForSale[] = [
     description:
       "Дом из газобетонных блоков «Грасс» 375 мм с кирпичным фасадом. Кухня-гостиная 29,2 м², терраса 20,3 м², 3 спальни. Скважина, септик (3 кольца), газ и электричество по границе участка.",
     images: ["house108-2.png", "house108-3.png", "house108-1.png"],
+    floorPlan: "house108-1.png",
+    rooms: [
+      { name: "Кухня-гостиная", area: 29.2 },
+      { name: "Спальня 1", area: 14.5 },
+      { name: "Спальня 2", area: 11.8 },
+      { name: "Спальня 3", area: 11.8 },
+      { name: "Коридор", area: 7.7 },
+      { name: "Ванная", area: 5.1 },
+      { name: "Тамбур", area: 4.6 },
+      { name: "Гардеробная", area: 3.3 },
+      { name: "Санузел", area: 2.7 },
+      { name: "Терраса", area: 20.3 },
+    ],
   },
   {
     id: "house139",
@@ -452,6 +494,21 @@ export const housesForSale: HouseForSale[] = [
     description:
       "Дом из газобетонного блока «Грасс» 375 мм с утеплением и кирпичным фасадом «Римкер». Кухня-гостиная 26 м², 3 спальни, терраса. Скважина, септик (3 кольца), газ и электричество по границе участка.",
     images: ["house139-2.png", "house139-3.png", "house139-1.png"],
+    floorPlan: "house139-1.png",
+    rooms: [
+      { name: "Кухня-гостиная", area: 26.0 },
+      { name: "Спальня 1", area: 15.8 },
+      { name: "Спальня 2", area: 15.1 },
+      { name: "Спальня 3", area: 12.9 },
+      { name: "Холл", area: 13.1 },
+      { name: "Тамбур", area: 5.8 },
+      { name: "Санузел", area: 6.7 },
+      { name: "Санузел", area: 1.9 },
+      { name: "Ванная", area: 3.5 },
+      { name: "Тех. помещение", area: 5.6 },
+      { name: "Терраса", area: 12.4 },
+      { name: "Крыльцо", area: 3.9 },
+    ],
   },
 ];
 
@@ -460,24 +517,200 @@ export type LandPlot = {
   title: string;
   price: number;
   area: number;
+  areaM2: number;
   location: string;
+  fullAddress: string;
+  cadastralNumber: string;
+  cadastralMapUrl: string;
   image: string;
 };
 
 export const landPlots: LandPlot[] = [
-  { id: "plot-1", title: "4 участка", area: 24.1, location: "пос. Малая Тополевка", price: 600_000, image: "plot-1.png" },
-  { id: "plot-2", title: "Участок", area: 4.9, location: "пос. Коминтерн", price: 700_000, image: "plot-2.png" },
-  { id: "plot-3", title: "Участок", area: 4.9, location: "пос. Коминтерн", price: 700_000, image: "plot-3.png" },
-  { id: "plot-4", title: "Участки", area: 17.2, location: "с. Шумейка", price: 730_000, image: "plot-4.png" },
-  { id: "plot-5", title: "Участок", area: 7.6, location: "СНТ Новое", price: 870_000, image: "plot-5.png" },
-  { id: "plot-6", title: "Участок", area: 6, location: "пос. Пробуждение", price: 1_200_000, image: "plot-6.png" },
-  { id: "plot-7", title: "Участок", area: 6, location: "пос. Пробуждение", price: 1_300_000, image: "plot-7.png" },
-  { id: "plot-8", title: "Участок", area: 6, location: "г. Энгельс", price: 1_500_000, image: "plot-8.png" },
-  { id: "plot-9", title: "Участок", area: 10, location: "с. Генеральское", price: 1_600_000, image: "plot-9.png" },
-  { id: "plot-10", title: "Участок", area: 4.9, location: "СНТ Строитель-1", price: 1_800_000, image: "plot-10.png" },
-  { id: "plot-11", title: "Участок", area: 11.3, location: "г. Саратов", price: 2_000_000, image: "plot-11.png" },
-  { id: "plot-12", title: "Участок", area: 6.5, location: "г. Саратов", price: 2_800_000, image: "plot-12.png" },
-  { id: "plot-13", title: "Участок", area: 4.5, location: "г. Энгельс", price: 3_500_000, image: "plot-13.png" },
-  { id: "plot-14", title: "Участок", area: 5.9, location: "г. Саратов", price: 3_500_000, image: "plot-14.png" },
-  { id: "plot-15", title: "Участок", area: 8.2, location: "г. Саратов", price: 7_000_000, image: "plot-15.png" },
+  {
+    id: "plot-1",
+    title: "4 участка",
+    area: 24.1,
+    areaM2: 2411,
+    location: "пос. Малая Тополевка",
+    fullAddress: "Саратовская область, р-н Энгельсский, п. Малая Тополевка",
+    cadastralNumber: "64:38:080201:131",
+    cadastralMapUrl: "https://clck.ru/3RfBJZ",
+    price: 600_000,
+    image: "plot-1.png",
+  },
+  {
+    id: "plot-2",
+    title: "Участок",
+    area: 4.9,
+    areaM2: 490,
+    location: "пос. Коминтерн",
+    fullAddress: "Саратовская область, Энгельсский район, пос. Коминтерн, ул. Тепличная, район д.12/2",
+    cadastralNumber: "64:38:050104:392",
+    cadastralMapUrl: "https://clck.ru/3SPijb",
+    price: 700_000,
+    image: "plot-2.png",
+  },
+  {
+    id: "plot-3",
+    title: "Участок",
+    area: 4.9,
+    areaM2: 498,
+    location: "пос. Коминтерн",
+    fullAddress: "Саратовская область, Энгельсский район, пос. Коминтерн, ул. Тепличная, район д.12/2",
+    cadastralNumber: "64:38:050104:393",
+    cadastralMapUrl: "https://clck.ru/3SPihe",
+    price: 700_000,
+    image: "plot-3.png",
+  },
+  {
+    id: "plot-4",
+    title: "Участки",
+    area: 17.2,
+    areaM2: 1727,
+    location: "с. Шумейка",
+    fullAddress:
+      "Саратовская область, м.р-н Энгельсский, с.п. Красноярское, с Шумейка, мкр Покровский сад, ул Сосновый бор, з/у 24",
+    cadastralNumber: "64:38:050304:4084",
+    cadastralMapUrl: "https://clck.ru/3Rf9fz",
+    price: 730_000,
+    image: "plot-4.png",
+  },
+  {
+    id: "plot-5",
+    title: "Участок",
+    area: 7.6,
+    areaM2: 767,
+    location: "СНТ Новое",
+    fullAddress:
+      'Саратовская область, р-н Энгельсский, Красноярское муниципальное образование, на землях АО "Новое"',
+    cadastralNumber: "64:38:050302:1516",
+    cadastralMapUrl: "https://clck.ru/3Rf9mu",
+    price: 870_000,
+    image: "plot-5.png",
+  },
+  {
+    id: "plot-6",
+    title: "Участок",
+    area: 6,
+    areaM2: 600,
+    location: "пос. Пробуждение",
+    fullAddress:
+      "Саратовская обл., Энгельсский м. р-н, Новопушкинское с.п., п. Пробуждение, ул. Тургенева, з/у 61",
+    cadastralNumber: "64:38:040401:1394",
+    cadastralMapUrl: "https://clck.ru/3RfCem",
+    price: 1_200_000,
+    image: "plot-6.png",
+  },
+  {
+    id: "plot-7",
+    title: "Участок",
+    area: 6,
+    areaM2: 600,
+    location: "пос. Пробуждение",
+    fullAddress:
+      "Саратовская область, муниципальный район Энгельсский, сельское поселение Новопушкинское, поселок Пробуждение, улица Тургенева, земельный участок 31",
+    cadastralNumber: "64:38:040401:1163",
+    cadastralMapUrl: "https://clck.ru/3RfCoS",
+    price: 1_300_000,
+    image: "plot-7.png",
+  },
+  {
+    id: "plot-8",
+    title: "Участок",
+    area: 6,
+    areaM2: 600,
+    location: "г. Энгельс",
+    fullAddress: "Саратовская область, Энгельсский муниципальный район, город Энгельс, улица Кубанская, №10",
+    cadastralNumber: "64:50:020915:106",
+    cadastralMapUrl: "https://clck.ru/3RfASC",
+    price: 1_500_000,
+    image: "plot-8.png",
+  },
+  {
+    id: "plot-9",
+    title: "Участок",
+    area: 10,
+    areaM2: 1000,
+    location: "с. Генеральское",
+    fullAddress:
+      'Саратовская обл, Энгельсский р-н, Красноярское муниципальное образование, на землях АО "Генеральское"',
+    cadastralNumber: "64:38:203705:958",
+    cadastralMapUrl: "https://clck.ru/3RfAXw",
+    price: 1_600_000,
+    image: "plot-9.png",
+  },
+  {
+    id: "plot-10",
+    title: "Участок",
+    area: 4.9,
+    areaM2: 495,
+    location: "СНТ Строитель-1",
+    fullAddress:
+      "Российская Федерация, Саратовская область, м.р-н Энгельсский, с.п. Красноярское, тер. СНТ Строитель-1, лн. 4-я, з/у 49в",
+    cadastralNumber: "64:38:081501:152",
+    cadastralMapUrl: "https://clck.ru/3RfAp9",
+    price: 1_800_000,
+    image: "plot-10.png",
+  },
+  {
+    id: "plot-11",
+    title: "Участок",
+    area: 11.3,
+    areaM2: 1134,
+    location: "г. Саратов",
+    fullAddress: 'Саратовская область, р-н Саратовский, Усть-Курдюмское МО, на землях СХПК "Аграрник"',
+    cadastralNumber: "64:32:023325:248",
+    cadastralMapUrl: "https://clck.ru/3RfAGG",
+    price: 2_000_000,
+    image: "plot-11.png",
+  },
+  {
+    id: "plot-12",
+    title: "Участок",
+    area: 6.5,
+    areaM2: 653,
+    location: "г. Саратов",
+    fullAddress: 'Саратовская область, г. Саратов, п. Зональный, в районе моста через р. Гуселка, СНТ "Мост"',
+    cadastralNumber: "64:48:010108:1773",
+    cadastralMapUrl: "https://clck.ru/3RfABT",
+    price: 2_800_000,
+    image: "plot-12.png",
+  },
+  {
+    id: "plot-13",
+    title: "Участок",
+    area: 4.5,
+    areaM2: 454,
+    location: "г. Энгельс",
+    fullAddress: "Саратовская область, г. Энгельс, пер. Удалой, д. 2",
+    cadastralNumber: "64:50:011221:110",
+    cadastralMapUrl: "https://clck.ru/3Rf9rU",
+    price: 3_500_000,
+    image: "plot-13.png",
+  },
+  {
+    id: "plot-14",
+    title: "Участок",
+    area: 5.9,
+    areaM2: 593,
+    location: "г. Саратов",
+    fullAddress: 'Саратовская область, г Саратов, р-н с/за "ЦДК", уч.33',
+    cadastralNumber: "64:48:010123:255",
+    cadastralMapUrl: "https://clck.ru/3RfDDm",
+    price: 3_500_000,
+    image: "plot-14.png",
+  },
+  {
+    id: "plot-15",
+    title: "Участок",
+    area: 8.2,
+    areaM2: 823,
+    location: "г. Саратов",
+    fullAddress:
+      "Саратовская область, г. Саратов, микрорайон Зональный, ул. Молодежная, д. 17 в Волжском районе",
+    cadastralNumber: "64:48:010122:967",
+    cadastralMapUrl: "https://clck.ru/3Rf9xc",
+    price: 7_000_000,
+    image: "plot-15.png",
+  },
 ];
