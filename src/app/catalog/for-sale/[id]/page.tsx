@@ -11,6 +11,13 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 import { Contacts } from "@/components/sections/contacts";
 import { cn } from "@/lib/utils";
 import { assetPath } from "@/lib/asset-path";
@@ -61,25 +68,21 @@ export default async function HouseForSalePage({
             <BackLink />
 
             <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-              <div className="flex flex-col gap-4">
-                <ImageLightbox
-                  src={assetPath(`/catalog/for-sale/${photos[0]}`)}
-                  alt={house.title}
-                  ratio="cover"
-                />
-                {photos.length > 1 && (
-                  <div className="grid grid-cols-2 gap-4">
-                    {photos.slice(1).map((img) => (
+              <Carousel opts={{ align: "start", loop: true }} className="px-1">
+                <CarouselContent>
+                  {photos.map((img) => (
+                    <CarouselItem key={img}>
                       <ImageLightbox
-                        key={img}
                         src={assetPath(`/catalog/for-sale/${img}`)}
                         alt={house.title}
                         ratio="cover"
                       />
-                    ))}
-                  </div>
-                )}
-              </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
 
               <div className="flex flex-col gap-6">
                 <div>
