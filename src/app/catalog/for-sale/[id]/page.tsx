@@ -7,6 +7,12 @@ import { BackLink } from "@/components/back-link";
 import { ImageLightbox } from "@/components/image-lightbox";
 import { LeadDialog } from "@/components/lead-dialog";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 import { Contacts } from "@/components/sections/contacts";
 import { cn } from "@/lib/utils";
 import { assetPath } from "@/lib/asset-path";
@@ -147,6 +153,63 @@ export default async function HouseForSalePage({
                   </tbody>
                 </table>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+            <h2 className="mb-8 text-3xl font-semibold tracking-tight">
+              Что входит в стоимость?
+            </h2>
+
+            <div className="flex flex-col gap-4">
+              <Accordion
+                type="single"
+                collapsible
+                defaultValue="specs"
+                className="rounded-(--radius) border border-border bg-muted/40 px-5"
+              >
+                <AccordionItem value="specs">
+                  <AccordionTrigger className="text-base font-semibold">
+                    Комплектация дома
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="flex flex-col gap-4">
+                      {house.specCategories.map((category) => (
+                        <div key={category.title}>
+                          <p className="font-medium">{category.title}</p>
+                          <ul className="mt-1 list-disc pl-5 text-muted-foreground">
+                            {category.items.map((item) => (
+                              <li key={item}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+
+              <Accordion
+                type="single"
+                collapsible
+                defaultValue="utilities"
+                className="rounded-(--radius) border border-border bg-muted/40 px-5"
+              >
+                <AccordionItem value="utilities">
+                  <AccordionTrigger className="text-base font-semibold">
+                    Инженерные коммуникации
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <ul className="list-disc pl-5 text-muted-foreground">
+                      {house.utilities.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             </div>
           </div>
         </div>
