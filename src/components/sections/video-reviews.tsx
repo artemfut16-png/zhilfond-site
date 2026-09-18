@@ -44,10 +44,10 @@ const videoReviews: { label: string; vkUrl: string | null }[] = [
 
 export function VideoReviews() {
   return (
-    <section>
+    <section className="bg-muted">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="mb-10 flex flex-col gap-2">
-          <h2 className="text-3xl font-semibold tracking-tight">
+          <h2 className="font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
             Обзоры построенных домов
           </h2>
           <p className="text-muted-foreground">
@@ -80,7 +80,7 @@ export function VideoReviews() {
                       href={site.vkClips}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative flex aspect-[9/16] w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-(--radius) border border-dashed border-border bg-muted text-muted-foreground"
+                      className="relative flex aspect-[9/16] w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-(--radius) border border-dashed border-border bg-background text-muted-foreground"
                     >
                       <ImageIcon className="size-8 opacity-40" strokeWidth={1.5} />
                       <span className="px-4 text-center text-xs opacity-60">

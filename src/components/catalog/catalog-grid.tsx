@@ -3,8 +3,10 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { RulerIcon, BedDoubleIcon, BathIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { SpecRow, PhotoBadge, type CardSpec } from "@/components/catalog/card-specs";
 import {
   Select,
   SelectContent,
@@ -12,8 +14,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { catalogHouses, type CatalogHouse } from "@/lib/catalog-data";
+import { catalogHouses, roomCounts, type CatalogHouse } from "@/lib/catalog-data";
 import { assetPath } from "@/lib/asset-path";
+import { plural } from "@/lib/utils";
 
 const priceFormatter = new Intl.NumberFormat("ru-RU");
 const areaFormatter = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 });
@@ -69,7 +72,27 @@ export function CatalogGrid() {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {houses.map((house) => (
+        {houses.map((house) => {
+          const { bedrooms, bathrooms } = roomCounts(house.rooms);
+          const specs: CardSpec[] = [
+            {
+              icon: RulerIcon,
+              label: "Площадь",
+              value: `${areaFormatter.format(house.area)} м²`,
+            },
+            bedrooms > 0 && {
+              icon: BedDoubleIcon,
+              label: "Спальни",
+              value: `${bedrooms} ${plural(bedrooms, ["спальня", "спальни", "спален"])}`,
+            },
+            bathrooms > 0 && {
+              icon: BathIcon,
+              label: "Санузлы",
+              value: `${bathrooms} ${plural(bathrooms, ["санузел", "санузла", "санузлов"])}`,
+            },
+          ].filter(Boolean) as CardSpec[];
+
+          return (
           <Card key={house.id} className="h-full pt-0">
             <Link href={`/catalog/${house.id}`} className="relative block aspect-[4/3] w-full overflow-hidden">
               <Image
@@ -79,27 +102,27 @@ export function CatalogGrid() {
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="object-cover"
               />
+              <PhotoBadge>
+                от {priceFormatter.format(house.warmContourPrice)} ₽
+              </PhotoBadge>
             </Link>
             <CardContent className="flex flex-col gap-3">
-              <div className="flex items-baseline justify-between gap-2">
-                <Link href={`/catalog/${house.id}`} className="font-medium hover:underline">
-                  {house.title}
-                </Link>
-                <p className="text-sm text-muted-foreground">
-                  {areaFormatter.format(house.area)} м²
-                </p>
-              </div>
+              <Link href={`/catalog/${house.id}`} className="font-medium hover:underline">
+                {house.title}
+              </Link>
+
+              <SpecRow specs={specs} />
 
               <div className="flex flex-col gap-1 rounded-(--radius) border border-border p-3">
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-muted-foreground">Теплый контур</span>
-                  <span className="font-medium">
+                  <span className="font-medium tnum">
                     {priceFormatter.format(house.warmContourPrice)} ₽
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-muted-foreground">White Box</span>
-                  <span className="font-medium">
+                  <span className="font-medium tnum">
                     {priceFormatter.format(house.whiteBoxPrice)} ₽
                   </span>
                 </div>
@@ -107,7 +130,7 @@ export function CatalogGrid() {
 
               <div className="rounded-(--radius) bg-muted px-3 py-2">
                 <p className="text-sm">
-                  <span className="font-medium">
+                  <span className="font-medium tnum">
                     от {priceFormatter.format(house.mortgageFrom)} ₽/мес
                   </span>{" "}
                   <span className="text-muted-foreground">в ипотеку</span>
@@ -119,7 +142,8 @@ export function CatalogGrid() {
               </Button>
             </CardContent>
           </Card>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

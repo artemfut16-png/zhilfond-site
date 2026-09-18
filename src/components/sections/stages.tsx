@@ -6,7 +6,7 @@ export function Stages() {
     <section id="stages">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="mb-10">
-          <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-balance">
+          <h2 className="max-w-2xl font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl text-balance">
             Гарантируем безупречное качество выполнения всех этапов работ
           </h2>
         </div>

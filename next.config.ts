@@ -1,17 +1,12 @@
 import type { NextConfig } from "next";
 
-const repoName = "zhilfond-site";
-const basePath = `/${repoName}`;
-
+// Сайт живёт на собственном домене (zhil-fond64.ru), в корне —
+// basePath не нужен. Для деплоя в подпапку GitHub Pages его пришлось бы вернуть.
 const nextConfig: NextConfig = {
   output: "export",
-  basePath,
   trailingSlash: true,
   images: {
     unoptimized: true,
-  },
-  env: {
-    NEXT_PUBLIC_BASE_PATH: basePath,
   },
 };
 

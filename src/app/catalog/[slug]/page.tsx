@@ -121,7 +121,7 @@ export default async function CatalogHousePage({
 
         <div>
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-            <h2 className="mb-8 text-3xl font-semibold tracking-tight">
+            <h2 className="mb-8 font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
               Планировка дома
             </h2>
 
@@ -155,7 +155,7 @@ export default async function CatalogHousePage({
 
         <div>
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-            <h2 className="mb-8 text-3xl font-semibold tracking-tight">
+            <h2 className="mb-8 font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
               Что входит в стоимость?
             </h2>
 
@@ -201,7 +201,7 @@ export default async function CatalogHousePage({
 
         <div>
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-            <h2 className="mb-8 text-3xl font-semibold tracking-tight">
+            <h2 className="mb-8 font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
               Дополнительные опции
             </h2>
 
@@ -237,7 +237,7 @@ export default async function CatalogHousePage({
 
         <div>
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-            <h2 className="mb-8 text-3xl font-semibold tracking-tight">
+            <h2 className="mb-8 font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
               Способы оплаты
             </h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

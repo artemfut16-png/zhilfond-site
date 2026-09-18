@@ -1,4 +1,4 @@
-export const siteUrl = "https://artemfut16-png.github.io/zhilfond-site";
+export const siteUrl = "https://zhil-fond64.ru";
 
 export const site = {
   name: "СК Жилищный Фонд",

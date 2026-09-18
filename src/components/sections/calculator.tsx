@@ -56,10 +56,10 @@ export function Calculator() {
   }
 
   return (
-    <section id="calculator">
+    <section id="calculator" className="bg-muted">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="mb-10 flex flex-col gap-2">
-          <h2 className="text-3xl font-semibold tracking-tight">
+          <h2 className="font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
             Рассчитайте стоимость дома
           </h2>
           <p className="text-muted-foreground">

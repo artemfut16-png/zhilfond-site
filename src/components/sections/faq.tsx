@@ -10,10 +10,10 @@ import { faq, site } from "@/lib/site-data";
 
 export function Faq() {
   return (
-    <section>
+    <section className="bg-muted">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1fr_320px]">
         <div>
-          <h2 className="mb-6 text-3xl font-semibold tracking-tight">
+          <h2 className="mb-6 font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
             Часто задаваемые вопросы
           </h2>
           <Accordion type="single" collapsible>

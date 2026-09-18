@@ -19,7 +19,7 @@ export const catalogHouses: CatalogHouse[] = [
     title: "Вилла Премьер 158",
     area: 158.41,
     warmContourPrice: 7_550_000,
-    whiteBoxPrice: 8_950_000,
+    whiteBoxPrice: 9_650_000,
     mortgageFrom: 41_900,
     rooms: [
       { name: "Гостиная", area: 27.01 },
@@ -45,7 +45,7 @@ export const catalogHouses: CatalogHouse[] = [
     title: "Семейный +139",
     area: 139,
     warmContourPrice: 7_050_000,
-    whiteBoxPrice: 8_250_000,
+    whiteBoxPrice: 8_950_000,
     mortgageFrom: 39_100,
     rooms: [
       { name: "Кухня-гостиная", area: 26.0 },
@@ -67,7 +67,7 @@ export const catalogHouses: CatalogHouse[] = [
     title: "Симфония 131",
     area: 131.8,
     warmContourPrice: 6_530_000,
-    whiteBoxPrice: 7_530_000,
+    whiteBoxPrice: 8_230_000,
     mortgageFrom: 36_300,
     rooms: [
       { name: "Кухня-гостиная", area: 27.7 },
@@ -88,7 +88,7 @@ export const catalogHouses: CatalogHouse[] = [
     title: "Семейный 122",
     area: 122.7,
     warmContourPrice: 6_350_000,
-    whiteBoxPrice: 7_350_000,
+    whiteBoxPrice: 8_050_000,
     mortgageFrom: 35_300,
     rooms: [
       { name: "Кухня-гостиная", area: 26.0 },
@@ -110,7 +110,7 @@ export const catalogHouses: CatalogHouse[] = [
     title: "Геометрия 117",
     area: 117.51,
     warmContourPrice: 6_300_000,
-    whiteBoxPrice: 7_300_000,
+    whiteBoxPrice: 7_800_000,
     mortgageFrom: 35_000,
     rooms: [
       { name: "Гостиная", area: 21.73 },
@@ -134,7 +134,7 @@ export const catalogHouses: CatalogHouse[] = [
     title: "Дом мечты 120",
     area: 120.8,
     warmContourPrice: 6_300_000,
-    whiteBoxPrice: 7_300_000,
+    whiteBoxPrice: 8_000_000,
     mortgageFrom: 35_000,
     rooms: [
       { name: "Кухня-гостиная", area: 29.3 },
@@ -154,7 +154,7 @@ export const catalogHouses: CatalogHouse[] = [
     title: "Панорама 99",
     area: 99.4,
     warmContourPrice: 5_870_000,
-    whiteBoxPrice: 6_870_000,
+    whiteBoxPrice: 7_370_000,
     mortgageFrom: 32_600,
     rooms: [
       { name: "Кухня-гостиная", area: 23.8 },
@@ -174,7 +174,7 @@ export const catalogHouses: CatalogHouse[] = [
     title: "Стандарт 94",
     area: 94.7,
     warmContourPrice: 5_850_000,
-    whiteBoxPrice: 6_850_000,
+    whiteBoxPrice: 7_350_000,
     mortgageFrom: 32_500,
     rooms: [
       { name: "Кухня-гостиная", area: 29.2 },
@@ -194,7 +194,7 @@ export const catalogHouses: CatalogHouse[] = [
     title: "Мираж 89",
     area: 89.1,
     warmContourPrice: 5_550_000,
-    whiteBoxPrice: 6_550_000,
+    whiteBoxPrice: 7_050_000,
     mortgageFrom: 30_800,
     rooms: [
       { name: "Кухня-гостиная", area: 22.0 },
@@ -214,7 +214,7 @@ export const catalogHouses: CatalogHouse[] = [
     title: "Уютный 74",
     area: 74.22,
     warmContourPrice: 5_000_000,
-    whiteBoxPrice: 6_100_000,
+    whiteBoxPrice: 6_500_000,
     mortgageFrom: 27_800,
     rooms: [
       { name: "Гостиная", area: 10.71 },
@@ -232,7 +232,7 @@ export const catalogHouses: CatalogHouse[] = [
     title: "Компакт +70",
     area: 70.33,
     warmContourPrice: 4_600_000,
-    whiteBoxPrice: 5_590_000,
+    whiteBoxPrice: 6_090_000,
     mortgageFrom: 25_500,
     rooms: [
       { name: "Кухня-гостиная", area: 28.4 },
@@ -249,7 +249,7 @@ export const catalogHouses: CatalogHouse[] = [
     title: "Компакт +59",
     area: 59.12,
     warmContourPrice: 4_300_000,
-    whiteBoxPrice: 5_300_000,
+    whiteBoxPrice: 5_800_000,
     mortgageFrom: 23_900,
     rooms: [
       { name: "Кухня-гостиная", area: 23.51 },
@@ -264,9 +264,9 @@ export const catalogHouses: CatalogHouse[] = [
     id: "gorizont-162",
     title: "Горизонт 162",
     area: 162,
-    warmContourPrice: 6_350_000,
-    whiteBoxPrice: 7_500_000,
-    mortgageFrom: 35_200,
+    warmContourPrice: 7_700_000,
+    whiteBoxPrice: 8_800_000,
+    mortgageFrom: 42_800,
     rooms: [
       { name: "Гостиная-кухня", area: 38.22 },
       { name: "Терраса", area: 35.0 },
@@ -286,7 +286,7 @@ export const catalogHouses: CatalogHouse[] = [
     title: "Рубин 160",
     area: 160,
     warmContourPrice: 7_650_000,
-    whiteBoxPrice: 8_900_000,
+    whiteBoxPrice: 9_600_000,
     mortgageFrom: 42_400,
     rooms: [
       { name: "Гостиная", area: 24.12 },
@@ -867,3 +867,15 @@ export const landPlots: LandPlot[] = [
     image: "plot-15.png",
   },
 ];
+
+/**
+ * Спальни и санузлы не хранятся отдельным полем — считаем их по списку
+ * помещений, чтобы карточка показывала только то, что есть в данных.
+ */
+export function roomCounts(rooms: CatalogHouseRoom[]) {
+  return {
+    bedrooms: rooms.filter((r) => /^спальн/i.test(r.name.trim())).length,
+    bathrooms: rooms.filter((r) => /^(санузел|ванная)/i.test(r.name.trim()))
+      .length,
+  };
+}

@@ -31,11 +31,11 @@ export function Excursion() {
   }
 
   return (
-    <section className="bg-stone-800 text-white">
+    <section className="bg-secondary text-secondary-foreground">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+            <h2 className="font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl text-balance">
               Предлагаем вам записаться{" "}
               <span className="text-white/55">
                 на бесплатную экскурсию
@@ -137,7 +137,7 @@ export function Excursion() {
                 title="Записаться на экскурсию"
                 description="Оставьте телефон — подберем удобное время для показа объекта"
                 trigger={
-                  <Button className="w-full bg-white text-stone-800 hover:bg-white/90">
+                  <Button className="w-full bg-background text-foreground hover:bg-background/90">
                     Оставить заявку
                   </Button>
                 }

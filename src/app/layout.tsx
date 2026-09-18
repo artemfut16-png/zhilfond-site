@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Onest } from "next/font/google";
 import "./globals.css";
 import { site, siteUrl } from "@/lib/site-data";
 
@@ -10,6 +10,11 @@ const inter = Inter({
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
+  subsets: ["latin", "cyrillic"],
+});
+
+const onest = Onest({
+  variable: "--font-onest",
   subsets: ["latin", "cyrillic"],
 });
 
@@ -63,7 +68,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="ru"
-      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${onest.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <script

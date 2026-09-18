@@ -40,7 +40,7 @@ export function ProjectCatalogCta() {
 
       <div className="flex flex-col gap-8 p-8 sm:p-10">
         <div className="flex flex-col gap-2">
-          <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+          <h2 className="font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl text-balance">
             Получите каталог{" "}
             <span className="text-secondary-foreground/55">
               со всеми проектами, планировками и ценами

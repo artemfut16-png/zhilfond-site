@@ -43,3 +43,9 @@ next-env.d.ts
 # raw source photo folders (not used by the app directly — see /public for deployed copies)
 /Контент/
 /Проекты домов/
+
+# рабочие материалы и локальные инструменты (не часть сайта)
+/Референсы/
+/.agents/
+/.claude/
+/.tmp-sync/
