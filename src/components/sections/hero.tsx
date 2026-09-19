@@ -72,7 +72,7 @@ export function Hero() {
               className="flex flex-col gap-6 lg:row-start-1 lg:max-w-[58vw] lg:gap-8 lg:[translate:0.4vw_calc(max(100svh,640px)*0.122)]"
             >
               <h1 className="font-heading text-[40px] leading-none font-normal tracking-[-0.04em] text-balance text-white sm:text-[44px] lg:text-[clamp(44px,4.4vw,63px)]">
-                Строительство домов с гарантией 5 лет от 4 млн руб в Саратовской
+                Строительство домов с гарантией 5 лет от 4,6 млн руб в Саратовской
                 области
               </h1>
 
