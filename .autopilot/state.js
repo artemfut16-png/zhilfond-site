@@ -11,7 +11,7 @@ window.STATE =
   "memoryFile": "CLAUDE.md",
   "skillDir": "C:/Users/artem/Documents/Проекты Claude/Сайт и каталог (Жилищный Фонд)/.agents/skills/autopilot",
   "startedAt": "2026-09-19T16:41:32+03:00",
-  "updatedAt": "2026-09-19T17:03:14+03:00",
+  "updatedAt": "2026-09-19T18:41:07+03:00",
   "finishedAt": null,
   "stages": [
     { "id": "preflight", "status": "done", "startedAt": "2026-09-19T16:41:32+03:00", "finishedAt": "2026-09-19T16:42:25+03:00" },
@@ -23,7 +23,7 @@ window.STATE =
     { "id": "review",    "status": "pending" },
     { "id": "final",     "status": "pending" }
   ],
-  "requirements": { "total": 22, "done": 0, "inTicket": 22, "inSpec": 0, "placeholder": 0, "deferred": 0, "dropped": 0 },
+  "requirements": { "total": 26, "done": 0, "inTicket": 26, "inSpec": 0, "placeholder": 0, "deferred": 0, "dropped": 0 },
   "tickets": [
     {
       "id": "01",
@@ -84,10 +84,13 @@ window.STATE =
         "src/components/site-header.tsx",
         "public/hero*.webp"
       ],
-      "status": "in-progress",
+      "status": "done",
+      "finishedAt": "2026-09-19T18:41:07+03:00",
+      "commit": "aec277a",
       "startedAt": "2026-09-19T16:57:53+03:00",
       "retries": 0,
-      "repairs": 0,
+      "repairs": 1,
+      "repairFindings": ["Hero: крыша режется и текст на фасаде (R10/R07), мобильный: дом ниже первого экрана, мигание белого на белом в варианте 2"],
       "handoffs": 0
     },
     {
@@ -173,8 +176,67 @@ window.STATE =
         "contacts.tsx",
         "site-footer.tsx"
       ],
-      "status": "review",
+      "status": "done",
+      "finishedAt": "2026-09-19T17:04:20+03:00",
+      "commit": "2301940",
       "startedAt": "2026-09-19T17:01:31+03:00",
+      "retries": 0,
+      "repairs": 0,
+      "handoffs": 0
+    },
+  {
+      "id": "06",
+      "title": "Hero: вариант 1 + выбор сгенерированного фото",
+      "requirements": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "R07",
+        "R10",
+        "R11",
+        "R14",
+        "R18",
+        "R19"
+      ],
+      "blockedBy": [
+        "02"
+      ],
+      "wave": 3,
+      "zone": [
+        "src/components/sections/hero*.tsx",
+        "src/components/site-header.tsx",
+        "public/hero-*.webp"
+      ],
+      "status": "done",
+      "finishedAt": "2026-09-19T18:41:07+03:00",
+      "commit": "aec277a",
+      "startedAt": "2026-09-19T17:47:27+03:00",
+      "retries": 0,
+      "repairs": 0,
+      "handoffs": 0
+    },
+    {
+      "id": "07",
+      "title": "Единый радиус 12px по всему сайту",
+      "requirements": [
+        "G04"
+      ],
+      "blockedBy": [
+        "01"
+      ],
+      "wave": 3,
+      "zone": [
+        "src/app/globals.css",
+        "src/components/ui/",
+        "src/components/sections/ (кроме hero)",
+        "src/components/catalog/",
+        "src/components/*.tsx"
+      ],
+      "status": "done",
+      "finishedAt": "2026-09-19T18:41:07+03:00",
+      "commit": "f849938",
+      "startedAt": "2026-09-19T17:47:27+03:00",
       "retries": 0,
       "repairs": 0,
       "handoffs": 0
@@ -185,7 +247,7 @@ window.STATE =
   "debt": { "placeholders": [], "assumptions": [], "emptyEnv": [] },
   "additions": [],
   "coverage": {"findings": 0, "note": "расхождений нет; из «лишнего» убран тёмный блок Этапы"},
-  "concerns": ["projects.tsx: чип площади дублирует SpecRow; на 640–768px цена text-3xl может не влезать в колонку — проверить глазами; rounded-lg vs rounded-(--radius) не единый токен; advantages: бейдж-номер вместо иконки (иконок в данных нет)","calculator.tsx/stages.tsx: text-muted-2 (#9B9BA5) на белом/серой поверхности ≈2.6:1 — нарушает R05.2 для лейбла «Телефон» и номеров этапов; граница поля #E8E8E8 почти невидима, ring-0 убирает фокус; плитки ответов rounded 8px и без aria-pressed","stages.tsx: линия таймлайна не единая (рвётся между колонками)","globals.css .dark: остатки теней и жёстких цветов (тёмная тема не используется)","button.tsx: focus-ring ring-3 красный полупрозрачный — проверить контраст на onPhoto; secondary стал прозрачным — проверить существующие использования","button.tsx: тач-цели xs/sm <44px","layout.tsx: Inter Tight только 400/500"],
+  "concerns": ["Не выполнено: слепая приёмка G4 и ревью Manifest+Spec по последней пачке (Hero/06, радиус/07, блок каталога) — ревьюер остановлен пользователем","СКВОЗНОЕ (05, 04, 03): text-muted-2 (#9B9BA5) используется как смысловой текст <24px и во вторых половинах заголовков (≈2.6:1 на белом, ≈2.1:1 на surface) — нарушает R05.2; поля форм: граница слабая (ink-2/40, line), focus-ring убран; в mortgage/excursion лейблы видимые + placeholder дублируют; двухуровневый цвет в заголовках без двух фраз; шкала заголовков не единая (sm:text-5xl vs 44/50); FAQ порядок блоков на мобильных","projects.tsx: чип площади дублирует SpecRow; на 640–768px цена text-3xl может не влезать в колонку — проверить глазами; rounded-lg vs rounded-(--radius) не единый токен; advantages: бейдж-номер вместо иконки (иконок в данных нет)","calculator.tsx/stages.tsx: text-muted-2 (#9B9BA5) на белом/серой поверхности ≈2.6:1 — нарушает R05.2 для лейбла «Телефон» и номеров этапов; граница поля #E8E8E8 почти невидима, ring-0 убирает фокус; плитки ответов rounded 8px и без aria-pressed","stages.tsx: линия таймлайна не единая (рвётся между колонками)","globals.css .dark: остатки теней и жёстких цветов (тёмная тема не используется)","button.tsx: focus-ring ring-3 красный полупрозрачный — проверить контраст на onPhoto; secondary стал прозрачным — проверить существующие использования","button.tsx: тач-цели xs/sm <44px","layout.tsx: Inter Tight только 400/500"],
   "reviewers": { "manifestSpec": "a67f8fe9a72a3a30e", "craft": "a43431af95c1aafa3" },
   "blind": null
 }
