@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { MenuIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TelegramIcon, MaxIcon } from "@/components/icons";
@@ -13,14 +14,38 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { navLinks, site } from "@/lib/site-data";
+import { cn } from "@/lib/utils";
+
+function subscribeScroll(onChange: () => void) {
+  window.addEventListener("scroll", onChange, { passive: true });
+  return () => window.removeEventListener("scroll", onChange);
+}
 
 export function SiteHeader() {
   const [open, setOpen] = React.useState(false);
+  const pathname = usePathname();
+  const scrolled = React.useSyncExternalStore(
+    subscribeScroll,
+    () => window.scrollY > 8,
+    () => false
+  );
+  // На «/» Hero — фото на весь экран: шапка лежит поверх него и прозрачна до прокрутки.
+  // Зависит только от pathname (одинаков на сервере и клиенте) — без прыжка при гидрации.
+  const overPhotoPage = pathname === "/";
+  const overlay = overPhotoPage && !scrolled;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur supports-backdrop-filter:bg-background/70">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <Link href="#hero" className="text-lg font-semibold tracking-tight">
+    <header
+      className={cn(
+        "sticky top-0 z-40 border-b transition-colors duration-300",
+        overPhotoPage && "-mb-[72px]",
+        overlay
+          ? "border-transparent bg-transparent text-white"
+          : "border-line bg-paper text-ink-2"
+      )}
+    >
+      <div className="mx-auto flex h-[72px] max-w-[1280px] items-center justify-between gap-4 px-4 sm:px-6">
+        <Link href="#hero" className="font-heading text-xl font-medium tracking-[-0.02em]">
           {site.name}
         </Link>
 
@@ -29,7 +54,10 @@ export function SiteHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"
+              className={cn(
+                "text-sm whitespace-nowrap transition-colors",
+                overlay ? "text-white/90 hover:text-white" : "text-ink-2 hover:text-ink"
+              )}
             >
               {link.label}
             </Link>
@@ -37,13 +65,13 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-3 xl:flex">
-          <div className="flex items-center gap-1 text-muted-foreground">
-            <Button variant="ghost" size="icon-sm" asChild>
+          <div className="flex items-center gap-1">
+            <Button variant="ghost" size="icon-sm" className={overlay ? "hover:bg-white/15 hover:text-white" : undefined} asChild>
               <a href={site.telegram} target="_blank" rel="noopener noreferrer" aria-label="Telegram">
                 <TelegramIcon />
               </a>
             </Button>
-            <Button variant="ghost" size="icon-sm" asChild>
+            <Button variant="ghost" size="icon-sm" className={overlay ? "hover:bg-white/15 hover:text-white" : undefined} asChild>
               <a href={site.max} target="_blank" rel="noopener noreferrer" aria-label="MAX">
                 <MaxIcon />
               </a>
@@ -59,7 +87,14 @@ export function SiteHeader() {
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="xl:hidden">
+            <Button
+              variant="outline"
+              size="icon"
+              className={cn(
+                "xl:hidden",
+                overlay && "border-white/60 bg-transparent text-white hover:bg-white/15 hover:text-white"
+              )}
+            >
               <MenuIcon />
               <span className="sr-only">Открыть меню</span>
             </Button>
