@@ -10,7 +10,7 @@ import { Reveal } from "@/components/motion";
 import { mortgagePrograms, site } from "@/lib/site-data";
 
 const fieldClass =
-  "h-12 rounded-none border-0 border-b border-ink-2/40 bg-transparent px-0 text-base shadow-none focus-visible:border-ink-2 focus-visible:ring-0 dark:bg-transparent";
+  "h-12 rounded-(--radius) border border-ink-2/40 bg-transparent px-4 text-base shadow-none focus-visible:border-ink-2 focus-visible:ring-0 dark:bg-transparent";
 
 export function Mortgage() {
   const [submitted, setSubmitted] = React.useState(false);

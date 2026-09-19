@@ -26,7 +26,7 @@ export function Advantages() {
               >
                 <div
                   className={cn(
-                    "flex h-full flex-col gap-8 rounded-lg border p-6 sm:p-8",
+                    "flex h-full flex-col gap-8 rounded-(--radius) border p-6 sm:p-8",
                     isLast
                       ? "border-ink-2 bg-ink-2 text-white"
                       : "border-line bg-paper"

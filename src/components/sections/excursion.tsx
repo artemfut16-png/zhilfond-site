@@ -90,7 +90,7 @@ export function Excursion() {
                       type="tel"
                       placeholder="+7 (___) ___-__-__"
                       required
-                      className="h-12 rounded-none border-0 border-b border-ink-2/40 bg-transparent px-0 text-base shadow-none focus-visible:border-ink-2 focus-visible:ring-0 dark:bg-transparent"
+                      className="h-12 rounded-(--radius) border border-ink-2/40 bg-transparent px-4 text-base shadow-none focus-visible:border-ink-2 focus-visible:ring-0 dark:bg-transparent"
                     />
                   </div>
                   <Button type="submit" size="lg" className="shrink-0">

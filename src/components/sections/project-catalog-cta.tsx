@@ -28,19 +28,19 @@ export function ProjectCatalogCta() {
 
   return (
     <div className="mt-10 grid overflow-hidden rounded-(--radius) bg-secondary text-secondary-foreground lg:grid-cols-2">
-      <div className="relative h-full min-h-[280px] w-full lg:min-h-[420px]">
+      <div className="relative h-full min-h-[320px] w-full lg:min-h-[420px]">
         <Image
           src={assetPath("/pdf-catalog.webp")}
           alt="PDF-каталог проектов"
           fill
           sizes="(min-width: 1024px) 50vw, 100vw"
-          className="object-cover"
+          className="object-contain p-6 sm:p-8"
         />
       </div>
 
       <div className="flex flex-col gap-8 p-8 sm:p-10">
         <div className="flex flex-col gap-2">
-          <h2 className="font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl text-balance">
+          <h2 className="font-heading text-3xl font-medium tracking-[-0.02em] sm:text-4xl text-balance">
             Получите каталог{" "}
             <span className="text-secondary-foreground/55">
               со всеми проектами, планировками и ценами
@@ -93,7 +93,7 @@ export function ProjectCatalogCta() {
               <Button
                 type="submit"
                 size="lg"
-                className="h-12 shrink-0 rounded-(--radius) bg-neutral-200 text-neutral-900 hover:bg-neutral-300"
+                className="h-12 shrink-0 rounded-(--radius) bg-secondary-foreground text-foreground hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-secondary-foreground/60 focus-visible:ring-offset-2 focus-visible:ring-offset-secondary"
               >
                 Получить каталог
               </Button>

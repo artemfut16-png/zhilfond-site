@@ -159,7 +159,7 @@ export function Calculator() {
                         placeholder="+7 (___) ___-__-__"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        className="max-w-72 rounded-none border-0 border-b border-line bg-transparent px-0 shadow-none focus-visible:border-ink-2 focus-visible:ring-0"
+                        className="max-w-72 rounded-(--radius) border border-line bg-transparent px-4 shadow-none focus-visible:border-ink-2 focus-visible:ring-0"
                       />
                     </div>
                     <Button type="submit" size="lg" className="w-fit">

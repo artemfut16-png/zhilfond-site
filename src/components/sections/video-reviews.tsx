@@ -68,7 +68,7 @@ export function VideoReviews() {
                   className="basis-2/3 sm:basis-1/3 lg:basis-1/4"
                 >
                   {embedSrc ? (
-                    <div className="relative aspect-[9/16] w-full overflow-hidden rounded-lg border border-line">
+                    <div className="relative aspect-[9/16] w-full overflow-hidden rounded-(--radius) border border-line">
                       <iframe
                         src={embedSrc}
                         title={label}
@@ -82,7 +82,7 @@ export function VideoReviews() {
                       href={site.vkClips}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative flex aspect-[9/16] w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-lg border border-dashed border-line bg-surface text-muted-foreground"
+                      className="relative flex aspect-[9/16] w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-(--radius) border border-dashed border-line bg-surface text-muted-foreground"
                     >
                       <ImageIcon className="size-8 opacity-40" strokeWidth={1.5} />
                       <span className="px-4 text-center text-xs opacity-60">

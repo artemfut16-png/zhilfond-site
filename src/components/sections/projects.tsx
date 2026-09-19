@@ -65,7 +65,7 @@ export function Projects() {
                 delay={Math.min(index, 4) * 60}
                 className="h-full"
               >
-                <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-line bg-paper">
+                <article className="group flex h-full flex-col overflow-hidden rounded-(--radius) border border-line bg-paper">
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
                     <Image
                       src={assetPath(`/catalog/${project.id}.png`)}
@@ -74,9 +74,6 @@ export function Projects() {
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                       className="object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:scale-[1.03]"
                     />
-                    <span className="absolute top-3 left-3 rounded-full bg-paper px-3 py-1 text-sm font-medium text-ink-2 tnum">
-                      {areaFormatter.format(project.area)} м²
-                    </span>
                   </div>
                   <div className="flex flex-1 flex-col gap-4 p-5 sm:p-6">
                     <p className="font-heading text-2xl font-medium tracking-[-0.04em] text-ink-2">
@@ -89,7 +86,7 @@ export function Projects() {
                       от {priceFormatter.format(project.priceFrom)} ₽
                     </p>
 
-                    <div className="rounded-lg bg-surface px-3 py-2">
+                    <div className="rounded-(--radius) bg-surface px-3 py-2">
                       <p className="text-sm">
                         <span className="font-medium tnum">
                           от {priceFormatter.format(project.mortgageFrom)} ₽/мес
@@ -108,7 +105,7 @@ export function Projects() {
           })}
         </div>
 
-        <div className="mt-6 rounded-lg bg-paper px-4 py-5 text-center text-base font-medium text-ink-2">
+        <div className="mt-6 rounded-(--radius) bg-paper px-4 py-5 text-center text-base font-medium text-ink-2">
           И ещё +{catalogHouses.length - projects.length} проектов в полном каталоге
         </div>
 
