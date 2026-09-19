@@ -12,6 +12,16 @@
   --font-serif: var(--font-serif);
   --font-display: var(--font-display);
   --font-heading: var(--font-display);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted-2: var(--muted-2);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --color-paper: var(--paper);
+  --color-night: var(--night);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-red: var(--accent-red);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -51,63 +61,74 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
-  --shadow-2xs: var(--shadow-offset-x) var(--shadow-offset-y) var(--shadow-blur) var(--shadow-spread) hsl(0 0% 0% / calc(var(--shadow-opacity) * 0.5));
-  --shadow-xs: var(--shadow-offset-x) var(--shadow-offset-y) var(--shadow-blur) var(--shadow-spread) hsl(0 0% 0% / calc(var(--shadow-opacity) * 0.5));
-  --shadow-sm: var(--shadow-offset-x) var(--shadow-offset-y) var(--shadow-blur) var(--shadow-spread) hsl(0 0% 0% / var(--shadow-opacity));
-  --shadow: var(--shadow-offset-x) var(--shadow-offset-y) var(--shadow-blur) var(--shadow-spread) hsl(0 0% 0% / var(--shadow-opacity));
-  --shadow-md: var(--shadow-offset-x) var(--shadow-offset-y) var(--shadow-blur) var(--shadow-spread) hsl(0 0% 0% / var(--shadow-opacity));
-  --shadow-lg: var(--shadow-offset-x) calc(var(--shadow-offset-y) * 2) calc(var(--shadow-blur) * 2) var(--shadow-spread) hsl(0 0% 0% / var(--shadow-opacity));
-  --shadow-xl: var(--shadow-offset-x) calc(var(--shadow-offset-y) * 3) calc(var(--shadow-blur) * 3) var(--shadow-spread) hsl(0 0% 0% / var(--shadow-opacity));
-  --shadow-2xl: var(--shadow-offset-x) calc(var(--shadow-offset-y) * 4) calc(var(--shadow-blur) * 4) var(--shadow-spread) hsl(0 0% 0% / calc(var(--shadow-opacity) * 1.5));
+  --shadow-2xs: none;
+  --shadow-xs: none;
+  --shadow-sm: none;
+  --shadow: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-xl: none;
+  --shadow-2xl: none;
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #151513;
-  --card: #ffffff;
-  --card-foreground: #151513;
-  --popover: #ffffff;
-  --popover-foreground: #151513;
-  --primary: #d10000;
+  /* Токены дизайн-системы v2 */
+  --ink: #17171a;
+  --ink-2: #28282c;
+  --muted-2: #9b9ba5;
+  --line: #e8e8e8;
+  --surface: #ebebeb;
+  --paper: #ffffff;
+  --night: #191c29;
+  --accent-red: #d10000;
+  --accent-ink: #a80000;
+  --accent-soft: #fbeaea;
+  --radius-card: 8px;
+  --radius-btn: 0px;
+  --radius-pill: 999px;
+
+  /* shadcn выровнен под v2. Примечание: --accent в shadcn — светлая подсветка
+     (hover/selected), поэтому он = accent-soft; красный #D10000 — это --primary / --accent-red. */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--accent-red);
   --primary-foreground: #ffffff;
-  --secondary: #151513;
+  --secondary: var(--ink-2);
   --secondary-foreground: #ffffff;
-  --muted: color-mix(in srgb, #151513 5%, white);
-  --muted-foreground: color-mix(in srgb, #151513 60%, white);
-  --accent: color-mix(in srgb, #d10000 8%, white);
-  --accent-foreground: #151513;
-  --destructive: #d10000;
+  --muted: var(--surface);
+  --muted-foreground: #626269;
+  --accent: var(--accent-soft);
+  --accent-foreground: var(--ink);
+  --destructive: var(--accent-red);
   --destructive-foreground: #ffffff;
-  --border: color-mix(in srgb, #151513 12%, white);
-  --input: color-mix(in srgb, #151513 12%, white);
-  --ring: #d10000;
-  --radius: 12px;
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--accent-red);
+  --radius: 8px;
   --chart-1: #d10000;
-  --chart-2: #151513;
+  --chart-2: #28282c;
   --chart-3: color-mix(in srgb, #d10000 55%, white);
-  --chart-4: color-mix(in srgb, #151513 55%, white);
-  --chart-5: color-mix(in srgb, #151513 25%, white);
-  --sidebar: #ffffff;
-  --sidebar-foreground: #151513;
-  --sidebar-primary: #d10000;
+  --chart-4: #626269;
+  --chart-5: #9b9ba5;
+  --sidebar: var(--paper);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--accent-red);
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: color-mix(in srgb, #151513 5%, white);
-  --sidebar-accent-foreground: #151513;
-  --sidebar-border: color-mix(in srgb, #151513 12%, white);
-  --sidebar-ring: #d10000;
+  --sidebar-accent: var(--surface);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--line);
+  --sidebar-ring: var(--accent-red);
   --spacing: 0.25rem;
   --letter-spacing: 0em;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-serif: var(--font-inter), ui-sans-serif, sans-serif, system-ui;
-  /* Дисплейный шрифт — только заголовки секций (H1/H2), не UI */
-  --font-display: var(--font-onest), var(--font-inter), system-ui, sans-serif;
-  --shadow-blur: 4px;
-  --shadow-color: #151513;
-  --shadow-spread: 0px;
-  --shadow-opacity: 0.08;
-  --shadow-offset-x: 0px;
-  --shadow-offset-y: 2px;
+  /* Заголовки — Inter Tight */
+  --font-display: var(--font-inter-tight), var(--font-inter), system-ui, sans-serif;
 }
 
 .dark {
@@ -117,7 +138,6 @@
   --muted: #333333;
   --accent: #404040;
   --border: #333333;
-  --radius: 0rem;
   --chart-1: #FF4B32;
   --chart-2: #808080;
   --chart-3: #545454;
@@ -129,7 +149,6 @@
   --spacing: 0.25rem;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
   --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-display: var(--font-onest), var(--font-inter), system-ui, sans-serif;
   --secondary: #808080;
   --background: #1D1D1D;
   --font-serif: var(--font-inter), ui-sans-serif, sans-serif, system-ui;
@@ -217,4 +236,23 @@
     color-mix(in srgb, var(--background) 22%, transparent) 50%,
     transparent 66%
   );
+}
+
+/* Появление блоков: управляется компонентом Reveal (data-reveal ставится только на клиенте) */
+[data-reveal] {
+  transition:
+    opacity 500ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(16px);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-reveal="hidden"] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
