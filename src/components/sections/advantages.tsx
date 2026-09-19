@@ -1,52 +1,62 @@
+import { Reveal } from "@/components/motion";
 import { cn } from "@/lib/utils";
 import { advantages } from "@/lib/site-data";
 
 export function Advantages() {
   return (
-    <section id="advantages">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-        <div className="mb-10 flex flex-col gap-2">
-          <h2 className="font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
+    <section id="advantages" className="bg-surface">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
+        <Reveal className="mb-10 flex flex-col gap-3 sm:mb-14">
+          <h2 className="font-heading text-[30px] leading-[1.05] font-medium tracking-[-0.04em] text-ink-2 sm:text-[44px] lg:text-[50px]">
             Ответственный подход к строительству
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-base text-muted-foreground sm:text-lg">
             Строим так, будто строим для себя — с контролем на каждом этапе
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {advantages.map((advantage, i) => {
             const isLast = i === advantages.length - 1;
             return (
-              <div
+              <Reveal
                 key={advantage.title}
-                className={cn(
-                  "flex flex-col gap-6 rounded-(--radius) border p-6",
-                  isLast
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border bg-card"
-                )}
+                delay={Math.min(i, 4) * 60}
+                className="h-full"
               >
-                <p
+                <div
                   className={cn(
-                    "text-3xl font-semibold",
-                    isLast ? "text-primary-foreground/50" : "text-muted-foreground/60"
+                    "flex h-full flex-col gap-8 rounded-lg border p-6 sm:p-8",
+                    isLast
+                      ? "border-ink-2 bg-ink-2 text-white"
+                      : "border-line bg-paper"
                   )}
                 >
-                  0{i + 1}.
-                </p>
-                <div className="flex flex-col gap-1">
-                  <p className="font-medium">{advantage.title}</p>
-                  <p
+                  <span
                     className={cn(
-                      "text-sm",
-                      isLast ? "text-primary-foreground/70" : "text-muted-foreground"
+                      "flex size-12 items-center justify-center rounded-full font-heading text-lg font-medium tnum",
+                      isLast
+                        ? "bg-white/15 text-white"
+                        : "bg-accent-soft text-accent-ink"
                     )}
                   >
-                    {advantage.description}
-                  </p>
+                    0{i + 1}
+                  </span>
+                  <div className="flex flex-col gap-2">
+                    <p className="font-heading text-xl font-medium tracking-[-0.04em]">
+                      {advantage.title}
+                    </p>
+                    <p
+                      className={cn(
+                        "text-sm",
+                        isLast ? "text-white/70" : "text-muted-foreground"
+                      )}
+                    >
+                      {advantage.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>

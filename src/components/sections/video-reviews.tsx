@@ -6,6 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Reveal } from "@/components/motion";
 import { site } from "@/lib/site-data";
 import { getVkEmbedSrc } from "@/lib/vk";
 
@@ -44,17 +45,18 @@ const videoReviews: { label: string; vkUrl: string | null }[] = [
 
 export function VideoReviews() {
   return (
-    <section className="bg-muted">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-        <div className="mb-10 flex flex-col gap-2">
-          <h2 className="font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
+    <section className="bg-paper">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
+        <Reveal className="mb-10 flex flex-col gap-3 sm:mb-14">
+          <h2 className="font-heading text-[30px] leading-[1.05] font-medium tracking-[-0.04em] text-ink-2 sm:text-[44px] lg:text-[50px]">
             Обзоры построенных домов
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-base text-muted-foreground sm:text-lg">
             Как мы строим? Обзоры готовых домов с комментариями нашей команды
           </p>
-        </div>
+        </Reveal>
 
+        <Reveal>
         <Carousel opts={{ align: "start", loop: true }} className="px-1">
           <CarouselContent>
             {videoReviews.map(({ label, vkUrl }) => {
@@ -66,7 +68,7 @@ export function VideoReviews() {
                   className="basis-2/3 sm:basis-1/3 lg:basis-1/4"
                 >
                   {embedSrc ? (
-                    <div className="relative aspect-[9/16] w-full overflow-hidden rounded-(--radius) border border-border">
+                    <div className="relative aspect-[9/16] w-full overflow-hidden rounded-lg border border-line">
                       <iframe
                         src={embedSrc}
                         title={label}
@@ -80,14 +82,14 @@ export function VideoReviews() {
                       href={site.vkClips}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative flex aspect-[9/16] w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-(--radius) border border-dashed border-border bg-background text-muted-foreground"
+                      className="relative flex aspect-[9/16] w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-lg border border-dashed border-line bg-surface text-muted-foreground"
                     >
                       <ImageIcon className="size-8 opacity-40" strokeWidth={1.5} />
                       <span className="px-4 text-center text-xs opacity-60">
                         {label}
                       </span>
                       <span className="absolute inset-0 flex items-center justify-center">
-                        <span className="flex size-14 items-center justify-center rounded-full bg-background/90 shadow-sm">
+                        <span className="flex size-14 items-center justify-center rounded-full bg-paper/90">
                           <PlayIcon className="size-5 translate-x-0.5 fill-foreground text-foreground" />
                         </span>
                       </span>
@@ -97,15 +99,16 @@ export function VideoReviews() {
               );
             })}
           </CarouselContent>
-          <CarouselPrevious className="left-3 shadow-sm" />
-          <CarouselNext className="right-3 shadow-sm" />
+          <CarouselPrevious className="left-3" />
+          <CarouselNext className="right-3" />
         </Carousel>
+        </Reveal>
 
         <a
           href={site.vkClips}
           target="_blank"
           rel="noopener noreferrer"
-          className="group mt-6 inline-flex items-center gap-1.5 text-sm font-medium hover:underline"
+          className="group mt-8 inline-flex min-h-11 items-center gap-1.5 text-base font-medium text-ink-2 hover:underline"
         >
           Смотреть все клипы во ВКонтакте
           <ArrowUpRightIcon className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
