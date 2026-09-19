@@ -11,7 +11,7 @@ window.STATE =
   "memoryFile": "CLAUDE.md",
   "skillDir": "C:/Users/artem/Documents/Проекты Claude/Сайт и каталог (Жилищный Фонд)/.agents/skills/autopilot",
   "startedAt": "2026-09-19T16:41:32+03:00",
-  "updatedAt": "2026-09-19T16:56:23+03:00",
+  "updatedAt": "2026-09-19T17:01:31+03:00",
   "finishedAt": null,
   "stages": [
     { "id": "preflight", "status": "done", "startedAt": "2026-09-19T16:41:32+03:00", "finishedAt": "2026-09-19T16:42:25+03:00" },
@@ -49,7 +49,9 @@ window.STATE =
         "src/components/ui/",
         "src/components/motion/"
       ],
-      "status": "review",
+      "status": "done",
+      "finishedAt": "2026-09-19T16:57:53+03:00",
+      "commit": "7c60921",
       "startedAt": "2026-09-19T16:47:47+03:00",
       "retries": 0,
       "repairs": 0,
@@ -82,7 +84,8 @@ window.STATE =
         "src/components/site-header.tsx",
         "public/hero*.webp"
       ],
-      "status": "pending",
+      "status": "in-progress",
+      "startedAt": "2026-09-19T16:57:53+03:00",
       "retries": 0,
       "repairs": 0,
       "handoffs": 0
@@ -108,7 +111,8 @@ window.STATE =
         "video-reviews.tsx",
         "advantages.tsx"
       ],
-      "status": "pending",
+      "status": "review",
+      "startedAt": "2026-09-19T16:57:53+03:00",
       "retries": 0,
       "repairs": 0,
       "handoffs": 0
@@ -135,7 +139,8 @@ window.STATE =
         "stages.tsx",
         "gallery.tsx"
       ],
-      "status": "pending",
+      "status": "review",
+      "startedAt": "2026-09-19T16:57:53+03:00",
       "retries": 0,
       "repairs": 0,
       "handoffs": 0
@@ -164,7 +169,8 @@ window.STATE =
         "contacts.tsx",
         "site-footer.tsx"
       ],
-      "status": "pending",
+      "status": "in-progress",
+      "startedAt": "2026-09-19T17:01:31+03:00",
       "retries": 0,
       "repairs": 0,
       "handoffs": 0
@@ -175,7 +181,7 @@ window.STATE =
   "debt": { "placeholders": [], "assumptions": [], "emptyEnv": [] },
   "additions": [],
   "coverage": {"findings": 0, "note": "расхождений нет; из «лишнего» убран тёмный блок Этапы"},
-  "concerns": [],
+  "concerns": ["globals.css .dark: остатки теней и жёстких цветов (тёмная тема не используется)","button.tsx: focus-ring ring-3 красный полупрозрачный — проверить контраст на onPhoto; secondary стал прозрачным — проверить существующие использования","button.tsx: тач-цели xs/sm <44px","layout.tsx: Inter Tight только 400/500"],
   "reviewers": { "manifestSpec": "a67f8fe9a72a3a30e", "craft": "a43431af95c1aafa3" },
   "blind": null
 }
