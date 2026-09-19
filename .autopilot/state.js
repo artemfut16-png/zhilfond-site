@@ -11,7 +11,7 @@ window.STATE =
   "memoryFile": "CLAUDE.md",
   "skillDir": "C:/Users/artem/Documents/Проекты Claude/Сайт и каталог (Жилищный Фонд)/.agents/skills/autopilot",
   "startedAt": "2026-09-19T16:41:32+03:00",
-  "updatedAt": "2026-09-19T17:02:25+03:00",
+  "updatedAt": "2026-09-19T17:03:14+03:00",
   "finishedAt": null,
   "stages": [
     { "id": "preflight", "status": "done", "startedAt": "2026-09-19T16:41:32+03:00", "finishedAt": "2026-09-19T16:42:25+03:00" },
@@ -111,7 +111,9 @@ window.STATE =
         "video-reviews.tsx",
         "advantages.tsx"
       ],
-      "status": "review",
+      "status": "done",
+      "finishedAt": "2026-09-19T17:02:59+03:00",
+      "commit": "ecf89e2",
       "startedAt": "2026-09-19T16:57:53+03:00",
       "retries": 0,
       "repairs": 0,
@@ -171,7 +173,7 @@ window.STATE =
         "contacts.tsx",
         "site-footer.tsx"
       ],
-      "status": "in-progress",
+      "status": "review",
       "startedAt": "2026-09-19T17:01:31+03:00",
       "retries": 0,
       "repairs": 0,
@@ -183,7 +185,7 @@ window.STATE =
   "debt": { "placeholders": [], "assumptions": [], "emptyEnv": [] },
   "additions": [],
   "coverage": {"findings": 0, "note": "расхождений нет; из «лишнего» убран тёмный блок Этапы"},
-  "concerns": ["calculator.tsx/stages.tsx: text-muted-2 (#9B9BA5) на белом/серой поверхности ≈2.6:1 — нарушает R05.2 для лейбла «Телефон» и номеров этапов; граница поля #E8E8E8 почти невидима, ring-0 убирает фокус; плитки ответов rounded 8px и без aria-pressed","stages.tsx: линия таймлайна не единая (рвётся между колонками)","globals.css .dark: остатки теней и жёстких цветов (тёмная тема не используется)","button.tsx: focus-ring ring-3 красный полупрозрачный — проверить контраст на onPhoto; secondary стал прозрачным — проверить существующие использования","button.tsx: тач-цели xs/sm <44px","layout.tsx: Inter Tight только 400/500"],
+  "concerns": ["projects.tsx: чип площади дублирует SpecRow; на 640–768px цена text-3xl может не влезать в колонку — проверить глазами; rounded-lg vs rounded-(--radius) не единый токен; advantages: бейдж-номер вместо иконки (иконок в данных нет)","calculator.tsx/stages.tsx: text-muted-2 (#9B9BA5) на белом/серой поверхности ≈2.6:1 — нарушает R05.2 для лейбла «Телефон» и номеров этапов; граница поля #E8E8E8 почти невидима, ring-0 убирает фокус; плитки ответов rounded 8px и без aria-pressed","stages.tsx: линия таймлайна не единая (рвётся между колонками)","globals.css .dark: остатки теней и жёстких цветов (тёмная тема не используется)","button.tsx: focus-ring ring-3 красный полупрозрачный — проверить контраст на onPhoto; secondary стал прозрачным — проверить существующие использования","button.tsx: тач-цели xs/sm <44px","layout.tsx: Inter Tight только 400/500"],
   "reviewers": { "manifestSpec": "a67f8fe9a72a3a30e", "craft": "a43431af95c1aafa3" },
   "blind": null
 }

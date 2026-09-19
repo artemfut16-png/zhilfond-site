@@ -6,7 +6,11 @@ import { CheckCircle2Icon, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Reveal } from "@/components/motion";
 import { mortgagePrograms, site } from "@/lib/site-data";
+
+const fieldClass =
+  "h-12 rounded-none border-0 border-b border-ink-2/40 bg-transparent px-0 text-base shadow-none focus-visible:border-ink-2 focus-visible:ring-0 dark:bg-transparent";
 
 export function Mortgage() {
   const [submitted, setSubmitted] = React.useState(false);
@@ -17,78 +21,81 @@ export function Mortgage() {
   }
 
   return (
-    <section id="mortgage">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-        <div className="mb-10 flex flex-col gap-2">
-          <h2 className="max-w-2xl font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl text-balance">
-            Наши дома можно купить в ипотеку с господдержкой
+    <section id="mortgage" className="bg-paper text-ink">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-28">
+        <Reveal className="mb-12 flex flex-col gap-4 lg:mb-16">
+          <h2 className="max-w-4xl font-heading text-[30px] font-normal leading-none tracking-[-0.04em] text-ink-2 text-balance sm:text-5xl">
+            Наши дома можно купить в ипотеку{" "}
+            <span className="text-muted-2">с господдержкой</span>
           </h2>
-          <p className="text-muted-foreground">
+          <p className="max-w-2xl text-muted-foreground">
             Работаем с ипотекой! Поможем подобрать программу и подготовить
             документы для банка «под ключ»
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid gap-4 lg:grid-cols-[1fr_360px]">
+        <div className="grid gap-8 lg:grid-cols-[1fr_400px] lg:gap-12">
           <div className="grid gap-4 sm:grid-cols-3">
-            {mortgagePrograms.map((program) => (
-              <div
+            {mortgagePrograms.map((program, i) => (
+              <Reveal
                 key={program.name}
+                delay={i * 80}
                 className={`flex flex-col gap-4 rounded-(--radius) border p-6 ${
                   program.featured
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border bg-card"
+                    ? "border-ink-2 bg-ink-2 text-white"
+                    : "border-line bg-surface"
                 }`}
               >
                 <p className="font-medium">{program.name}</p>
-                <p className="text-3xl font-semibold">{program.rate}</p>
+                <p className="font-heading text-4xl font-normal leading-none tracking-[-0.04em] sm:text-5xl">
+                  {program.rate}
+                </p>
                 <p
                   className={`text-sm ${
-                    program.featured
-                      ? "text-primary-foreground/70"
-                      : "text-muted-foreground"
+                    program.featured ? "text-white/70" : "text-muted-foreground"
                   }`}
                 >
                   {program.amount}
                 </p>
                 <p
                   className={`text-sm ${
-                    program.featured
-                      ? "text-primary-foreground/70"
-                      : "text-muted-foreground"
+                    program.featured ? "text-white/70" : "text-muted-foreground"
                   }`}
                 >
                   {program.description}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
 
-          <div className="rounded-(--radius) border border-border bg-card p-6">
-            <h3 className="text-xl font-semibold tracking-tight">
+          <Reveal
+            delay={120}
+            className="rounded-(--radius) border border-line bg-surface p-6 sm:p-8"
+          >
+            <h3 className="font-heading text-2xl font-normal leading-tight tracking-[-0.04em] text-ink-2">
               Получить консультацию
             </h3>
-            <p className="mt-1 text-sm text-muted-foreground">
+            <p className="mt-2 text-sm text-muted-foreground">
               Рассчитаем стоимость дома, подберем ипотечную программу,
               определим первоначальный взнос и ежемесячный платеж, поможем
               подготовить документы для банка. Бесплатно!
             </p>
 
             {submitted ? (
-              <div className="mt-6 flex items-center gap-2 rounded-(--radius) bg-muted px-4 py-3 text-sm">
-                <CheckCircle2Icon className="size-5 shrink-0 text-primary" />
+              <div className="mt-6 flex items-center gap-2 bg-paper px-4 py-3 text-sm">
+                <CheckCircle2Icon className="size-5 shrink-0 text-accent-ink" />
                 Заявка отправлена, скоро мы с вами свяжемся
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-3">
+              <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
                 <div className="flex flex-col gap-1.5">
-                  <Label htmlFor="mortgage-name" className="sr-only">
+                  <Label htmlFor="mortgage-name" className="text-xs font-medium text-muted-2">
                     Имя
                   </Label>
-                  <Input id="mortgage-name" placeholder="Имя" required />
+                  <Input id="mortgage-name" placeholder="Имя" required className={fieldClass} />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <Label htmlFor="mortgage-phone" className="sr-only">
+                  <Label htmlFor="mortgage-phone" className="text-xs font-medium text-muted-2">
                     Телефон
                   </Label>
                   <Input
@@ -96,9 +103,10 @@ export function Mortgage() {
                     type="tel"
                     placeholder="+7 (___) ___-__-__"
                     required
+                    className={fieldClass}
                   />
                 </div>
-                <Button type="submit" size="lg" className="mt-1">
+                <Button type="submit" size="lg" className="mt-2">
                   Получить консультацию
                 </Button>
                 <p className="text-xs text-muted-foreground">
@@ -110,7 +118,7 @@ export function Mortgage() {
               </form>
             )}
 
-            <div className="mt-6 flex items-center gap-2 border-t border-border pt-6 text-sm">
+            <div className="mt-6 flex items-center gap-2 border-t border-line pt-6 text-sm">
               <PhoneIcon className="size-4 shrink-0 text-muted-foreground" />
               <div>
                 <p className="text-muted-foreground">
@@ -121,7 +129,7 @@ export function Mortgage() {
                 </a>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

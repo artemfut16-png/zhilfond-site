@@ -3,13 +3,13 @@ import { site } from "@/lib/site-data";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6">
+    <footer className="bg-night text-white/70">
+      <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-10 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <p>
           © {new Date().getFullYear()} {site.name}. Все права защищены ·{" "}
           {site.legalName}, ИНН {site.inn}
         </p>
-        <Link href="/privacy" className="hover:text-foreground">
+        <Link href="/privacy" className="text-white hover:underline underline-offset-4">
           Политика конфиденциальности
         </Link>
       </div>
