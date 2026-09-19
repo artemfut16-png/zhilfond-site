@@ -54,13 +54,13 @@
   --color-card: var(--card);
   --color-spacing: var(--spacing);
   --color-letter-spacing: var(--letter-spacing);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  --radius-xl: var(--radius);
+  --radius-2xl: var(--radius);
+  --radius-3xl: var(--radius);
+  --radius-4xl: var(--radius);
   --shadow-2xs: none;
   --shadow-xs: none;
   --shadow-sm: none;
@@ -83,9 +83,9 @@
   --accent-red: #d10000;
   --accent-ink: #a80000;
   --accent-soft: #fbeaea;
-  --radius-card: 8px;
-  --radius-btn: 0px;
-  --radius-pill: 999px;
+  --radius-card: 12px;
+  --radius-btn: 12px;
+  --radius-pill: 12px;
 
   /* shadcn выровнен под v2. Примечание: --accent в shadcn — светлая подсветка
      (hover/selected), поэтому он = accent-soft; красный #D10000 — это --primary / --accent-red. */
@@ -108,7 +108,7 @@
   --border: var(--line);
   --input: var(--line);
   --ring: var(--accent-red);
-  --radius: 8px;
+  --radius: 12px;
   --chart-1: #d10000;
   --chart-2: #28282c;
   --chart-3: color-mix(in srgb, #d10000 55%, white);
@@ -204,38 +204,6 @@
   .tnum {
     font-variant-numeric: tabular-nums;
   }
-}
-
-/*
- * Растворение фона в фотографию героя.
- * Много промежуточных стопов — чтобы переход читался как дымка, а не как полоса.
- * Проценты подобраны под кадр, где дом стоит в правой половине:
- * левая четверть остаётся чистым фоном под текст.
- */
-.hero-fade-x {
-  background: linear-gradient(
-    to right,
-    var(--background) 0%,
-    var(--background) 26%,
-    color-mix(in srgb, var(--background) 90%, transparent) 36%,
-    color-mix(in srgb, var(--background) 66%, transparent) 45%,
-    color-mix(in srgb, var(--background) 36%, transparent) 53%,
-    color-mix(in srgb, var(--background) 14%, transparent) 62%,
-    transparent 74%
-  );
-}
-
-/* Мобильный кадр: фон поднимается снизу, текст ложится на чистое поле */
-.hero-fade-y {
-  background: linear-gradient(
-    to top,
-    var(--background) 0%,
-    var(--background) 14%,
-    color-mix(in srgb, var(--background) 85%, transparent) 26%,
-    color-mix(in srgb, var(--background) 55%, transparent) 38%,
-    color-mix(in srgb, var(--background) 22%, transparent) 50%,
-    transparent 66%
-  );
 }
 
 /* Появление блоков: управляется компонентом Reveal (data-reveal ставится только на клиенте) */
