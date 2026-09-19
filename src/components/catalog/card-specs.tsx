@@ -49,26 +49,3 @@ export function SpecRow({
     </ul>
   );
 }
-
-/**
- * Плашка поверх фото — цена или статус.
- * Подложка непрозрачная настолько, чтобы текст читался на любом кадре.
- */
-export function PhotoBadge({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <span
-      className={cn(
-        "pointer-events-none absolute bottom-3 left-3 z-10 inline-flex items-center rounded-full bg-secondary/90 px-3 py-1.5 text-sm font-semibold text-secondary-foreground backdrop-blur-sm tnum",
-        className
-      )}
-    >
-      {children}
-    </span>
-  );
-}

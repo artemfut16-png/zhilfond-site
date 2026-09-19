@@ -3,7 +3,7 @@ import Image from "next/image";
 import { RulerIcon, BedDoubleIcon, LandPlotIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { SpecRow, PhotoBadge, type CardSpec } from "@/components/catalog/card-specs";
+import { SpecRow, type CardSpec } from "@/components/catalog/card-specs";
 import { housesForSale, roomCounts } from "@/lib/catalog-data";
 import { assetPath } from "@/lib/asset-path";
 import { plural } from "@/lib/utils";
@@ -52,7 +52,6 @@ export function HousesForSale() {
                 sizes="(min-width: 640px) 50vw, 100vw"
                 className="object-cover"
               />
-              <PhotoBadge>{priceFormatter.format(house.price)} ₽</PhotoBadge>
             </Link>
             <CardContent className="flex flex-col gap-3">
               <Link
@@ -64,9 +63,13 @@ export function HousesForSale() {
 
               <SpecRow specs={specs} />
 
+              <p className="text-lg font-semibold tnum">
+                {priceFormatter.format(house.price)} ₽
+              </p>
+
               <p className="text-sm text-muted-foreground">{house.address}</p>
 
-              <Button className="mt-1" asChild>
+              <Button className="mt-1 bg-muted text-foreground hover:bg-muted/70" asChild>
                 <Link href={`/catalog/for-sale/${house.id}`}>Подробнее</Link>
               </Button>
             </CardContent>

@@ -93,7 +93,7 @@ export function ProjectCatalogCta() {
               <Button
                 type="submit"
                 size="lg"
-                className="h-12 shrink-0 rounded-(--radius) border border-secondary-foreground/30 bg-secondary-foreground/10 text-secondary-foreground hover:bg-secondary-foreground/20"
+                className="h-12 shrink-0 rounded-(--radius) bg-neutral-200 text-neutral-900 hover:bg-neutral-300"
               >
                 Получить каталог
               </Button>

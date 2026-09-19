@@ -3,7 +3,7 @@ import Image from "next/image";
 import { RulerIcon, BedDoubleIcon, BathIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { SpecRow, PhotoBadge, type CardSpec } from "@/components/catalog/card-specs";
+import { SpecRow, type CardSpec } from "@/components/catalog/card-specs";
 import { ProjectCatalogCta } from "@/components/sections/project-catalog-cta";
 import { projects } from "@/lib/site-data";
 import { catalogHouses, roomCounts } from "@/lib/catalog-data";
@@ -69,14 +69,15 @@ export function Projects() {
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover"
                   />
-                  <PhotoBadge>
-                    от {priceFormatter.format(project.priceFrom)} ₽
-                  </PhotoBadge>
                 </div>
                 <CardContent className="flex flex-col gap-3">
                   <p className="font-medium">{project.title}</p>
 
                   <SpecRow specs={specs} />
+
+                  <p className="text-lg font-semibold tnum">
+                    от {priceFormatter.format(project.priceFrom)} ₽
+                  </p>
 
                   <div className="rounded-(--radius) bg-muted px-3 py-2">
                     <p className="text-sm">
@@ -87,7 +88,7 @@ export function Projects() {
                     </p>
                   </div>
 
-                  <Button className="mt-1" asChild>
+                  <Button className="mt-1 bg-muted text-foreground hover:bg-muted/70" asChild>
                     <Link href={`/catalog/${project.id}`}>Подробнее</Link>
                   </Button>
                 </CardContent>

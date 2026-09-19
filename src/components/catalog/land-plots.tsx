@@ -3,7 +3,7 @@ import Image from "next/image";
 import { LandPlotIcon, MapPinIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { SpecRow, PhotoBadge, type CardSpec } from "@/components/catalog/card-specs";
+import { SpecRow, type CardSpec } from "@/components/catalog/card-specs";
 import { landPlots } from "@/lib/catalog-data";
 import { assetPath } from "@/lib/asset-path";
 
@@ -40,7 +40,6 @@ export function LandPlots() {
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="object-cover"
               />
-              <PhotoBadge>{priceFormatter.format(plot.price)} ₽</PhotoBadge>
             </Link>
             <CardContent className="flex flex-col gap-3">
               <Link
@@ -52,7 +51,11 @@ export function LandPlots() {
 
               <SpecRow specs={specs} />
 
-              <Button variant="outline" className="mt-1" asChild>
+              <p className="text-lg font-semibold tnum">
+                {priceFormatter.format(plot.price)} ₽
+              </p>
+
+              <Button className="mt-1 bg-muted text-foreground hover:bg-muted/70" asChild>
                 <Link href={`/catalog/plots/${plot.id}`}>Подробнее</Link>
               </Button>
             </CardContent>

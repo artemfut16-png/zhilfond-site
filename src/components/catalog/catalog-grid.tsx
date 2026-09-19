@@ -6,7 +6,7 @@ import Image from "next/image";
 import { RulerIcon, BedDoubleIcon, BathIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { SpecRow, PhotoBadge, type CardSpec } from "@/components/catalog/card-specs";
+import { SpecRow, type CardSpec } from "@/components/catalog/card-specs";
 import {
   Select,
   SelectContent,
@@ -102,9 +102,6 @@ export function CatalogGrid() {
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="object-cover"
               />
-              <PhotoBadge>
-                от {priceFormatter.format(house.warmContourPrice)} ₽
-              </PhotoBadge>
             </Link>
             <CardContent className="flex flex-col gap-3">
               <Link href={`/catalog/${house.id}`} className="font-medium hover:underline">
@@ -137,7 +134,7 @@ export function CatalogGrid() {
                 </p>
               </div>
 
-              <Button className="mt-1" asChild>
+              <Button className="mt-1 bg-muted text-foreground hover:bg-muted/70" asChild>
                 <Link href={`/catalog/${house.id}`}>Подробнее</Link>
               </Button>
             </CardContent>
