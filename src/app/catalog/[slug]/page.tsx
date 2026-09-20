@@ -35,6 +35,10 @@ import {
 
 const priceFormatter = new Intl.NumberFormat("ru-RU");
 const areaFormatter = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 });
+const totalAreaFormatter = new Intl.NumberFormat("ru-RU", {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
 
 const paymentIcons: Record<"rate" | "cash" | "card", LucideIcon> = {
   rate: PercentIcon,
@@ -206,6 +210,15 @@ export default async function CatalogHousePage({
                         </td>
                       </tr>
                     ))}
+                    <tr className="border-t border-line bg-paper font-semibold">
+                      <td className="px-4 py-3.5 sm:px-6">Общая площадь</td>
+                      <td className="px-4 py-3.5 text-right sm:px-6">
+                        {totalAreaFormatter.format(
+                          Math.round(house.rooms.reduce((sum, room) => sum + room.area, 0) * 100) / 100,
+                        )}{" "}
+                        м²
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </Reveal>

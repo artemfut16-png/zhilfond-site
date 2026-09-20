@@ -44,7 +44,23 @@ export function Faq() {
             {faq.map((item) => (
               <AccordionItem key={item.question} value={item.question}>
                 <AccordionTrigger>{item.question}</AccordionTrigger>
-                <AccordionContent>{item.answer}</AccordionContent>
+                <AccordionContent>
+                  <div className="flex flex-col gap-3 leading-[1.6] text-muted-foreground">
+                    {item.answer.map((block, i) =>
+                      block.type === "p" ? (
+                        <p key={i} className="mb-0!">
+                          {block.text}
+                        </p>
+                      ) : (
+                        <ul key={i} className="flex list-disc flex-col gap-1.5 pl-5">
+                          {block.items.map((li) => (
+                            <li key={li}>{li}</li>
+                          ))}
+                        </ul>
+                      ),
+                    )}
+                  </div>
+                </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
