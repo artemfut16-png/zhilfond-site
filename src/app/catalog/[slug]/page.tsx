@@ -6,12 +6,20 @@ import {
   CreditCardIcon,
   PercentIcon,
   BanknoteIcon,
+  RulerIcon,
   type LucideIcon,
 } from "lucide-react";
 import { CatalogHeader } from "@/components/catalog/catalog-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BackLink } from "@/components/back-link";
 import { ImageLightbox } from "@/components/image-lightbox";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 import { Gallery } from "@/components/sections/gallery";
 import { Contacts } from "@/components/sections/contacts";
 import { Reveal } from "@/components/motion";
@@ -64,6 +72,8 @@ export default async function CatalogHousePage({
   const house = getCatalogHouse(slug);
   if (!house) notFound();
 
+  const photos = house.images?.length ? house.images : [`${house.id}.png`];
+
   return (
     <>
       <CatalogHeader title={house.title} />
@@ -74,32 +84,71 @@ export default async function CatalogHousePage({
 
             <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-12">
               <Reveal>
-                <ImageLightbox
-                  src={assetPath(`/catalog/${house.id}.png`)}
-                  alt={house.title}
-                  ratio="cover"
-                  className="border-line"
-                />
+                {photos.length > 1 ? (
+                  <Carousel opts={{ align: "start" }}>
+                    <CarouselContent>
+                      {photos.map((img) => (
+                        <CarouselItem key={img}>
+                          <ImageLightbox
+                            src={assetPath(`/catalog/${img}`)}
+                            alt={house.title}
+                            ratio="cover"
+                            className="border-line"
+                          />
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <div className="mt-4 flex justify-end gap-2">
+                      <CarouselPrevious aria-label="Предыдущее фото" />
+                      <CarouselNext aria-label="Следующее фото" />
+                    </div>
+                  </Carousel>
+                ) : (
+                  <ImageLightbox
+                    src={assetPath(`/catalog/${photos[0]}`)}
+                    alt={house.title}
+                    ratio="cover"
+                    className="border-line"
+                  />
+                )}
               </Reveal>
 
               <Reveal delay={80} className="flex flex-col gap-8">
                 <div>
                   <h1 className={headingClass}>{house.title}</h1>
-                  <p className="mt-4 text-muted-foreground">
-                    {areaFormatter.format(house.area)} м² · стоимость без
-                    учета участка
-                  </p>
+                </div>
+
+                <div className="flex items-start gap-4 rounded-(--radius) border border-line bg-paper p-6">
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent-ink">
+                    <RulerIcon className="size-5" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Площадь дома</p>
+                    <p className="font-medium">
+                      {areaFormatter.format(house.area)} м²
+                    </p>
+                  </div>
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="flex flex-col gap-4 rounded-(--radius) border border-line bg-paper p-6">
-                    <p className="font-medium">Теплый контур</p>
+                    <div>
+                      <p className="font-medium">Теплый контур</p>
+                      <p className="mt-1 text-[13px] leading-tight text-muted-foreground">
+                        Стоимость без учёта участка
+                      </p>
+                    </div>
                     <p className="font-heading text-3xl leading-none font-normal tracking-[-0.04em] text-ink-2 sm:text-4xl">
                       {priceFormatter.format(house.warmContourPrice)} ₽
                     </p>
                   </div>
                   <div className="flex flex-col gap-4 rounded-(--radius) border border-ink-2 bg-ink-2 p-6 text-white">
-                    <p className="font-medium">White Box</p>
+                    <div>
+                      <p className="font-medium">White Box</p>
+                      <p className="mt-1 text-[13px] leading-tight text-white/75">
+                        Стоимость без учёта участка
+                      </p>
+                    </div>
                     <p className="font-heading text-3xl leading-none font-normal tracking-[-0.04em] sm:text-4xl">
                       {priceFormatter.format(house.whiteBoxPrice)} ₽
                     </p>

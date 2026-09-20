@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { MapPinIcon } from "lucide-react";
+import { LandPlotIcon, MapPinIcon } from "lucide-react";
 import { CatalogHeader } from "@/components/catalog/catalog-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BackLink } from "@/components/back-link";
@@ -22,7 +22,7 @@ import { Reveal } from "@/components/motion";
 import { Contacts } from "@/components/sections/contacts";
 import { cn } from "@/lib/utils";
 import { assetPath } from "@/lib/asset-path";
-import { housesForSale } from "@/lib/catalog-data";
+import { housesForSale, houseForSaleTitle } from "@/lib/catalog-data";
 
 const priceFormatter = new Intl.NumberFormat("ru-RU");
 const areaFormatter = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 });
@@ -66,7 +66,7 @@ export default async function HouseForSalePage({
 
   return (
     <>
-      <CatalogHeader title={house.title} />
+      <CatalogHeader title={houseForSaleTitle(house)} />
       <main className="flex-1">
         <section className="bg-paper text-ink">
           <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-20">
@@ -95,10 +95,7 @@ export default async function HouseForSalePage({
 
               <Reveal delay={100} className="flex flex-col gap-6">
                 <div>
-                  <h1 className={h2}>{house.title}</h1>
-                  <p className="mt-3 text-muted-foreground">
-                    участок {areaFormatter.format(house.plotArea)} сот
-                  </p>
+                  <h1 className={h2}>{houseForSaleTitle(house)}</h1>
                 </div>
 
                 <div className={cn(card, "p-6")}>
@@ -118,10 +115,19 @@ export default async function HouseForSalePage({
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-2">
-                  <p className="text-sm text-muted-foreground">Описание</p>
-                  <p>{house.description}</p>
-                </div>
+                {house.plotArea ? (
+                  <div className={cn(card, "flex items-start gap-4 p-6")}>
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent-ink">
+                      <LandPlotIcon className="size-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Площадь участка</p>
+                      <p className="font-medium">
+                        {areaFormatter.format(house.plotArea)} сот
+                      </p>
+                    </div>
+                  </div>
+                ) : null}
               </Reveal>
             </div>
           </div>

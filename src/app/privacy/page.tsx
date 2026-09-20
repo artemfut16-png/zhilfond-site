@@ -14,7 +14,8 @@ export default function PrivacyPage() {
     <>
       <SiteHeader />
       <main className="flex-1">
-        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
+          <div className="max-w-3xl">
           <h1 className="text-4xl font-semibold tracking-tight text-balance">
             Политика конфиденциальности
           </h1>
@@ -140,6 +141,7 @@ export default function PrivacyPage() {
               Актуальная версия Политики всегда размещена на данной странице
               сайта.
             </p>
+          </div>
           </div>
         </div>
       </main>

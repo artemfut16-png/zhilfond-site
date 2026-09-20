@@ -24,33 +24,27 @@ export default function CatalogPage() {
       <CatalogHeader />
       <main className="flex-1">
         <section id="house-projects" className="bg-paper">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
             <Reveal className="mb-10 sm:mb-14">
-              <h1 className={h2Class}>Проекты домов</h1>
+              <h1 className={h2Class}>Типовые проекты домов</h1>
             </Reveal>
             <CatalogGrid />
           </div>
         </section>
 
         <section id="houses-for-sale" className="bg-paper">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
-            <Reveal className="mb-10 flex flex-col gap-3 sm:mb-14">
-              <h2 className={h2Class}>Дома в продаже</h2>
-              <p className="text-base text-muted-foreground sm:text-lg">
-                Готовые дома с участками — можно въехать сразу после сделки
-              </p>
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
+            <Reveal className="mb-10 sm:mb-14">
+              <h2 className={h2Class}>Построенные дома в продаже с участками</h2>
             </Reveal>
             <HousesForSale />
           </div>
         </section>
 
         <section id="land-plots" className="bg-paper">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
-            <Reveal className="mb-10 flex flex-col gap-3 sm:mb-14">
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
+            <Reveal className="mb-10 sm:mb-14">
               <h2 className={h2Class}>Участки в продаже</h2>
-              <p className="text-base text-muted-foreground sm:text-lg">
-                Участки под строительство в Саратове, Энгельсе и области
-              </p>
             </Reveal>
             <LandPlots />
           </div>

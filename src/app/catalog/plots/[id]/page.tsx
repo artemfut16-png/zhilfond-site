@@ -69,7 +69,7 @@ export default async function LandPlotPage({
               </Reveal>
 
               <Reveal delay={100} className="flex flex-col gap-6">
-                <h1 className="font-heading text-[30px] font-normal leading-none tracking-[-0.04em] text-ink-2 text-balance sm:text-5xl">
+                <h1 className="sr-only">
                   {title}
                 </h1>
 

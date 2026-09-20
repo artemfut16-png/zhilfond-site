@@ -36,7 +36,7 @@ export function CatalogHeader({ title = "Каталог" }: { title?: string }) 
             {site.name}
           </Link>
           <span className="hidden text-muted-foreground sm:inline">/</span>
-          <span className="hidden truncate text-sm text-muted-foreground sm:inline">
+          <span className="hidden truncate font-heading text-xl font-medium tracking-[-0.02em] sm:inline">
             {title}
           </span>
         </div>

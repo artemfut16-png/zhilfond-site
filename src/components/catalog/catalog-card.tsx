@@ -14,7 +14,8 @@ export function CatalogCard({
   alt,
   sizes,
   title,
-  specs,
+  specs = [],
+  subtitle,
   price,
   index = 0,
   children,
@@ -24,7 +25,9 @@ export function CatalogCard({
   alt: string;
   sizes: string;
   title: string;
-  specs: CardSpec[];
+  specs?: CardSpec[];
+  /** Строка сразу под названием (например, адрес) */
+  subtitle?: React.ReactNode;
   price?: string;
   index?: number;
   children?: React.ReactNode;
@@ -51,6 +54,8 @@ export function CatalogCard({
           >
             {title}
           </Link>
+
+          {subtitle}
 
           <SpecRow specs={specs} />
 

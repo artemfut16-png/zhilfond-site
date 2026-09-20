@@ -11,6 +11,13 @@ export type CatalogHouse = {
   whiteBoxPrice: number;
   mortgageFrom: number;
   rooms: CatalogHouseRoom[];
+  /**
+   * Фото проекта для карусели (необязательно). Как добавить: положите файл в
+   * public/catalog/ и впишите имя у нужного проекта, например
+   * images: ["compact-70.png", "compact-70-2.png"] (первым — основное фото).
+   * Если поле не задано, показывается одно фото `${id}.png` без стрелок.
+   */
+  images?: string[];
 };
 
 export const catalogHouses: CatalogHouse[] = [
@@ -489,7 +496,16 @@ export const housesForSale: HouseForSale[] = [
     address: "Саратовская обл., Энгельсский р-н, г. Энгельс, п. Лесозащитная станция, д. 9",
     description:
       "Дом из газобетонного блока «Грасс» 300 мм с кирпичными перегородками и утеплением. Кухня-гостиная 30,91 м², 3 спальни, котельная. Центральное водоснабжение, септик (3 кольца), газ и электричество по границе участка.",
-    images: ["house103-2.png", "house103-3.png", "house103-1.png"],
+    images: [
+      "house103-2.png",
+      "house103-3.png",
+      "house103-4.png",
+      "house103-5.png",
+      "house103-6.png",
+      "house103-7.png",
+      "house103-8.png",
+      "house103-1.png",
+    ],
     floorPlan: "house103-1.png",
     rooms: [
       { name: "Кухня-гостиная", area: 30.91 },
@@ -879,4 +895,14 @@ export function roomCounts(rooms: CatalogHouseRoom[]) {
     bathrooms: rooms.filter((r) => /^(санузел|ванная)/i.test(r.name.trim()))
       .length,
   };
+}
+
+const saleAreaFormatter = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 });
+
+/** Название дома в продаже: «Дом 96 м² на участке 4,5 сот». */
+export function houseForSaleTitle(house: HouseForSale): string {
+  if (!Number.isFinite(house.area) || !Number.isFinite(house.plotArea)) {
+    return house.title;
+  }
+  return `Дом ${saleAreaFormatter.format(house.area)} м² на участке ${saleAreaFormatter.format(house.plotArea)} сот`;
 }
