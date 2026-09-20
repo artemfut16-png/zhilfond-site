@@ -885,6 +885,16 @@ export const landPlots: LandPlot[] = [
   },
 ];
 
+const roomAreaFormatter = new Intl.NumberFormat("ru-RU", {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
+/** Площадь отдельной комнаты: всегда два знака после запятой (26 -> «26,00»). */
+export function formatRoomArea(area: number): string {
+  return roomAreaFormatter.format(area);
+}
+
 /**
  * Спальни и санузлы не хранятся отдельным полем — считаем их по списку
  * помещений, чтобы карточка показывала только то, что есть в данных.

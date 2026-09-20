@@ -17,6 +17,9 @@ import { useScrollProgress, usePrefersReducedMotion } from "@/components/motion"
  */
 // Средние цвета верхней строки мобильного фото (левая / правая половина) — небо над фото
 const MOBILE_SKY = ["rgb(62,136,224)", "rgb(60,138,229)"];
+// Тёмный тон под фото (совпадает с нижним затемнением)
+const MOBILE_GROUND = "rgb(12,16,12)";
+
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -34,11 +37,12 @@ export function Hero() {
       <div
         className="absolute inset-0 z-0 overflow-hidden lg:hidden"
         style={{
-          backgroundImage: `linear-gradient(to right, ${MOBILE_SKY[0]}, ${MOBILE_SKY[1]})`,
+          // снизу продолжаем тёмный тон травы под поднятым фото, сверху — цвет неба
+          backgroundImage: `linear-gradient(to top, ${MOBILE_GROUND} 0, ${MOBILE_GROUND} 16svh, transparent 16svh), linear-gradient(to right, ${MOBILE_SKY[0]}, ${MOBILE_SKY[1]})`,
         }}
       >
         {/* Фото по ширине экрана целиком, прижато к низу; верх растворяется в цвет неба */}
-        <div className="absolute inset-x-0 bottom-0 origin-bottom [transform:translateY(-3svh)_scale(1.05)] [mask-image:linear-gradient(to_bottom,transparent_0,#000_12%)]">
+        <div className="absolute inset-x-0 bottom-0 origin-bottom [transform:translateY(-13.5svh)_scale(1.05)] [mask-image:linear-gradient(to_bottom,transparent_0,#000_12%)]">
           <Image
             src={assetPath("/hero-mobile.webp")}
             alt="Готовый дом от СК Жилищный Фонд"
@@ -49,8 +53,9 @@ export function Hero() {
             className="block h-auto w-full max-w-none"
           />
         </div>
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(0_0_0/.8),rgb(0_0_0/0)_45%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(0deg,rgb(12_16_12/.92)_0%,rgb(12_16_12/.88)_min(55px,8%),rgb(12_16_12/.76)_min(150px,22%),rgb(12_16_12/.62)_min(268px,39%),rgb(12_16_12/.32)_min(318px,43%),rgb(12_16_12/.1)_min(360px,46%),rgb(12_16_12/0)_min(400px,49%))]" />
+        <div className="absolute inset-0 [background:linear-gradient(180deg,rgb(0_0_0/.8),rgb(0_0_0/0)_45%)]" />
+        <div className="absolute inset-0 bg-[rgb(12_16_12/.12)]" />
+        <div className="absolute inset-0 [background:linear-gradient(0deg,rgb(12_16_12/.97)_0%,rgb(12_16_12/.95)_8%,rgb(12_16_12/.92)_20%,rgb(12_16_12/.9)_34%,rgb(12_16_12/.8)_39%,rgb(12_16_12/.45)_46%,rgb(12_16_12/.12)_51%,rgb(12_16_12/0)_55%)]" />
       </div>
 
       {/* Фото: на десктопе на весь экран, дом справа, слева тёмный лес */}

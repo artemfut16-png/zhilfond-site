@@ -22,7 +22,7 @@ import { Reveal } from "@/components/motion";
 import { Contacts } from "@/components/sections/contacts";
 import { cn } from "@/lib/utils";
 import { assetPath } from "@/lib/asset-path";
-import { housesForSale, houseForSaleTitle } from "@/lib/catalog-data";
+import { housesForSale, houseForSaleTitle, formatRoomArea } from "@/lib/catalog-data";
 
 const priceFormatter = new Intl.NumberFormat("ru-RU");
 const areaFormatter = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 });
@@ -166,7 +166,7 @@ export default async function HouseForSalePage({
                       >
                         <td className="px-4 py-3 sm:px-6">{room.name}</td>
                         <td className="px-4 py-3 text-right font-medium sm:px-6">
-                          {areaFormatter.format(room.area)} м²
+                          {formatRoomArea(room.area)} м²
                         </td>
                       </tr>
                     ))}

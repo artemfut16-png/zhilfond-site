@@ -31,6 +31,7 @@ import {
   packageFeatures,
   additionalOptions,
   paymentMethods,
+  formatRoomArea,
 } from "@/lib/catalog-data";
 
 const priceFormatter = new Intl.NumberFormat("ru-RU");
@@ -206,7 +207,7 @@ export default async function CatalogHousePage({
                       >
                         <td className="px-4 py-3.5 sm:px-6">{room.name}</td>
                         <td className="px-4 py-3.5 text-right font-medium sm:px-6">
-                          {areaFormatter.format(room.area)} м²
+                          {formatRoomArea(room.area)} м²
                         </td>
                       </tr>
                     ))}
