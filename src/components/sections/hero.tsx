@@ -50,7 +50,7 @@ export function Hero() {
           />
         </div>
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(0_0_0/.8),rgb(0_0_0/0)_45%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(0deg,rgb(10_12_10/.9),rgb(10_12_10/0)_50%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(0deg,rgb(12_16_12/.92)_0%,rgb(12_16_12/.88)_min(55px,8%),rgb(12_16_12/.76)_min(150px,22%),rgb(12_16_12/.62)_min(268px,39%),rgb(12_16_12/.32)_min(318px,43%),rgb(12_16_12/.1)_min(360px,46%),rgb(12_16_12/0)_min(400px,49%))]" />
       </div>
 
       {/* Фото: на десктопе на весь экран, дом справа, слева тёмный лес */}
