@@ -92,7 +92,7 @@ export default async function CatalogHousePage({
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="flex flex-col gap-4 rounded-(--radius) border border-line bg-surface p-6">
+                  <div className="flex flex-col gap-4 rounded-(--radius) border border-line bg-paper p-6">
                     <p className="font-medium">Теплый контур</p>
                     <p className="font-heading text-3xl leading-none font-normal tracking-[-0.04em] text-ink-2 sm:text-4xl">
                       {priceFormatter.format(house.warmContourPrice)} ₽
@@ -106,7 +106,7 @@ export default async function CatalogHousePage({
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 rounded-(--radius) border border-line bg-surface p-6">
+                <div className="flex items-center gap-4 rounded-(--radius) border border-line bg-paper p-6">
                   <div className="flex size-12 shrink-0 items-center justify-center rounded-(--radius) bg-accent-soft text-accent-ink">
                     <CreditCardIcon className="size-6" />
                   </div>
@@ -124,7 +124,7 @@ export default async function CatalogHousePage({
           </div>
         </section>
 
-        <section className="bg-surface text-ink">
+        <section className="bg-paper text-ink">
           <div className="mx-auto max-w-[1280px] px-4 py-16 sm:px-6 lg:py-28">
             <Reveal className="mb-12 lg:mb-16">
               <h2 className={headingClass}>Планировка дома</h2>
@@ -210,7 +210,7 @@ export default async function CatalogHousePage({
           </div>
         </section>
 
-        <section className="bg-surface text-ink">
+        <section className="bg-paper text-ink">
           <div className="mx-auto max-w-[1280px] px-4 py-16 sm:px-6 lg:py-28">
             <Reveal className="mb-12 lg:mb-16">
               <h2 className={headingClass}>Дополнительные опции</h2>
@@ -258,7 +258,7 @@ export default async function CatalogHousePage({
                   <Reveal
                     key={method.label}
                     delay={Math.min(i, 4) * 80}
-                    className="flex flex-col gap-6 rounded-(--radius) border border-line bg-surface p-6"
+                    className="flex flex-col gap-6 rounded-(--radius) border border-line bg-paper p-6"
                   >
                     <div className="flex size-12 items-center justify-center rounded-(--radius) bg-accent-soft text-accent-ink">
                       <Icon className="size-6" />
@@ -278,7 +278,7 @@ export default async function CatalogHousePage({
           </div>
         </section>
 
-        <Gallery tone="surface" />
+        <Gallery tone="paper" />
         <Contacts />
       </main>
       <SiteFooter />

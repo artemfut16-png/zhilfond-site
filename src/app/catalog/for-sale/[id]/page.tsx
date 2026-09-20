@@ -68,7 +68,7 @@ export default async function HouseForSalePage({
     <>
       <CatalogHeader title={house.title} />
       <main className="flex-1">
-        <section className="bg-surface text-ink">
+        <section className="bg-paper text-ink">
           <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-20">
             <BackLink />
 
@@ -166,7 +166,7 @@ export default async function HouseForSalePage({
           </div>
         </section>
 
-        <section className="bg-surface text-ink">
+        <section className="bg-paper text-ink">
           <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-28">
             <Reveal>
               <h2 className={cn(h2, "mb-10 lg:mb-14")}>

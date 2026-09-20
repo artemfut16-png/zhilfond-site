@@ -10,7 +10,7 @@ const areaFormatter = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 
 export function LandPlots() {
   if (landPlots.length === 0) {
     return (
-      <p className="rounded-(--radius) border border-line bg-surface px-6 py-10 text-center text-muted-foreground">
+      <p className="rounded-(--radius) border border-line bg-paper px-6 py-10 text-center text-muted-foreground">
         Сейчас нет участков в продаже
       </p>
     );

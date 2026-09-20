@@ -32,7 +32,7 @@ export default function CatalogPage() {
           </div>
         </section>
 
-        <section id="houses-for-sale" className="bg-surface">
+        <section id="houses-for-sale" className="bg-paper">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
             <Reveal className="mb-10 flex flex-col gap-3 sm:mb-14">
               <h2 className={h2Class}>Дома в продаже</h2>
@@ -56,7 +56,7 @@ export default function CatalogPage() {
           </div>
         </section>
 
-        <Contacts tone="surface" />
+        <Contacts tone="paper" />
       </main>
       <SiteFooter />
     </>

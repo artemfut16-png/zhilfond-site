@@ -69,7 +69,7 @@ export function CatalogGrid() {
       </div>
 
       {houses.length === 0 ? (
-        <p className="rounded-(--radius) border border-line bg-surface px-6 py-10 text-center text-muted-foreground">
+        <p className="rounded-(--radius) border border-line bg-paper px-6 py-10 text-center text-muted-foreground">
           Проектов не найдено
         </p>
       ) : null}

@@ -55,7 +55,7 @@ export default async function LandPlotPage({
     <>
       <CatalogHeader title={title} />
       <main className="flex-1">
-        <section className="bg-surface text-ink">
+        <section className="bg-paper text-ink">
           <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-20">
             <BackLink />
 
