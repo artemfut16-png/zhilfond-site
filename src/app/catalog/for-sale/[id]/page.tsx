@@ -18,6 +18,7 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
+import { Reveal } from "@/components/motion";
 import { Contacts } from "@/components/sections/contacts";
 import { cn } from "@/lib/utils";
 import { assetPath } from "@/lib/asset-path";
@@ -25,6 +26,10 @@ import { housesForSale } from "@/lib/catalog-data";
 
 const priceFormatter = new Intl.NumberFormat("ru-RU");
 const areaFormatter = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 });
+
+const h2 =
+  "font-heading text-[30px] font-normal leading-none tracking-[-0.04em] text-ink-2 text-balance sm:text-5xl";
+const card = "rounded-(--radius) border border-line bg-paper";
 
 function getHouse(id: string) {
   return housesForSale.find((house) => house.id === id);
@@ -63,46 +68,50 @@ export default async function HouseForSalePage({
     <>
       <CatalogHeader title={house.title} />
       <main className="flex-1">
-        <div>
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+        <section className="bg-surface text-ink">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-20">
             <BackLink />
 
-            <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-              <Carousel opts={{ align: "start", loop: true }} className="px-1">
-                <CarouselContent>
-                  {photos.map((img) => (
-                    <CarouselItem key={img}>
-                      <ImageLightbox
-                        src={assetPath(`/catalog/for-sale/${img}`)}
-                        alt={house.title}
-                        ratio="cover"
-                      />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="left-3 shadow-sm" />
-                <CarouselNext className="right-3 shadow-sm" />
-              </Carousel>
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
+              <Reveal>
+                <Carousel opts={{ align: "start", loop: true }}>
+                  <CarouselContent>
+                    {photos.map((img) => (
+                      <CarouselItem key={img}>
+                        <ImageLightbox
+                          src={assetPath(`/catalog/for-sale/${img}`)}
+                          alt={house.title}
+                          ratio="cover"
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <div className="mt-4 flex justify-end gap-2">
+                    <CarouselPrevious />
+                    <CarouselNext />
+                  </div>
+                </Carousel>
+              </Reveal>
 
-              <div className="flex flex-col gap-6">
+              <Reveal delay={100} className="flex flex-col gap-6">
                 <div>
-                  <h1 className="text-4xl font-semibold tracking-tight text-balance">
-                    {house.title}
-                  </h1>
-                  <p className="mt-1 text-muted-foreground">
+                  <h1 className={h2}>{house.title}</h1>
+                  <p className="mt-3 text-muted-foreground">
                     участок {areaFormatter.format(house.plotArea)} сот
                   </p>
                 </div>
 
-                <div className="rounded-(--radius) border border-primary bg-primary p-5 text-primary-foreground">
-                  <p className="text-sm text-primary-foreground/70">Стоимость</p>
-                  <p className="text-3xl font-semibold">
+                <div className={cn(card, "p-6")}>
+                  <p className="text-sm text-muted-foreground">Стоимость</p>
+                  <p className="mt-1 font-heading text-4xl font-normal tracking-[-0.03em] text-ink-2 sm:text-5xl">
                     {priceFormatter.format(house.price)} ₽
                   </p>
                 </div>
 
-                <div className="flex items-start gap-3 rounded-(--radius) border border-border bg-card p-5">
-                  <MapPinIcon className="mt-0.5 size-5 shrink-0 text-muted-foreground" />
+                <div className={cn(card, "flex items-start gap-4 p-6")}>
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent-ink">
+                    <MapPinIcon className="size-5" />
+                  </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Адрес</p>
                     <p className="font-medium">{house.address}</p>
@@ -113,31 +122,36 @@ export default async function HouseForSalePage({
                   <p className="text-sm text-muted-foreground">Описание</p>
                   <p>{house.description}</p>
                 </div>
-              </div>
+              </Reveal>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div>
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-            <h2 className="mb-8 font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-              Планировка дома
-            </h2>
+        <section className="bg-paper text-ink">
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-28">
+            <Reveal>
+              <h2 className={cn(h2, "mb-10 lg:mb-14")}>Планировка дома</h2>
+            </Reveal>
 
-            <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-              <ImageLightbox
-                src={assetPath(`/catalog/for-sale/${house.floorPlan}`)}
-                alt={`Планировка дома ${house.title}`}
-                ratio="contain"
-              />
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
+              <Reveal>
+                <ImageLightbox
+                  src={assetPath(`/catalog/for-sale/${house.floorPlan}`)}
+                  alt={`Планировка дома ${house.title}`}
+                  ratio="contain"
+                />
+              </Reveal>
 
-              <div className="overflow-hidden rounded-(--radius) border border-border">
-                <table className="w-full border-collapse text-sm">
+              <Reveal
+                delay={100}
+                className="overflow-hidden rounded-(--radius) border border-line"
+              >
+                <table className="w-full border-collapse text-sm sm:text-base">
                   <tbody>
                     {house.rooms.map((room, i) => (
                       <tr
                         key={room.name + i}
-                        className={cn(i % 2 === 1 && "bg-muted/40")}
+                        className={cn(i % 2 === 0 && "bg-surface")}
                       >
                         <td className="px-4 py-3 sm:px-6">{room.name}</td>
                         <td className="px-4 py-3 text-right font-medium sm:px-6">
@@ -147,26 +161,28 @@ export default async function HouseForSalePage({
                     ))}
                   </tbody>
                 </table>
-              </div>
+              </Reveal>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div>
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-            <h2 className="mb-8 font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-              Что входит в стоимость?
-            </h2>
+        <section className="bg-surface text-ink">
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-28">
+            <Reveal>
+              <h2 className={cn(h2, "mb-10 lg:mb-14")}>
+                Что входит в стоимость?
+              </h2>
+            </Reveal>
 
-            <div className="flex flex-col gap-4">
+            <Reveal className="grid gap-4 lg:grid-cols-2 lg:items-start">
               <Accordion
                 type="single"
                 collapsible
                 defaultValue="specs"
-                className="rounded-(--radius) border border-border bg-muted/40 px-5"
+                className={cn(card, "px-6")}
               >
                 <AccordionItem value="specs">
-                  <AccordionTrigger className="text-base font-semibold">
+                  <AccordionTrigger className="text-base font-medium">
                     Комплектация дома
                   </AccordionTrigger>
                   <AccordionContent>
@@ -190,10 +206,10 @@ export default async function HouseForSalePage({
                 type="single"
                 collapsible
                 defaultValue="utilities"
-                className="rounded-(--radius) border border-border bg-muted/40 px-5"
+                className={cn(card, "px-6")}
               >
                 <AccordionItem value="utilities">
-                  <AccordionTrigger className="text-base font-semibold">
+                  <AccordionTrigger className="text-base font-medium">
                     Инженерные коммуникации
                   </AccordionTrigger>
                   <AccordionContent>
@@ -205,9 +221,9 @@ export default async function HouseForSalePage({
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
-            </div>
+            </Reveal>
           </div>
-        </div>
+        </section>
 
         <Contacts />
       </main>

@@ -6,14 +6,14 @@ import { site } from "@/lib/site-data";
 const badge =
   "flex size-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent-ink";
 
-export function Contacts() {
+export function Contacts({ tone = "paper" }: { tone?: "paper" | "surface" }) {
   return (
-    <section id="contacts" className="bg-paper text-ink">
+    <section id="contacts" className={tone === "surface" ? "bg-surface text-ink" : "bg-paper text-ink"}>
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-28">
         <Reveal className="mb-12 lg:mb-16">
           <h2 className="font-heading text-[30px] font-normal leading-none tracking-[-0.04em] text-ink-2 sm:text-5xl">
             Контактная{" "}
-            <span className="text-muted-2">информация</span>
+            <span>информация</span>
           </h2>
         </Reveal>
 

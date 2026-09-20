@@ -15,9 +15,9 @@ const galleryPhotos = Array.from({ length: 48 }, (_, i) => i + 1);
 const mosaicPhotos = galleryPhotos.slice(0, 5);
 const restPhotos = galleryPhotos.slice(5);
 
-export function Gallery() {
+export function Gallery({ tone = "paper" }: { tone?: "paper" | "surface" }) {
   return (
-    <section id="gallery" className="bg-paper">
+    <section id="gallery" className={tone === "surface" ? "bg-surface" : "bg-paper"}>
       <div className="mx-auto max-w-[1280px] px-4 py-16 sm:px-6 lg:py-32">
         <Reveal className="mb-12 flex flex-col gap-4 lg:mb-16">
           <h2 className="max-w-3xl font-heading text-[30px] leading-none font-normal tracking-[-0.04em] text-ink-2 text-balance sm:text-[44px] lg:text-[50px]">
@@ -73,8 +73,10 @@ export function Gallery() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-3" />
-            <CarouselNext className="right-3" />
+            <div className="mt-6 flex justify-end gap-2">
+              <CarouselPrevious />
+              <CarouselNext />
+            </div>
           </Carousel>
         </Reveal>
       </div>

@@ -4,22 +4,45 @@ import { TelegramIcon, MaxIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { site } from "@/lib/site-data";
 
+// Тот же формат времени, что в site-header.tsx: «Пн–Пт: 9:00–18:00» -> «Пн–Пт 09:00–18:00»
+function formatHours(raw: string) {
+  return raw
+    .replace(/^([^:\d]+):\s*/, "$1 ")
+    .replace(/(^|\D)(\d):(\d{2})/g, "$10$2:$3");
+}
+const hoursLabel = formatHours(site.hours);
+
+function WorkHours() {
+  return (
+    <span className="flex items-center gap-2 text-[13px] leading-tight font-medium whitespace-nowrap text-muted-foreground">
+      <span aria-hidden="true" className="relative inline-flex size-2 shrink-0">
+        <span className="live-dot-ring absolute inset-0 rounded-full bg-[#22C55E]" />
+        <span className="live-dot relative size-2 rounded-full bg-[#22C55E]" />
+      </span>
+      {hoursLabel}
+    </span>
+  );
+}
+
 export function CatalogHeader({ title = "Каталог" }: { title?: string }) {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur supports-backdrop-filter:bg-background/70">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <div className="flex items-center gap-3">
-          <Link href="/" className="text-lg font-semibold tracking-tight">
+    <header className="sticky top-0 z-40 border-b border-line bg-paper text-ink-2">
+      <div className="mx-auto flex h-[72px] max-w-[1280px] items-center justify-between gap-4 px-4 sm:px-6">
+        <div className="flex min-w-0 items-center gap-3">
+          <Link
+            href="/"
+            className="font-heading text-xl font-medium tracking-[-0.02em]"
+          >
             {site.name}
           </Link>
           <span className="hidden text-muted-foreground sm:inline">/</span>
-          <span className="hidden text-muted-foreground sm:inline">
+          <span className="hidden truncate text-sm text-muted-foreground sm:inline">
             {title}
           </span>
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="hidden items-center gap-1 text-muted-foreground sm:flex">
+          <div className="hidden items-center gap-1 sm:flex">
             <Button variant="ghost" size="icon-sm" asChild>
               <a href={site.telegram} target="_blank" rel="noopener noreferrer" aria-label="Telegram">
                 <TelegramIcon />
@@ -31,17 +54,20 @@ export function CatalogHeader({ title = "Каталог" }: { title?: string }) 
               </a>
             </Button>
           </div>
-          <Button variant="ghost" size="icon" className="sm:hidden" asChild>
+          <Button variant="outline" size="icon" className="sm:hidden" asChild>
             <a href={site.phoneHref} aria-label={site.phone}>
               <PhoneIcon className="size-4" />
             </a>
           </Button>
-          <a
-            href={site.phoneHref}
-            className="hidden items-center gap-1.5 text-sm font-medium whitespace-nowrap sm:flex"
-          >
-            {site.phone}
-          </a>
+          <div className="hidden flex-col items-start gap-0.5 sm:flex">
+            <a
+              href={site.phoneHref}
+              className="text-sm leading-tight font-medium whitespace-nowrap"
+            >
+              {site.phone}
+            </a>
+            <WorkHours />
+          </div>
         </div>
       </div>
     </header>

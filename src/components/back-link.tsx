@@ -16,7 +16,7 @@ export function BackLink() {
     <a
       href="/"
       onClick={handleClick}
-      className="mb-6 inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
+      className="mb-6 inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-ink"
     >
       <ArrowLeftIcon className="size-4" />
       На главную

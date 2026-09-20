@@ -5,6 +5,7 @@ import { CatalogHeader } from "@/components/catalog/catalog-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BackLink } from "@/components/back-link";
 import { ImageLightbox } from "@/components/image-lightbox";
+import { Reveal } from "@/components/motion";
 import { Contacts } from "@/components/sections/contacts";
 import { assetPath } from "@/lib/asset-path";
 import { landPlots } from "@/lib/catalog-data";
@@ -34,6 +35,11 @@ export async function generateMetadata({
   };
 }
 
+const card =
+  "flex items-start gap-4 rounded-(--radius) border border-line bg-paper p-6";
+const badge =
+  "flex size-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent-ink";
+
 export default async function LandPlotPage({
   params,
 }: {
@@ -49,33 +55,35 @@ export default async function LandPlotPage({
     <>
       <CatalogHeader title={title} />
       <main className="flex-1">
-        <div>
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+        <section className="bg-surface text-ink">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-20">
             <BackLink />
 
-            <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-              <ImageLightbox
-                src={assetPath(`/catalog/plots/${plot.image}`)}
-                alt={title}
-                ratio="cover"
-              />
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
+              <Reveal>
+                <ImageLightbox
+                  src={assetPath(`/catalog/plots/${plot.image}`)}
+                  alt={title}
+                  ratio="cover"
+                />
+              </Reveal>
 
-              <div className="flex flex-col gap-6">
-                <div>
-                  <h1 className="text-4xl font-semibold tracking-tight text-balance">
-                    {title}
-                  </h1>
-                </div>
+              <Reveal delay={100} className="flex flex-col gap-6">
+                <h1 className="font-heading text-[30px] font-normal leading-none tracking-[-0.04em] text-ink-2 text-balance sm:text-5xl">
+                  {title}
+                </h1>
 
-                <div className="rounded-(--radius) border border-primary bg-primary p-5 text-primary-foreground">
-                  <p className="text-sm text-primary-foreground/70">Стоимость</p>
-                  <p className="text-3xl font-semibold">
+                <div className="rounded-(--radius) border border-line bg-paper p-6">
+                  <p className="text-sm text-muted-foreground">Стоимость</p>
+                  <p className="mt-1 font-heading text-4xl font-normal tracking-[-0.03em] text-ink-2 sm:text-5xl">
                     {priceFormatter.format(plot.price)} ₽
                   </p>
                 </div>
 
-                <div className="flex items-start gap-3 rounded-(--radius) border border-border bg-card p-5">
-                  <MapPinIcon className="mt-0.5 size-5 shrink-0 text-muted-foreground" />
+                <div className={card}>
+                  <div className={badge}>
+                    <MapPinIcon className="size-5" />
+                  </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Адрес</p>
                     <p className="font-medium">{plot.fullAddress}</p>
@@ -83,8 +91,10 @@ export default async function LandPlotPage({
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="flex items-start gap-3 rounded-(--radius) border border-border bg-card p-5">
-                    <RulerIcon className="mt-0.5 size-5 shrink-0 text-muted-foreground" />
+                  <div className={card}>
+                    <div className={badge}>
+                      <RulerIcon className="size-5" />
+                    </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Площадь</p>
                       <p className="font-medium">
@@ -92,13 +102,17 @@ export default async function LandPlotPage({
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3 rounded-(--radius) border border-border bg-card p-5">
-                    <HashIcon className="mt-0.5 size-5 shrink-0 text-muted-foreground" />
-                    <div>
+                  <div className={card}>
+                    <div className={badge}>
+                      <HashIcon className="size-5" />
+                    </div>
+                    <div className="min-w-0">
                       <p className="text-sm text-muted-foreground">
                         Кадастровый номер
                       </p>
-                      <p className="font-medium">{plot.cadastralNumber}</p>
+                      <p className="font-medium break-words">
+                        {plot.cadastralNumber}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -107,20 +121,22 @@ export default async function LandPlotPage({
                   href={plot.cadastralMapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-3 rounded-(--radius) border border-border bg-card p-5 hover:bg-muted"
+                  className={`${card} transition-colors hover:bg-surface`}
                 >
-                  <MapIcon className="mt-0.5 size-5 shrink-0 text-muted-foreground" />
-                  <div>
+                  <div className={badge}>
+                    <MapIcon className="size-5" />
+                  </div>
+                  <div className="min-w-0">
                     <p className="text-sm text-muted-foreground">Кадастровая карта</p>
-                    <p className="font-medium underline underline-offset-2">
+                    <p className="font-medium break-words underline underline-offset-2">
                       {plot.cadastralMapUrl}
                     </p>
                   </div>
                 </a>
-              </div>
+              </Reveal>
             </div>
           </div>
-        </div>
+        </section>
 
         <Contacts />
       </main>

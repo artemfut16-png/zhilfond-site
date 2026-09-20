@@ -6,6 +6,7 @@ import { CatalogGrid } from "@/components/catalog/catalog-grid";
 import { HousesForSale } from "@/components/catalog/houses-for-sale";
 import { LandPlots } from "@/components/catalog/land-plots";
 import { Contacts } from "@/components/sections/contacts";
+import { Reveal } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "Каталог домов — СК Жилищный Фонд",
@@ -13,50 +14,49 @@ export const metadata: Metadata = {
     "Готовые проекты домов, дома и участки в продаже в Саратовской области: площадь, стоимость под ключ в комплектации «Теплый контур» и «White Box», расчет ипотеки",
 };
 
+const h2Class =
+  "font-heading text-[30px] leading-[1.05] font-medium tracking-[-0.04em] text-ink-2 sm:text-[44px] lg:text-[50px]";
+
 export default function CatalogPage() {
   return (
     <>
       <HubScrollTracker path="/catalog" />
       <CatalogHeader />
       <main className="flex-1">
-        <div id="house-projects">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-            <h2 className="mb-8 font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-              Проекты домов
-            </h2>
+        <section id="house-projects" className="bg-paper">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
+            <Reveal className="mb-10 sm:mb-14">
+              <h1 className={h2Class}>Проекты домов</h1>
+            </Reveal>
             <CatalogGrid />
           </div>
-        </div>
+        </section>
 
-        <div id="houses-for-sale" className="bg-muted">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-            <div className="mb-8 flex flex-col gap-2">
-              <h2 className="font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-                Дома в продаже
-              </h2>
-              <p className="text-muted-foreground">
+        <section id="houses-for-sale" className="bg-surface">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
+            <Reveal className="mb-10 flex flex-col gap-3 sm:mb-14">
+              <h2 className={h2Class}>Дома в продаже</h2>
+              <p className="text-base text-muted-foreground sm:text-lg">
                 Готовые дома с участками — можно въехать сразу после сделки
               </p>
-            </div>
+            </Reveal>
             <HousesForSale />
           </div>
-        </div>
+        </section>
 
-        <div id="land-plots">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-            <div className="mb-8 flex flex-col gap-2">
-              <h2 className="font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-                Участки в продаже
-              </h2>
-              <p className="text-muted-foreground">
+        <section id="land-plots" className="bg-paper">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
+            <Reveal className="mb-10 flex flex-col gap-3 sm:mb-14">
+              <h2 className={h2Class}>Участки в продаже</h2>
+              <p className="text-base text-muted-foreground sm:text-lg">
                 Участки под строительство в Саратове, Энгельсе и области
               </p>
-            </div>
+            </Reveal>
             <LandPlots />
           </div>
-        </div>
+        </section>
 
-        <Contacts />
+        <Contacts tone="surface" />
       </main>
       <SiteFooter />
     </>

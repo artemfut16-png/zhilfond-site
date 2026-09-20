@@ -1,12 +1,9 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { RulerIcon, BedDoubleIcon, BathIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { SpecRow, type CardSpec } from "@/components/catalog/card-specs";
+import { CatalogCard } from "@/components/catalog/catalog-card";
+import { type CardSpec } from "@/components/catalog/card-specs";
 import {
   Select,
   SelectContent,
@@ -54,11 +51,11 @@ export function CatalogGrid() {
   return (
     <div>
       <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm font-medium text-muted-foreground">
           Найдено {houses.length} проектов
         </p>
         <Select value={sort} onValueChange={(v) => setSort(v as SortKey)}>
-          <SelectTrigger className="w-full sm:w-64">
+          <SelectTrigger className="w-full bg-paper data-[size=default]:h-11 sm:w-64">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -71,8 +68,14 @@ export function CatalogGrid() {
         </Select>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {houses.map((house) => {
+      {houses.length === 0 ? (
+        <p className="rounded-(--radius) border border-line bg-surface px-6 py-10 text-center text-muted-foreground">
+          Проектов не найдено
+        </p>
+      ) : null}
+
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {houses.map((house, index) => {
           const { bedrooms, bathrooms } = roomCounts(house.rooms);
           const specs: CardSpec[] = [
             {
@@ -93,39 +96,32 @@ export function CatalogGrid() {
           ].filter(Boolean) as CardSpec[];
 
           return (
-          <Card key={house.id} className="h-full pt-0">
-            <Link href={`/catalog/${house.id}`} className="relative block aspect-[4/3] w-full overflow-hidden">
-              <Image
-                src={assetPath(`/catalog/${house.id}.png`)}
-                alt={house.title}
-                fill
-                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </Link>
-            <CardContent className="flex flex-col gap-3">
-              <Link href={`/catalog/${house.id}`} className="font-medium hover:underline">
-                {house.title}
-              </Link>
-
-              <SpecRow specs={specs} />
-
-              <div className="flex flex-col gap-1 rounded-(--radius) border border-border p-3">
+            <CatalogCard
+              key={house.id}
+              index={index}
+              href={`/catalog/${house.id}`}
+              image={assetPath(`/catalog/${house.id}.png`)}
+              alt={house.title}
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              title={house.title}
+              specs={specs}
+            >
+              <div className="flex flex-col gap-1.5 rounded-(--radius) border border-line p-3">
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-muted-foreground">Теплый контур</span>
-                  <span className="font-medium tnum">
+                  <span className="font-medium text-ink-2 tnum">
                     {priceFormatter.format(house.warmContourPrice)} ₽
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-muted-foreground">White Box</span>
-                  <span className="font-medium tnum">
+                  <span className="font-medium text-ink-2 tnum">
                     {priceFormatter.format(house.whiteBoxPrice)} ₽
                   </span>
                 </div>
               </div>
 
-              <div className="rounded-(--radius) bg-muted px-3 py-2">
+              <div className="rounded-(--radius) bg-surface px-3 py-2">
                 <p className="text-sm">
                   <span className="font-medium tnum">
                     от {priceFormatter.format(house.mortgageFrom)} ₽/мес
@@ -133,12 +129,7 @@ export function CatalogGrid() {
                   <span className="text-muted-foreground">в ипотеку</span>
                 </p>
               </div>
-
-              <Button className="mt-1 bg-muted text-foreground hover:bg-muted/70" asChild>
-                <Link href={`/catalog/${house.id}`}>Подробнее</Link>
-              </Button>
-            </CardContent>
-          </Card>
+            </CatalogCard>
           );
         })}
       </div>

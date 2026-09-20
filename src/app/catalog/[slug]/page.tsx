@@ -14,6 +14,7 @@ import { BackLink } from "@/components/back-link";
 import { ImageLightbox } from "@/components/image-lightbox";
 import { Gallery } from "@/components/sections/gallery";
 import { Contacts } from "@/components/sections/contacts";
+import { Reveal } from "@/components/motion";
 import { cn } from "@/lib/utils";
 import { assetPath } from "@/lib/asset-path";
 import {
@@ -32,6 +33,9 @@ const paymentIcons: Record<"rate" | "cash" | "card", LucideIcon> = {
   cash: BanknoteIcon,
   card: CreditCardIcon,
 };
+
+const headingClass =
+  "max-w-3xl font-heading text-[30px] leading-none font-normal tracking-[-0.04em] text-ink-2 text-balance sm:text-[44px] lg:text-[50px]";
 
 export function generateStaticParams() {
   return catalogHouses.map((house) => ({ slug: house.id }));
@@ -64,112 +68,119 @@ export default async function CatalogHousePage({
     <>
       <CatalogHeader title={house.title} />
       <main className="flex-1">
-        <div>
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+        <section className="bg-paper text-ink">
+          <div className="mx-auto max-w-[1280px] px-4 py-10 sm:px-6 lg:py-16">
             <BackLink />
 
-            <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-              <ImageLightbox
-                src={assetPath(`/catalog/${house.id}.png`)}
-                alt={house.title}
-                ratio="cover"
-              />
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-12">
+              <Reveal>
+                <ImageLightbox
+                  src={assetPath(`/catalog/${house.id}.png`)}
+                  alt={house.title}
+                  ratio="cover"
+                  className="border-line"
+                />
+              </Reveal>
 
-              <div className="flex flex-col gap-6">
+              <Reveal delay={80} className="flex flex-col gap-8">
                 <div>
-                  <h1 className="text-4xl font-semibold tracking-tight text-balance">
-                    {house.title}
-                  </h1>
-                  <p className="mt-1 text-muted-foreground">
+                  <h1 className={headingClass}>{house.title}</h1>
+                  <p className="mt-4 text-muted-foreground">
                     {areaFormatter.format(house.area)} м² · стоимость без
                     учета участка
                   </p>
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="flex flex-col gap-3 rounded-(--radius) border border-border bg-card p-5">
-                    <p className="text-sm text-muted-foreground">Теплый контур</p>
-                    <p className="text-2xl font-semibold">
+                  <div className="flex flex-col gap-4 rounded-(--radius) border border-line bg-surface p-6">
+                    <p className="font-medium">Теплый контур</p>
+                    <p className="font-heading text-3xl leading-none font-normal tracking-[-0.04em] text-ink-2 sm:text-4xl">
                       {priceFormatter.format(house.warmContourPrice)} ₽
                     </p>
                   </div>
-                  <div className="flex flex-col gap-3 rounded-(--radius) border border-border bg-muted p-5">
-                    <p className="text-sm text-muted-foreground">White Box</p>
-                    <p className="text-2xl font-semibold">
+                  <div className="flex flex-col gap-4 rounded-(--radius) border border-ink-2 bg-ink-2 p-6 text-white">
+                    <p className="font-medium">White Box</p>
+                    <p className="font-heading text-3xl leading-none font-normal tracking-[-0.04em] sm:text-4xl">
                       {priceFormatter.format(house.whiteBoxPrice)} ₽
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 rounded-(--radius) border border-border bg-card p-5">
-                  <div className="flex size-12 shrink-0 items-center justify-center rounded-(--radius) bg-muted">
+                <div className="flex items-center gap-4 rounded-(--radius) border border-line bg-surface p-6">
+                  <div className="flex size-12 shrink-0 items-center justify-center rounded-(--radius) bg-accent-soft text-accent-ink">
                     <CreditCardIcon className="size-6" />
                   </div>
                   <div>
-                    <p className="text-2xl font-semibold">
+                    <p className="font-heading text-2xl leading-tight font-normal tracking-[-0.04em] text-ink-2">
                       от {priceFormatter.format(house.mortgageFrom)} ₽/мес
                     </p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="mt-1 text-sm text-muted-foreground">
                       Платеж по ипотеке на 30 лет по ставке от 5,3%
                     </p>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div>
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-            <h2 className="mb-8 font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-              Планировка дома
-            </h2>
+        <section className="bg-surface text-ink">
+          <div className="mx-auto max-w-[1280px] px-4 py-16 sm:px-6 lg:py-28">
+            <Reveal className="mb-12 lg:mb-16">
+              <h2 className={headingClass}>Планировка дома</h2>
+            </Reveal>
 
-            <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-              <ImageLightbox
-                src={assetPath(`/catalog/${house.id}-plan.png`)}
-                alt={`Планировка дома ${house.title}`}
-                ratio="contain"
-              />
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-12">
+              <Reveal>
+                <ImageLightbox
+                  src={assetPath(`/catalog/${house.id}-plan.png`)}
+                  alt={`Планировка дома ${house.title}`}
+                  ratio="contain"
+                  className="border-line bg-paper"
+                />
+              </Reveal>
 
-              <div className="overflow-hidden rounded-(--radius) border border-border">
-                <table className="w-full border-collapse text-sm">
+              <Reveal
+                delay={80}
+                className="overflow-hidden rounded-(--radius) border border-line bg-paper"
+              >
+                <table className="w-full border-collapse text-base">
                   <tbody>
                     {house.rooms.map((room, i) => (
                       <tr
                         key={room.name + i}
-                        className={cn(i % 2 === 1 && "bg-muted/40")}
+                        className={cn(i > 0 && "border-t border-line", i % 2 === 1 ? "bg-[#F6F6F6]" : "bg-paper")}
                       >
-                        <td className="px-4 py-3 sm:px-6">{room.name}</td>
-                        <td className="px-4 py-3 text-right font-medium sm:px-6">
+                        <td className="px-4 py-3.5 sm:px-6">{room.name}</td>
+                        <td className="px-4 py-3.5 text-right font-medium sm:px-6">
                           {areaFormatter.format(room.area)} м²
                         </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
-              </div>
+              </Reveal>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div>
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-            <h2 className="mb-8 font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-              Что входит в стоимость?
-            </h2>
+        <section className="bg-paper text-ink">
+          <div className="mx-auto max-w-[1280px] px-4 py-16 sm:px-6 lg:py-28">
+            <Reveal className="mb-12 lg:mb-16">
+              <h2 className={headingClass}>Что входит в стоимость?</h2>
+            </Reveal>
 
-            <div className="overflow-hidden rounded-(--radius) border border-border">
-              <table className="w-full border-collapse text-sm">
+            <Reveal className="overflow-hidden rounded-(--radius) border border-line bg-paper">
+              <table className="w-full border-collapse text-base">
                 <thead>
-                  <tr className="bg-secondary text-secondary-foreground">
-                    <th className="px-4 py-3 text-left font-medium sm:px-6">
+                  <tr className="bg-ink-2 text-white">
+                    <th className="px-4 py-4 text-left font-medium sm:px-6">
                       Опция
                     </th>
-                    <th className="w-32 px-4 py-3 text-center font-medium sm:w-40 sm:px-6">
+                    <th className="w-[76px] px-1 py-4 text-center text-sm font-medium sm:w-40 sm:text-base sm:px-6">
                       Теплый контур
                     </th>
-                    <th className="w-32 px-4 py-3 text-center font-medium sm:w-40 sm:px-6">
+                    <th className="w-[76px] px-1 py-4 text-center text-sm font-medium sm:w-40 sm:text-base sm:px-6">
                       White Box
                     </th>
                   </tr>
@@ -178,41 +189,41 @@ export default async function CatalogHousePage({
                   {packageFeatures.map((feature, i) => (
                     <tr
                       key={feature.label}
-                      className={cn(i % 2 === 1 && "bg-muted/40")}
+                      className={cn("border-t border-line", i % 2 === 1 ? "bg-[#F6F6F6]" : "bg-paper")}
                     >
-                      <td className="px-4 py-3 sm:px-6">{feature.label}</td>
-                      <td className="px-4 py-3 text-center sm:px-6">
+                      <td className="px-4 py-3.5 sm:px-6">{feature.label}</td>
+                      <td className="px-2 py-3.5 text-center sm:px-6">
                         {feature.inWarmContour ? (
-                          <CheckIcon className="mx-auto size-4 text-foreground" />
+                          <CheckIcon className="mx-auto size-5 text-ink-2" />
                         ) : (
-                          <XIcon className="mx-auto size-4 text-muted-foreground/50" />
+                          <XIcon className="mx-auto size-5 text-muted-2" />
                         )}
                       </td>
-                      <td className="px-4 py-3 text-center sm:px-6">
-                        <CheckIcon className="mx-auto size-4 text-foreground" />
+                      <td className="px-2 py-3.5 text-center sm:px-6">
+                        <CheckIcon className="mx-auto size-5 text-ink-2" />
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-            </div>
+            </Reveal>
           </div>
-        </div>
+        </section>
 
-        <div>
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-            <h2 className="mb-8 font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-              Дополнительные опции
-            </h2>
+        <section className="bg-surface text-ink">
+          <div className="mx-auto max-w-[1280px] px-4 py-16 sm:px-6 lg:py-28">
+            <Reveal className="mb-12 lg:mb-16">
+              <h2 className={headingClass}>Дополнительные опции</h2>
+            </Reveal>
 
-            <div className="overflow-hidden rounded-(--radius) border border-border">
-              <table className="w-full border-collapse text-sm">
+            <Reveal className="overflow-hidden rounded-(--radius) border border-line bg-paper">
+              <table className="w-full border-collapse text-base">
                 <thead>
-                  <tr className="bg-secondary text-secondary-foreground">
-                    <th className="px-4 py-3 text-left font-medium sm:px-6">
+                  <tr className="bg-ink-2 text-white">
+                    <th className="px-4 py-4 text-left font-medium sm:px-6">
                       Опция
                     </th>
-                    <th className="px-4 py-3 text-right font-medium sm:px-6">
+                    <th className="px-4 py-4 text-right font-medium sm:px-6">
                       Стоимость
                     </th>
                   </tr>
@@ -221,50 +232,53 @@ export default async function CatalogHousePage({
                   {additionalOptions.map((option, i) => (
                     <tr
                       key={option.label}
-                      className={cn(i % 2 === 1 && "bg-muted/40")}
+                      className={cn("border-t border-line", i % 2 === 1 ? "bg-[#F6F6F6]" : "bg-paper")}
                     >
-                      <td className="px-4 py-3 sm:px-6">{option.label}</td>
-                      <td className="px-4 py-3 text-right font-medium sm:px-6">
+                      <td className="px-4 py-3.5 sm:px-6">{option.label}</td>
+                      <td className="px-4 py-3.5 text-right font-medium whitespace-nowrap sm:px-6">
                         {priceFormatter.format(option.price)} ₽
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-            </div>
+            </Reveal>
           </div>
-        </div>
+        </section>
 
-        <div>
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-            <h2 className="mb-8 font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
-              Способы оплаты
-            </h2>
+        <section className="bg-paper text-ink">
+          <div className="mx-auto max-w-[1280px] px-4 py-16 sm:px-6 lg:py-28">
+            <Reveal className="mb-12 lg:mb-16">
+              <h2 className={headingClass}>Способы оплаты</h2>
+            </Reveal>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {paymentMethods.map((method) => {
+              {paymentMethods.map((method, i) => {
                 const Icon = paymentIcons[method.kind];
                 return (
-                  <div
+                  <Reveal
                     key={method.label}
-                    className="flex flex-col gap-4 rounded-(--radius) border border-border bg-card p-5"
+                    delay={Math.min(i, 4) * 80}
+                    className="flex flex-col gap-6 rounded-(--radius) border border-line bg-surface p-6"
                   >
-                    <div className="flex size-10 items-center justify-center rounded-(--radius) bg-muted">
-                      <Icon className="size-5" />
+                    <div className="flex size-12 items-center justify-center rounded-(--radius) bg-accent-soft text-accent-ink">
+                      <Icon className="size-6" />
                     </div>
                     <div>
-                      <p className="font-medium">{method.label}</p>
-                      <p className="mt-1 text-sm text-muted-foreground">
+                      <p className="font-heading text-2xl leading-tight font-medium tracking-[-0.02em] text-ink-2">
+                        {method.label}
+                      </p>
+                      <p className="mt-2 text-sm text-muted-foreground">
                         {method.detail}
                       </p>
                     </div>
-                  </div>
+                  </Reveal>
                 );
               })}
             </div>
           </div>
-        </div>
+        </section>
 
-        <Gallery />
+        <Gallery tone="surface" />
         <Contacts />
       </main>
       <SiteFooter />

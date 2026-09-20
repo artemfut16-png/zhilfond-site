@@ -1,9 +1,6 @@
-import Link from "next/link";
-import Image from "next/image";
 import { RulerIcon, BedDoubleIcon, LandPlotIcon } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { SpecRow, type CardSpec } from "@/components/catalog/card-specs";
+import { CatalogCard } from "@/components/catalog/catalog-card";
+import type { CardSpec } from "@/components/catalog/card-specs";
 import { housesForSale, roomCounts } from "@/lib/catalog-data";
 import { assetPath } from "@/lib/asset-path";
 import { plural } from "@/lib/utils";
@@ -12,9 +9,17 @@ const priceFormatter = new Intl.NumberFormat("ru-RU");
 const areaFormatter = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 });
 
 export function HousesForSale() {
+  if (housesForSale.length === 0) {
+    return (
+      <p className="rounded-(--radius) border border-line bg-paper px-6 py-10 text-center text-muted-foreground">
+        Сейчас нет домов в продаже
+      </p>
+    );
+  }
+
   return (
-    <div className="grid gap-4 sm:grid-cols-2">
-      {housesForSale.map((house) => {
+    <div className="grid gap-6 sm:grid-cols-2">
+      {housesForSale.map((house, index) => {
         const { bedrooms } = roomCounts(house.rooms);
 
         const specs: CardSpec[] = [
@@ -40,40 +45,19 @@ export function HousesForSale() {
         ].filter(Boolean) as CardSpec[];
 
         return (
-          <Card key={house.id} className="h-full pt-0">
-            <Link
-              href={`/catalog/for-sale/${house.id}`}
-              className="relative block aspect-[4/3] w-full overflow-hidden"
-            >
-              <Image
-                src={assetPath(`/catalog/for-sale/${house.images[0]}`)}
-                alt={house.title}
-                fill
-                sizes="(min-width: 640px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </Link>
-            <CardContent className="flex flex-col gap-3">
-              <Link
-                href={`/catalog/for-sale/${house.id}`}
-                className="font-medium hover:underline"
-              >
-                {house.title}
-              </Link>
-
-              <SpecRow specs={specs} />
-
-              <p className="text-lg font-semibold tnum">
-                {priceFormatter.format(house.price)} ₽
-              </p>
-
-              <p className="text-sm text-muted-foreground">{house.address}</p>
-
-              <Button className="mt-1 bg-muted text-foreground hover:bg-muted/70" asChild>
-                <Link href={`/catalog/for-sale/${house.id}`}>Подробнее</Link>
-              </Button>
-            </CardContent>
-          </Card>
+          <CatalogCard
+            key={house.id}
+            index={index}
+            href={`/catalog/for-sale/${house.id}`}
+            image={assetPath(`/catalog/for-sale/${house.images[0]}`)}
+            alt={house.title}
+            sizes="(min-width: 640px) 50vw, 100vw"
+            title={house.title}
+            specs={specs}
+            price={`${priceFormatter.format(house.price)} ₽`}
+          >
+            <p className="text-sm text-muted-foreground">{house.address}</p>
+          </CatalogCard>
         );
       })}
     </div>

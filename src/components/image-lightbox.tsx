@@ -43,7 +43,7 @@ export function ImageLightbox({
           className={ratio === "cover" ? "object-cover" : "object-contain p-4"}
         />
         <span className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/20">
-          <span className="flex size-10 items-center justify-center rounded-full bg-background/90 opacity-0 shadow-sm transition-opacity group-hover:opacity-100">
+          <span className="flex size-10 items-center justify-center rounded-(--radius) bg-background/90 opacity-0 transition-opacity group-hover:opacity-100">
             <Maximize2Icon className="size-4" />
           </span>
         </span>
