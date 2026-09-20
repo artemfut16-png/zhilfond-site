@@ -42,7 +42,7 @@ export function ProjectCatalogCta() {
         <div className="flex flex-col gap-2">
           <h2 className="font-heading text-3xl font-medium tracking-[-0.02em] sm:text-4xl text-balance">
             Получите каталог{" "}
-            <span className="text-secondary-foreground/55">
+            <span>
               со всеми проектами, планировками и ценами
             </span>
           </h2>

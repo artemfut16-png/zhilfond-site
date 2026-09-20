@@ -32,7 +32,7 @@ export function Stages() {
                         isLast ? "text-accent-ink" : "text-muted-2"
                       )}
                     >
-                      0{i + 1}.
+                      0{i + 1}
                     </p>
 
                     <div className="mt-6 flex flex-col gap-2">

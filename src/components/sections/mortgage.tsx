@@ -25,8 +25,8 @@ export function Mortgage() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-28">
         <Reveal className="mb-12 flex flex-col gap-4 lg:mb-16">
           <h2 className="max-w-4xl font-heading text-[30px] font-normal leading-none tracking-[-0.04em] text-ink-2 text-balance sm:text-5xl">
-            Наши дома можно купить в ипотеку{" "}
-            <span className="text-muted-2">с господдержкой</span>
+            Построить дом можно в ипотеку{" "}
+            <span>с господдержкой</span>
           </h2>
           <p className="max-w-2xl text-muted-foreground">
             Работаем с ипотекой! Поможем подобрать программу и подготовить

@@ -16,7 +16,7 @@ export function Faq() {
         <Reveal className="flex flex-col gap-8 lg:sticky lg:top-28 lg:self-start">
           <h2 className="font-heading text-[30px] font-normal leading-none tracking-[-0.04em] text-ink-2 text-balance sm:text-5xl">
             Часто{" "}
-            <span className="text-muted-2">задаваемые вопросы</span>
+            <span>задаваемые вопросы</span>
           </h2>
 
           <div className="flex flex-col gap-4 rounded-(--radius) border border-line bg-paper p-6">

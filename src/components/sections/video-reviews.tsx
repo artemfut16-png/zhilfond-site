@@ -89,7 +89,7 @@ export function VideoReviews() {
                         {label}
                       </span>
                       <span className="absolute inset-0 flex items-center justify-center">
-                        <span className="flex size-14 items-center justify-center rounded-full bg-paper/90">
+                        <span className="flex size-14 items-center justify-center rounded-(--radius) bg-paper/90">
                           <PlayIcon className="size-5 translate-x-0.5 fill-foreground text-foreground" />
                         </span>
                       </span>
@@ -99,20 +99,23 @@ export function VideoReviews() {
               );
             })}
           </CarouselContent>
-          <CarouselPrevious className="left-3" />
-          <CarouselNext className="right-3" />
+          <div className="mt-8 flex items-center justify-between gap-4">
+            <a
+              href={site.vkClips}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex min-h-11 items-center gap-1.5 text-base font-medium text-ink-2 hover:underline"
+            >
+              Смотреть все клипы во ВКонтакте
+              <ArrowUpRightIcon className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+            <div className="flex shrink-0 gap-2">
+              <CarouselPrevious />
+              <CarouselNext />
+            </div>
+          </div>
         </Carousel>
         </Reveal>
-
-        <a
-          href={site.vkClips}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group mt-8 inline-flex min-h-11 items-center gap-1.5 text-base font-medium text-ink-2 hover:underline"
-        >
-          Смотреть все клипы во ВКонтакте
-          <ArrowUpRightIcon className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </a>
       </div>
     </section>
   );

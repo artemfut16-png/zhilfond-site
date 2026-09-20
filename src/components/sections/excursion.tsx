@@ -48,7 +48,7 @@ export function Excursion() {
           <Reveal delay={100} className="flex flex-col gap-6">
             <h2 className="font-heading text-[30px] font-normal leading-none tracking-[-0.04em] text-ink-2 text-balance sm:text-5xl">
               Предлагаем вам записаться{" "}
-              <span className="text-muted-2">на бесплатную экскурсию</span>{" "}
+              <span>на бесплатную экскурсию</span>{" "}
               по строящимся объектам
             </h2>
             <p className="text-ink-2">

@@ -6,7 +6,6 @@ import useEmblaCarousel, {
 } from "embla-carousel-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 
 type CarouselApi = UseEmblaCarouselType[1]
@@ -138,7 +137,7 @@ function CarouselContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       ref={carouselRef}
-      className="overflow-hidden"
+      className="overflow-hidden rounded-(--radius)"
       data-slot="carousel-content"
     >
       <div
@@ -171,63 +170,59 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+const arrowBase =
+  "inline-flex size-11 shrink-0 touch-manipulation items-center justify-center rounded-(--radius) border border-line bg-paper text-ink-2 transition-colors outline-none hover:bg-surface focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:pointer-events-none disabled:border-line/60 disabled:text-ink-2/30 [&_svg]:size-5"
+
+/** Горизонтальные стрелки идут в потоке (кладите рядом под каруселью), вертикальные — по краям. */
 function CarouselPrevious({
   className,
-  variant = "outline",
-  size = "icon-sm",
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<"button">) {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
   return (
-    <Button
+    <button
+      type="button"
       data-slot="carousel-previous"
-      variant={variant}
-      size={size}
       className={cn(
-        "absolute hidden touch-manipulation rounded-full sm:flex",
-        orientation === "horizontal"
-          ? "inset-y-0 -left-12 my-auto"
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+        arrowBase,
+        orientation === "vertical" &&
+          "absolute -top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeftIcon />
-      <span className="sr-only">Previous slide</span>
-    </Button>
+      <ChevronLeftIcon strokeWidth={1.75} />
+      <span className="sr-only">Предыдущий слайд</span>
+    </button>
   )
 }
 
 function CarouselNext({
   className,
-  variant = "outline",
-  size = "icon-sm",
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<"button">) {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
   return (
-    <Button
+    <button
+      type="button"
       data-slot="carousel-next"
-      variant={variant}
-      size={size}
       className={cn(
-        "absolute hidden touch-manipulation rounded-full sm:flex",
-        orientation === "horizontal"
-          ? "inset-y-0 -right-12 my-auto"
-          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
+        arrowBase,
+        orientation === "vertical" &&
+          "absolute -bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRightIcon />
-      <span className="sr-only">Next slide</span>
-    </Button>
+      <ChevronRightIcon strokeWidth={1.75} />
+      <span className="sr-only">Следующий слайд</span>
+    </button>
   )
 }
 

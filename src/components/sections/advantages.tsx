@@ -34,7 +34,7 @@ export function Advantages() {
                 >
                   <span
                     className={cn(
-                      "flex size-12 items-center justify-center rounded-full font-heading text-lg font-medium tnum",
+                      "flex size-12 items-center justify-center rounded-(--radius) font-heading text-lg font-medium tnum",
                       isLast
                         ? "bg-white/15 text-white"
                         : "bg-accent-soft text-accent-ink"

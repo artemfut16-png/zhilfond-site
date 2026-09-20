@@ -21,6 +21,32 @@ function subscribeScroll(onChange: () => void) {
   return () => window.removeEventListener("scroll", onChange);
 }
 
+// «Пн–Пт: 9:00–18:00» -> «Пн–Пт 09:00–18:00» (только из site.hours; нестандартный формат остаётся как есть)
+function formatHours(raw: string) {
+  return raw
+    .replace(/^([^:\d]+):\s*/, "$1 ")
+    .replace(/(^|\D)(\d):(\d{2})/g, "$10$2:$3");
+}
+const hoursLabel = formatHours(site.hours);
+
+function WorkHours({ overlay, className }: { overlay?: boolean; className?: string }) {
+  return (
+    <span
+      className={cn(
+        "flex items-center gap-2 text-[13px] font-medium whitespace-nowrap transition-colors",
+        overlay ? "text-white/70" : "text-muted-foreground",
+        className
+      )}
+    >
+      <span aria-hidden="true" className="relative inline-flex size-2 shrink-0">
+        <span className="live-dot-ring absolute inset-0 rounded-full bg-[#22C55E]" />
+        <span className="live-dot relative size-2 rounded-full bg-[#22C55E]" />
+      </span>
+      {hoursLabel}
+    </span>
+  );
+}
+
 export function SiteHeader() {
   const [open, setOpen] = React.useState(false);
   const pathname = usePathname();
@@ -77,12 +103,15 @@ export function SiteHeader() {
               </a>
             </Button>
           </div>
-          <a
-            href={site.phoneHref}
-            className="flex items-center gap-1.5 text-sm font-medium whitespace-nowrap"
-          >
-            {site.phone}
-          </a>
+          <div className="flex flex-col items-start gap-0.5">
+            <a
+              href={site.phoneHref}
+              className="flex items-center gap-1.5 text-sm leading-tight font-medium whitespace-nowrap"
+            >
+              {site.phone}
+            </a>
+            <WorkHours overlay={overlay} className="leading-tight" />
+          </div>
         </div>
 
         <Sheet open={open} onOpenChange={setOpen}>
@@ -109,7 +138,7 @@ export function SiteHeader() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-md px-2 py-2.5 text-sm text-foreground hover:bg-muted"
+                  className="rounded-(--radius) px-2 py-2.5 text-sm text-foreground hover:bg-muted"
                 >
                   {link.label}
                 </Link>
@@ -117,12 +146,15 @@ export function SiteHeader() {
             </nav>
             <div className="mt-auto flex flex-col gap-3 border-t border-border p-4">
               <div className="flex items-center justify-between">
-                <a
-                  href={site.phoneHref}
-                  className="flex items-center gap-1.5 text-sm font-medium"
-                >
-                  {site.phone}
-                </a>
+                <div className="flex flex-col items-start gap-1">
+                  <a
+                    href={site.phoneHref}
+                    className="flex items-center gap-1.5 text-sm font-medium"
+                  >
+                    {site.phone}
+                  </a>
+                  <WorkHours />
+                </div>
                 <div className="flex items-center gap-1 text-muted-foreground">
                   <Button variant="ghost" size="icon-sm" asChild>
                     <a href={site.telegram} target="_blank" rel="noopener noreferrer" aria-label="Telegram">
