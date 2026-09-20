@@ -13,9 +13,12 @@ import { plural } from "@/lib/utils";
 const priceFormatter = new Intl.NumberFormat("ru-RU");
 const areaFormatter = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 });
 
+// По просьбе заказчика; фактически в каталоге сейчас 14 проектов, на главной 6
+const MORE_PROJECTS_COUNT = 10;
+
 export function Projects() {
   return (
-    <section id="projects" className="bg-surface">
+    <section id="projects" className="bg-paper">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
         <Reveal className="mb-10 flex flex-col gap-3 sm:mb-14">
           <h2 className="font-heading text-[30px] leading-[1.05] font-medium tracking-[-0.04em] text-ink-2 sm:text-[44px] lg:text-[50px]">
@@ -86,7 +89,7 @@ export function Projects() {
                       от {priceFormatter.format(project.priceFrom)} ₽
                     </p>
 
-                    <div className="rounded-(--radius) bg-surface px-3 py-2">
+                    <div className="rounded-(--radius) border border-line bg-paper px-3 py-2">
                       <p className="text-sm">
                         <span className="font-medium tnum">
                           от {priceFormatter.format(project.mortgageFrom)} ₽/мес
@@ -106,7 +109,7 @@ export function Projects() {
         </div>
 
         <div className="mt-6 rounded-(--radius) bg-paper px-4 py-5 text-center text-base font-medium text-ink-2">
-          И ещё +{catalogHouses.length - projects.length} проектов в полном каталоге
+          И ещё +{MORE_PROJECTS_COUNT} проектов в полном каталоге
         </div>
 
         <ProjectCatalogCta />

@@ -12,7 +12,7 @@ import { getVkEmbedSrc } from "@/lib/vk";
 
 // Вставьте сюда ссылки на клипы ВКонтакте (например "https://vk.com/clip-123456789_456239017"),
 // по одной на каждый обзор — карточка автоматически станет плеером VK.
-const videoReviews: { label: string; vkUrl: string | null }[] = [
+const videoReviewsList: { label: string; vkUrl: string | null }[] = [
   {
     label: "Обзор дома 1",
     vkUrl: "https://vk.ru/clips/zhilfond64?z=clip-228649213_456239191",
@@ -23,25 +23,47 @@ const videoReviews: { label: string; vkUrl: string | null }[] = [
   },
   {
     label: "Обзор дома 3",
-    vkUrl: "https://vk.ru/clips/zhilfond64?z=clip-228649213_456239176",
+    vkUrl: "https://vk.ru/clips/zhilfond64?z=clip-228649213_456239184",
   },
   {
     label: "Обзор дома 4",
-    vkUrl: "https://vk.ru/clips/zhilfond64?z=clip-228649213_456239162",
+    vkUrl: "https://vk.ru/clips/zhilfond64?z=clip-228649213_456239181",
   },
   {
     label: "Обзор дома 5",
-    vkUrl: "https://vk.ru/clips/zhilfond64?z=clip-228649213_456239174",
+    vkUrl: "https://vk.ru/clips/zhilfond64?z=clip-228649213_456239176",
   },
   {
     label: "Обзор дома 6",
-    vkUrl: "https://vk.ru/clips/zhilfond64?z=clip-228649213_456239164",
+    vkUrl: "https://vk.ru/clips/zhilfond64?z=clip-228649213_456239174",
   },
   {
     label: "Обзор дома 7",
+    vkUrl: "https://vk.ru/clips/zhilfond64?z=clip-228649213_456239170",
+  },
+  {
+    label: "Обзор дома 8",
     vkUrl: "https://vk.ru/clips/zhilfond64?z=clip-228649213_456239166",
   },
+  {
+    label: "Обзор дома 9",
+    vkUrl: "https://vk.ru/clips/zhilfond64?z=clip-228649213_456239162",
+  },
+  {
+    label: "Обзор дома 10",
+    vkUrl: "https://vk.ru/clips/zhilfond64?z=clip-228649213_456239164",
+  },
 ];
+
+// Защита от дублей: один и тот же клип не попадёт в карусель дважды.
+const videoReviews = videoReviewsList.filter((review, index, all) => {
+  const src = review.vkUrl ? getVkEmbedSrc(review.vkUrl) : null;
+  if (!src) return true;
+  return (
+    all.findIndex((r) => (r.vkUrl ? getVkEmbedSrc(r.vkUrl) : null) === src) ===
+    index
+  );
+});
 
 export function VideoReviews() {
   return (
@@ -82,7 +104,7 @@ export function VideoReviews() {
                       href={site.vkClips}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative flex aspect-[9/16] w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-(--radius) border border-dashed border-line bg-surface text-muted-foreground"
+                      className="relative flex aspect-[9/16] w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-(--radius) border border-dashed border-line bg-[#F6F6F6] text-muted-foreground"
                     >
                       <ImageIcon className="size-8 opacity-40" strokeWidth={1.5} />
                       <span className="px-4 text-center text-xs opacity-60">

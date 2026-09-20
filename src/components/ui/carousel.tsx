@@ -171,7 +171,7 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
 }
 
 const arrowBase =
-  "inline-flex size-11 shrink-0 touch-manipulation items-center justify-center rounded-(--radius) border border-line bg-paper text-ink-2 transition-colors outline-none hover:bg-surface focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:pointer-events-none disabled:border-line/60 disabled:text-ink-2/30 [&_svg]:size-5"
+  "inline-flex size-11 shrink-0 touch-manipulation items-center justify-center rounded-(--radius) border border-line bg-paper text-ink-2 transition-colors outline-none hover:bg-[#F6F6F6] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:pointer-events-none disabled:border-line/60 disabled:text-ink-2/30 [&_svg]:size-5"
 
 /** Горизонтальные стрелки идут в потоке (кладите рядом под каруселью), вертикальные — по краям. */
 function CarouselPrevious({

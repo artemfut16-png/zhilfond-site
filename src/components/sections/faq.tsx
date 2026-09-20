@@ -11,7 +11,7 @@ import { faq, site } from "@/lib/site-data";
 
 export function Faq() {
   return (
-    <section className="bg-surface text-ink">
+    <section className="bg-paper text-ink">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16 lg:py-28">
         <Reveal className="flex flex-col gap-8 lg:sticky lg:top-28 lg:self-start">
           <h2 className="font-heading text-[30px] font-normal leading-none tracking-[-0.04em] text-ink-2 text-balance sm:text-5xl">

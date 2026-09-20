@@ -4,7 +4,7 @@ import { stages } from "@/lib/site-data";
 
 export function Stages() {
   return (
-    <section id="stages" className="bg-surface">
+    <section id="stages" className="bg-paper">
       <div className="mx-auto max-w-[1280px] px-4 py-16 sm:px-6 lg:py-32">
         <Reveal className="mb-12 lg:mb-20">
           <h2 className="max-w-3xl font-heading text-[30px] leading-none font-normal tracking-[-0.04em] text-ink-2 text-balance sm:text-[44px] lg:text-[50px]">

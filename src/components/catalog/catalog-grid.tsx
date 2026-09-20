@@ -62,7 +62,7 @@ export function CatalogGrid() {
                 </div>
               </div>
 
-              <div className="rounded-(--radius) bg-surface px-3 py-2">
+              <div className="rounded-(--radius) border border-line bg-paper px-3 py-2">
                 <p className="text-sm">
                   <span className="font-medium tnum">
                     от {priceFormatter.format(house.mortgageFrom)} ₽/мес

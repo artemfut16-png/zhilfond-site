@@ -34,7 +34,7 @@ export function ProjectCatalogCta() {
           alt="PDF-каталог проектов"
           fill
           sizes="(min-width: 1024px) 50vw, 100vw"
-          className="object-contain p-6 sm:p-8"
+          className="object-contain object-center p-4 sm:p-6 lg:p-8"
         />
       </div>
 

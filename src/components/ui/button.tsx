@@ -15,7 +15,7 @@ const buttonVariants = cva(
         secondary:
           "bg-transparent text-ink-2 underline-offset-4 decoration-1 hover:underline",
         ghost:
-          "text-ink-2 hover:bg-surface aria-expanded:bg-surface",
+          "text-ink-2 hover:bg-[#F6F6F6] aria-expanded:bg-[#F6F6F6]",
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20",
         link: "text-accent-ink underline-offset-4 hover:underline",

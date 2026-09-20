@@ -121,7 +121,7 @@ export default async function LandPlotPage({
                   href={plot.cadastralMapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${card} transition-colors hover:bg-surface`}
+                  className={`${card} transition-colors hover:bg-[#F6F6F6]`}
                 >
                   <div className={badge}>
                     <MapIcon className="size-5" />

@@ -32,7 +32,7 @@ export function Excursion() {
   }
 
   return (
-    <section className="bg-surface text-ink">
+    <section className="bg-paper text-ink">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-28">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16">
           <Reveal className="group relative aspect-[4/3] w-full overflow-hidden rounded-(--radius) lg:aspect-[5/6]">

@@ -29,6 +29,11 @@ const areaFormatter = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 
 
 const h2 =
   "font-heading text-[30px] font-normal leading-none tracking-[-0.04em] text-ink-2 text-balance sm:text-5xl";
+const triggerCls =
+  "items-center gap-4 rounded-none py-6 hover:no-underline sm:py-8";
+const blockTitle =
+  "flex-1 text-2xl font-normal tracking-[-0.02em] text-ink-2 sm:text-[28px]";
+const moreCls = "mr-1 text-sm text-muted-foreground";
 const card = "rounded-(--radius) border border-line bg-paper";
 
 function getHouse(id: string) {
@@ -157,7 +162,7 @@ export default async function HouseForSalePage({
                     {[...house.rooms].sort((a, b) => b.area - a.area).map((room, i) => (
                       <tr
                         key={room.name + i}
-                        className={cn(i % 2 === 0 && "bg-surface")}
+                        className={cn(i % 2 === 0 && "bg-[#F6F6F6]")}
                       >
                         <td className="px-4 py-3 sm:px-6">{room.name}</td>
                         <td className="px-4 py-3 text-right font-medium sm:px-6">
@@ -173,59 +178,62 @@ export default async function HouseForSalePage({
         </section>
 
         <section className="bg-paper text-ink">
-          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-28">
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
             <Reveal>
-              <h2 className={cn(h2, "mb-10 lg:mb-14")}>
+              <h2 className={cn(h2, "mb-8 font-medium lg:mb-12 lg:text-[50px]")}>
                 Что входит в стоимость?
               </h2>
-            </Reveal>
-
-            <Reveal className="grid gap-4 lg:grid-cols-2 lg:items-start">
               <Accordion
-                type="single"
-                collapsible
-                defaultValue="specs"
-                className={cn(card, "px-6")}
+                type="multiple"
+                defaultValue={[
+                  ...(house.specCategories.length ? ["specs"] : []),
+                  ...(house.utilities.length ? ["utilities"] : []),
+                ]}
+                className="border-y border-line"
               >
-                <AccordionItem value="specs">
-                  <AccordionTrigger className="text-base font-medium">
-                    Комплектация дома
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="flex flex-col gap-4">
-                      {house.specCategories.map((category) => (
-                        <div key={category.title}>
-                          <p className="font-medium">{category.title}</p>
-                          <ul className="mt-1 list-disc pl-5 text-muted-foreground">
-                            {category.items.map((item) => (
-                              <li key={item}>{item}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+                {house.specCategories.length ? (
+                  <AccordionItem value="specs" className="border-line">
+                    <AccordionTrigger className={triggerCls}>
+                      <span className={blockTitle}>Комплектация</span>
+                      <span className={moreCls}>Подробнее</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-8 text-base">
+                      <div className="gap-x-16 sm:columns-2">
+                        {house.specCategories.map((category) => (
+                          <div
+                            key={category.title}
+                            className="mb-6 break-inside-avoid"
+                          >
+                            <p className="text-lg font-semibold text-ink-2">
+                              {category.title}
+                            </p>
+                            <ul className="mt-2 list-disc space-y-1 pl-5 text-[17px] leading-[1.6] text-muted-foreground">
+                              {category.items.map((item) => (
+                                <li key={item}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                ) : null}
 
-              <Accordion
-                type="single"
-                collapsible
-                defaultValue="utilities"
-                className={cn(card, "px-6")}
-              >
-                <AccordionItem value="utilities">
-                  <AccordionTrigger className="text-base font-medium">
-                    Инженерные коммуникации
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <ul className="list-disc pl-5 text-muted-foreground">
-                      {house.utilities.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </AccordionContent>
-                </AccordionItem>
+                {house.utilities.length ? (
+                  <AccordionItem value="utilities" className="border-line">
+                    <AccordionTrigger className={triggerCls}>
+                      <span className={blockTitle}>Инженерные коммуникации</span>
+                      <span className={moreCls}>Подробнее</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-8 text-base">
+                      <ul className="list-disc gap-x-16 space-y-1 pl-5 text-[17px] leading-[1.6] text-muted-foreground sm:columns-2 [&>li]:break-inside-avoid">
+                        {house.utilities.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+                ) : null}
               </Accordion>
             </Reveal>
           </div>

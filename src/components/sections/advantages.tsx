@@ -4,7 +4,7 @@ import { advantages } from "@/lib/site-data";
 
 export function Advantages() {
   return (
-    <section id="advantages" className="bg-surface">
+    <section id="advantages" className="bg-paper">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
         <Reveal className="mb-10 flex flex-col gap-3 sm:mb-14">
           <h2 className="font-heading text-[30px] leading-[1.05] font-medium tracking-[-0.04em] text-ink-2 sm:text-[44px] lg:text-[50px]">

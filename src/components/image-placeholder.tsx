@@ -23,7 +23,7 @@ export function ImagePlaceholder({
   return (
     <div
       className={cn(
-        "relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-(--radius) border border-dashed border-line bg-surface text-muted-foreground",
+        "relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-(--radius) border border-dashed border-line bg-[#F6F6F6] text-muted-foreground",
         ratioClass[ratio],
         className
       )}

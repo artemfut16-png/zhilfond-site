@@ -43,7 +43,7 @@ export function Mortgage() {
                 className={`flex flex-col gap-4 rounded-(--radius) border p-6 ${
                   program.featured
                     ? "border-ink-2 bg-ink-2 text-white"
-                    : "border-line bg-surface"
+                    : "border-line bg-paper"
                 }`}
               >
                 <p className="font-medium">{program.name}</p>
@@ -70,7 +70,7 @@ export function Mortgage() {
 
           <Reveal
             delay={120}
-            className="rounded-(--radius) border border-line bg-surface p-6 sm:p-8"
+            className="rounded-(--radius) border border-line bg-paper p-6 sm:p-8"
           >
             <h3 className="font-heading text-2xl font-normal leading-tight tracking-[-0.04em] text-ink-2">
               Получить консультацию
