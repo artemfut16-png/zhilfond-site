@@ -146,7 +146,7 @@ export default async function CatalogHousePage({
               >
                 <table className="w-full border-collapse text-base">
                   <tbody>
-                    {house.rooms.map((room, i) => (
+                    {[...house.rooms].sort((a, b) => b.area - a.area).map((room, i) => (
                       <tr
                         key={room.name + i}
                         className={cn(i > 0 && "border-t border-line", i % 2 === 1 ? "bg-[#F6F6F6]" : "bg-paper")}

@@ -148,7 +148,7 @@ export default async function HouseForSalePage({
               >
                 <table className="w-full border-collapse text-sm sm:text-base">
                   <tbody>
-                    {house.rooms.map((room, i) => (
+                    {[...house.rooms].sort((a, b) => b.area - a.area).map((room, i) => (
                       <tr
                         key={room.name + i}
                         className={cn(i % 2 === 0 && "bg-surface")}
