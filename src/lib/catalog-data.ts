@@ -49,7 +49,7 @@ export const catalogHouses: CatalogHouse[] = [
   },
   {
     id: "semeyniy-139",
-    title: "Семейный +139",
+    title: "Семейный +135",
     area: 135.8,
     warmContourPrice: 7_050_000,
     whiteBoxPrice: 8_950_000,
@@ -270,7 +270,7 @@ export const catalogHouses: CatalogHouse[] = [
   },
   {
     id: "gorizont-162",
-    title: "Горизонт 162",
+    title: "Горизонт 164",
     area: 164.12,
     warmContourPrice: 7_700_000,
     whiteBoxPrice: 8_800_000,
