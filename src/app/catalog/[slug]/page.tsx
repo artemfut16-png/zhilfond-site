@@ -169,7 +169,7 @@ export default async function CatalogHousePage({
                       от {priceFormatter.format(house.mortgageFrom)} ₽/мес
                     </p>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      Платеж по ипотеке на 30 лет по ставке от 5,3%
+                      Платеж по ипотеке на 30 лет по ставке от 6%
                     </p>
                   </div>
                 </div>

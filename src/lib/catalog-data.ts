@@ -27,7 +27,7 @@ export const catalogHouses: CatalogHouse[] = [
     area: 158.41,
     warmContourPrice: 7_550_000,
     whiteBoxPrice: 9_650_000,
-    mortgageFrom: 41_900,
+    mortgageFrom: 45_300,
     rooms: [
       { name: "Гостиная", area: 27.01 },
       { name: "Терраса", area: 20.01 },
@@ -53,7 +53,7 @@ export const catalogHouses: CatalogHouse[] = [
     area: 135.8,
     warmContourPrice: 7_050_000,
     whiteBoxPrice: 8_950_000,
-    mortgageFrom: 39_100,
+    mortgageFrom: 42_300,
     rooms: [
       { name: "Кухня-гостиная", area: 25.9 },
       { name: "Терраса", area: 22.1 },
@@ -75,7 +75,7 @@ export const catalogHouses: CatalogHouse[] = [
     area: 131.8,
     warmContourPrice: 6_530_000,
     whiteBoxPrice: 8_230_000,
-    mortgageFrom: 36_300,
+    mortgageFrom: 39_200,
     rooms: [
       { name: "Кухня-гостиная", area: 27.7 },
       { name: "Терраса", area: 18.0 },
@@ -96,7 +96,7 @@ export const catalogHouses: CatalogHouse[] = [
     area: 122.7,
     warmContourPrice: 6_350_000,
     whiteBoxPrice: 8_050_000,
-    mortgageFrom: 35_300,
+    mortgageFrom: 38_100,
     rooms: [
       { name: "Кухня-гостиная", area: 26.0 },
       { name: "Спальня 1", area: 15.8 },
@@ -118,7 +118,7 @@ export const catalogHouses: CatalogHouse[] = [
     area: 117.51,
     warmContourPrice: 6_300_000,
     whiteBoxPrice: 7_800_000,
-    mortgageFrom: 35_000,
+    mortgageFrom: 37_800,
     rooms: [
       { name: "Гостиная", area: 21.73 },
       { name: "Спальня 1", area: 14.56 },
@@ -142,7 +142,7 @@ export const catalogHouses: CatalogHouse[] = [
     area: 120.8,
     warmContourPrice: 6_300_000,
     whiteBoxPrice: 8_000_000,
-    mortgageFrom: 35_000,
+    mortgageFrom: 37_800,
     rooms: [
       { name: "Кухня-гостиная", area: 29.3 },
       { name: "Спальня 1", area: 16.4 },
@@ -162,7 +162,7 @@ export const catalogHouses: CatalogHouse[] = [
     area: 99.4,
     warmContourPrice: 5_870_000,
     whiteBoxPrice: 7_370_000,
-    mortgageFrom: 32_600,
+    mortgageFrom: 35_200,
     rooms: [
       { name: "Кухня-гостиная", area: 23.8 },
       { name: "Спальня 1", area: 14.2 },
@@ -183,7 +183,7 @@ export const catalogHouses: CatalogHouse[] = [
     area: 94.7,
     warmContourPrice: 5_850_000,
     whiteBoxPrice: 7_350_000,
-    mortgageFrom: 32_500,
+    mortgageFrom: 35_100,
     rooms: [
       { name: "Кухня-гостиная", area: 29.2 },
       { name: "Спальня 1", area: 14.5 },
@@ -203,7 +203,7 @@ export const catalogHouses: CatalogHouse[] = [
     area: 89.1,
     warmContourPrice: 5_550_000,
     whiteBoxPrice: 7_050_000,
-    mortgageFrom: 30_800,
+    mortgageFrom: 33_300,
     rooms: [
       { name: "Кухня-гостиная", area: 22.0 },
       { name: "Спальня 1", area: 12.8 },
@@ -223,7 +223,7 @@ export const catalogHouses: CatalogHouse[] = [
     area: 74.22,
     warmContourPrice: 5_000_000,
     whiteBoxPrice: 6_500_000,
-    mortgageFrom: 27_800,
+    mortgageFrom: 30_000,
     rooms: [
       { name: "Спальня 1", area: 16.07 },
       { name: "Спальня 2", area: 16.07 },
@@ -241,7 +241,7 @@ export const catalogHouses: CatalogHouse[] = [
     area: 70.7,
     warmContourPrice: 4_600_000,
     whiteBoxPrice: 6_090_000,
-    mortgageFrom: 25_500,
+    mortgageFrom: 27_600,
     rooms: [
       { name: "Кухня-гостиная", area: 28.4 },
       { name: "Спальня 1", area: 10.5 },
@@ -258,7 +258,7 @@ export const catalogHouses: CatalogHouse[] = [
     area: 59.12,
     warmContourPrice: 4_300_000,
     whiteBoxPrice: 5_800_000,
-    mortgageFrom: 23_900,
+    mortgageFrom: 25_800,
     rooms: [
       { name: "Кухня-гостиная", area: 23.51 },
       { name: "Спальня 1", area: 10.5 },
@@ -274,7 +274,7 @@ export const catalogHouses: CatalogHouse[] = [
     area: 164.12,
     warmContourPrice: 7_700_000,
     whiteBoxPrice: 8_800_000,
-    mortgageFrom: 42_800,
+    mortgageFrom: 46_200,
     rooms: [
       { name: "Гостиная-кухня", area: 38.22 },
       { name: "Терраса", area: 35.0 },
@@ -295,7 +295,7 @@ export const catalogHouses: CatalogHouse[] = [
     area: 160.72,
     warmContourPrice: 7_650_000,
     whiteBoxPrice: 9_600_000,
-    mortgageFrom: 42_400,
+    mortgageFrom: 45_900,
     rooms: [
       { name: "Гостиная", area: 24.12 },
       { name: "Терраса", area: 22.48 },
