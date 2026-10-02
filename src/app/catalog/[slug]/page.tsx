@@ -29,7 +29,7 @@ import {
   catalogHouses,
   getCatalogHouse,
   packageFeatures,
-  additionalOptions,
+  getAdditionalOptions,
   paymentMethods,
   formatRoomArea,
 } from "@/lib/catalog-data";
@@ -292,7 +292,7 @@ export default async function CatalogHousePage({
                   </tr>
                 </thead>
                 <tbody>
-                  {additionalOptions.map((option, i) => (
+                  {getAdditionalOptions(house.area).map((option, i) => (
                     <tr
                       key={option.label}
                       className={cn("border-t border-line", i % 2 === 1 ? "bg-[#F6F6F6]" : "bg-paper")}

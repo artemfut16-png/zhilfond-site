@@ -25,9 +25,9 @@ export const catalogHouses: CatalogHouse[] = [
     id: "villa-premier-158",
     title: "Вилла Премьер 158",
     area: 158.41,
-    warmContourPrice: 7_550_000,
-    whiteBoxPrice: 9_650_000,
-    mortgageFrom: 45_300,
+    warmContourPrice: 8_000_000,
+    whiteBoxPrice: 10_100_000,
+    mortgageFrom: 48_000,
     rooms: [
       { name: "Гостиная", area: 27.01 },
       { name: "Терраса", area: 20.01 },
@@ -51,9 +51,9 @@ export const catalogHouses: CatalogHouse[] = [
     id: "semeyniy-139",
     title: "Семейный +135",
     area: 135.8,
-    warmContourPrice: 7_050_000,
-    whiteBoxPrice: 8_950_000,
-    mortgageFrom: 42_300,
+    warmContourPrice: 7_500_000,
+    whiteBoxPrice: 9_400_000,
+    mortgageFrom: 45_000,
     rooms: [
       { name: "Кухня-гостиная", area: 25.9 },
       { name: "Терраса", area: 22.1 },
@@ -73,9 +73,9 @@ export const catalogHouses: CatalogHouse[] = [
     id: "simfoniya-131",
     title: "Симфония 131",
     area: 131.8,
-    warmContourPrice: 6_530_000,
-    whiteBoxPrice: 8_230_000,
-    mortgageFrom: 39_200,
+    warmContourPrice: 7_350_000,
+    whiteBoxPrice: 9_050_000,
+    mortgageFrom: 44_100,
     rooms: [
       { name: "Кухня-гостиная", area: 27.7 },
       { name: "Терраса", area: 18.0 },
@@ -94,9 +94,9 @@ export const catalogHouses: CatalogHouse[] = [
     id: "semeyniy-122",
     title: "Семейный 122",
     area: 122.7,
-    warmContourPrice: 6_350_000,
-    whiteBoxPrice: 8_050_000,
-    mortgageFrom: 38_100,
+    warmContourPrice: 7_150_000,
+    whiteBoxPrice: 8_850_000,
+    mortgageFrom: 42_900,
     rooms: [
       { name: "Кухня-гостиная", area: 26.0 },
       { name: "Спальня 1", area: 15.8 },
@@ -116,9 +116,9 @@ export const catalogHouses: CatalogHouse[] = [
     id: "geometriya-117",
     title: "Геометрия 117",
     area: 117.51,
-    warmContourPrice: 6_300_000,
-    whiteBoxPrice: 7_800_000,
-    mortgageFrom: 37_800,
+    warmContourPrice: 6_900_000,
+    whiteBoxPrice: 8_400_000,
+    mortgageFrom: 41_400,
     rooms: [
       { name: "Гостиная", area: 21.73 },
       { name: "Спальня 1", area: 14.56 },
@@ -140,9 +140,9 @@ export const catalogHouses: CatalogHouse[] = [
     id: "dom-mechty-120",
     title: "Дом мечты 120",
     area: 120.8,
-    warmContourPrice: 6_300_000,
-    whiteBoxPrice: 8_000_000,
-    mortgageFrom: 37_800,
+    warmContourPrice: 7_100_000,
+    whiteBoxPrice: 8_800_000,
+    mortgageFrom: 42_600,
     rooms: [
       { name: "Кухня-гостиная", area: 29.3 },
       { name: "Спальня 1", area: 16.4 },
@@ -160,9 +160,9 @@ export const catalogHouses: CatalogHouse[] = [
     id: "panorama-99",
     title: "Панорама 99",
     area: 99.4,
-    warmContourPrice: 5_870_000,
-    whiteBoxPrice: 7_370_000,
-    mortgageFrom: 35_200,
+    warmContourPrice: 6_600_000,
+    whiteBoxPrice: 8_100_000,
+    mortgageFrom: 39_600,
     rooms: [
       { name: "Кухня-гостиная", area: 23.8 },
       { name: "Спальня 1", area: 14.2 },
@@ -181,9 +181,9 @@ export const catalogHouses: CatalogHouse[] = [
     id: "standard-94",
     title: "Стандарт 94",
     area: 94.7,
-    warmContourPrice: 5_850_000,
-    whiteBoxPrice: 7_350_000,
-    mortgageFrom: 35_100,
+    warmContourPrice: 6_500_000,
+    whiteBoxPrice: 8_000_000,
+    mortgageFrom: 39_000,
     rooms: [
       { name: "Кухня-гостиная", area: 29.2 },
       { name: "Спальня 1", area: 14.5 },
@@ -201,9 +201,9 @@ export const catalogHouses: CatalogHouse[] = [
     id: "mirazh-89",
     title: "Мираж 89",
     area: 89.1,
-    warmContourPrice: 5_550_000,
-    whiteBoxPrice: 7_050_000,
-    mortgageFrom: 33_300,
+    warmContourPrice: 6_200_000,
+    whiteBoxPrice: 7_700_000,
+    mortgageFrom: 37_200,
     rooms: [
       { name: "Кухня-гостиная", area: 22.0 },
       { name: "Спальня 1", area: 12.8 },
@@ -221,9 +221,9 @@ export const catalogHouses: CatalogHouse[] = [
     id: "uyutniy-74",
     title: "Уютный 74",
     area: 74.22,
-    warmContourPrice: 5_000_000,
-    whiteBoxPrice: 6_500_000,
-    mortgageFrom: 30_000,
+    warmContourPrice: 5_500_000,
+    whiteBoxPrice: 7_000_000,
+    mortgageFrom: 33_000,
     rooms: [
       { name: "Спальня 1", area: 16.07 },
       { name: "Спальня 2", area: 16.07 },
@@ -239,9 +239,9 @@ export const catalogHouses: CatalogHouse[] = [
     id: "compact-70",
     title: "Компакт +70",
     area: 70.7,
-    warmContourPrice: 4_600_000,
-    whiteBoxPrice: 6_090_000,
-    mortgageFrom: 27_600,
+    warmContourPrice: 5_200_000,
+    whiteBoxPrice: 6_690_000,
+    mortgageFrom: 31_200,
     rooms: [
       { name: "Кухня-гостиная", area: 28.4 },
       { name: "Спальня 1", area: 10.5 },
@@ -256,9 +256,9 @@ export const catalogHouses: CatalogHouse[] = [
     id: "compact-59",
     title: "Компакт +59",
     area: 59.12,
-    warmContourPrice: 4_300_000,
-    whiteBoxPrice: 5_800_000,
-    mortgageFrom: 25_800,
+    warmContourPrice: 4_800_000,
+    whiteBoxPrice: 6_300_000,
+    mortgageFrom: 28_800,
     rooms: [
       { name: "Кухня-гостиная", area: 23.51 },
       { name: "Спальня 1", area: 10.5 },
@@ -272,9 +272,9 @@ export const catalogHouses: CatalogHouse[] = [
     id: "gorizont-162",
     title: "Горизонт 164",
     area: 164.12,
-    warmContourPrice: 7_700_000,
-    whiteBoxPrice: 8_800_000,
-    mortgageFrom: 46_200,
+    warmContourPrice: 8_300_000,
+    whiteBoxPrice: 9_400_000,
+    mortgageFrom: 49_800,
     rooms: [
       { name: "Гостиная-кухня", area: 38.22 },
       { name: "Терраса", area: 35.0 },
@@ -293,9 +293,9 @@ export const catalogHouses: CatalogHouse[] = [
     id: "rubin-160",
     title: "Рубин 160",
     area: 160.72,
-    warmContourPrice: 7_650_000,
-    whiteBoxPrice: 9_600_000,
-    mortgageFrom: 45_900,
+    warmContourPrice: 8_200_000,
+    whiteBoxPrice: 10_150_000,
+    mortgageFrom: 49_200,
     rooms: [
       { name: "Гостиная", area: 24.12 },
       { name: "Терраса", area: 22.48 },
@@ -362,17 +362,27 @@ export const packageFeatures: PackageFeature[] = [
   },
 ];
 
-export const additionalOptions = [
-  { label: "Отделка фасада (облицовочный кирпич)", price: 600_000 },
-  { label: "Несущие стены (полнотелый или керамический кирпич)", price: 200_000 },
-  { label: "Монтаж фальцевой кровли", price: 300_000 },
-  { label: "Инженерные коммуникации (установка септика на участок)", price: 100_000 },
-  { label: "Дверь металлическая «Torex» с терморазрывом", price: 80_000 },
-  {
-    label: "Окна пластиковые двухкамерные Rehau 70 мм с ламинацией в цвет кровли",
-    price: 70_000,
-  },
-];
+export function getAdditionalOptions(area: number) {
+  const small = area < 100;
+  return [
+    {
+      label: "Отделка фасада (облицовочный кирпич, стандарт)",
+      price: small ? 1_000_000 : 1_400_000,
+    },
+    {
+      label: "Отделка фасада (облицовочный кирпич, дизайнерский)",
+      price: small ? 1_400_000 : 1_800_000,
+    },
+    { label: "Несущие стены (полнотелый или керамический кирпич)", price: 200_000 },
+    { label: "Мягкая кровля", price: small ? 600_000 : 800_000 },
+    { label: "Инженерные коммуникации (установка септика на участок)", price: 100_000 },
+    { label: "Дверь металлическая «Torex» с терморазрывом", price: 80_000 },
+    {
+      label: "Окна пластиковые двухкамерные Rehau 70 мм с ламинацией в цвет кровли",
+      price: 70_000,
+    },
+  ];
+}
 
 export const paymentMethods = [
   {
